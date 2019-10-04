@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { black } from "ansi-colors";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import MainButton from "../components/Buttons/mainButton";
 
 const { width } = Dimensions.get("window");
 
@@ -18,7 +19,7 @@ export default class LoginScreen extends Component {
       <View style={styles.container}>
         <View style={styles.logoContainer}>
           <Image
-            source={require("../assets/images/robot-dev.png")}
+            source={require("../assets/images/icon.png")}
             style={styles.logo}
           />
         </View>
@@ -44,9 +45,10 @@ export default class LoginScreen extends Component {
           />
         </View>
 
-        <TouchableOpacity style={styles.btnLogin}>
+        {/* <TouchableOpacity style={styles.btnLogin}>
           <Text style={styles.text}>Login</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        <MainButton text="login"/>
         <KeyboardAvoidingView
           behavior={"padding"}
           keyboardVerticalOffset={width / 24}
@@ -66,7 +68,8 @@ const styles = StyleSheet.create({
   },
 
   logoContainer: {
-    marginBottom: 30
+    marginBottom: 10,
+    padding: 10
   },
 
   inputContainer: {
