@@ -33,9 +33,9 @@ class SignUpScreen extends Component{
         <ScrollView>
             <View style={styles.container}>
                 <View style={styles.logoContainer}>
-                    <Image source={require ('../assets/images/robot-dev.png')} style={styles.logo}/>
-                    <Text style={styles.logoText}>Sign Up</Text>
+                    <Image source={require ('../assets/images/icon.png')} style={styles.logo}/>
                 </View>
+                <Text style={styles.logoText}>Sign Up</Text>
                 <View style={styles.inputContainer}>
                     <Text style={styles.label}>Firstname</Text>
                     <TextInput underlineColorAndroid='transparent' style={styles.input}/>
@@ -90,58 +90,64 @@ class SignUpScreen extends Component{
 }
 export default SignUpScreen;
 const styles = StyleSheet.create({
-container:{
-    flex:1,
-    width:null,
-    height:null,
-    justifyContent:'center',
-},
-logoContainer:{
-alignItems:'center',
-},
-label: {
-    paddingLeft: 25,
-    fontSize: 16
-  },
-logoText:{
-color:'black',
-fontSize:20,
-paddingTop:20,
-fontWeight:'500',
-justifyContent:'center',
-alignItems:'center',
-},
-inputContainer: {
-    marginTop: 10
-  },
-input:{
-    width: width - 35,
-    height: 35,
-    borderRadius: 3,
-    fontSize: 16,
-    paddingLeft: 15,
-    backgroundColor: "#eeeeee",
-    color: "#000",
-    marginHorizontal:  25 
-},
-btnSignup:{
-    width: width - 205,
-    height: 35,
-    borderRadius: 12,
-    backgroundColor: "#45d17d",
-    justifyContent: "center",
-    marginLeft: 0,
-    marginTop: 17,
-    alignItems:'center',
-   
+    container: {
+        flex: 1,
+        width: null,
+        height: null,
+        justifyContent: "center",
+        alignItems: "center"
+      },
     
-},
-text: {
-    color: "#ffff",
-    fontSize: 15,
-    textAlign: "center"
-  },
-  buttonContainer:{
-      alignItems:'center'
-  }
+      logoContainer: {
+        marginVertical: 5,
+        padding: 10
+      },
+    
+      inputContainer: {
+        marginTop: 10
+      },
+    
+      logo: {
+        width: 170,
+        height: 120
+      },
+    
+      logoText: {
+        color: "black",
+        fontSize: 20,
+        fontWeight: "500",
+        marginTop: 10,
+        opacity: 0.5
+      },
+    
+      label: {
+        paddingLeft: 27,
+        fontSize: 16
+      },
+    
+      input: {
+        width: width - 35,
+        height: 35,
+        borderRadius: 6,
+        fontSize: 16,
+        paddingLeft: 18,
+        backgroundColor: "#d8ebe2",
+        color: "black",
+        marginHorizontal:  25
+      },
+      btnLogin: {
+        width: width - 205,
+        height: 35,
+        borderRadius: 12,
+        backgroundColor: "#45d17d",
+        justifyContent: "center",
+        marginLeft: 0,
+        marginTop: 17
+      },
+    
+      text: {
+        color: "rgba(255, 255, 255, 0.7)",
+        fontSize: 15,
+        textAlign: "center"
+      }
 })
