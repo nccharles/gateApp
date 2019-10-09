@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   text: {
     color: Colors.primary_white,
     textAlign: 'center',
-    fontFamily: 'space-mono'
+    fontFamily: 'space-mono',
+    textAlign: 'center'
   },
 });
