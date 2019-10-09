@@ -6,10 +6,8 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
-import LoginScreen from './screens/Login';
-import SignUpScreen from './screens/SignUpScreen';
 import Colors from './constants/Colors';
-import FixedAssetInfo from './screens/FixedAssetInfo';
+import GeneralStatusBarColor from './components/StatusBar/GeneralStatusBarColor';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -25,7 +23,7 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+        <GeneralStatusBarColor backgroundColor={Colors.primary} barStyle="light-content" />
         <AppNavigator />
       </View>
     );
@@ -43,7 +41,10 @@ async function loadResourcesAsync() {
       ...Ionicons.font,
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
-      'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+      'font-bold': require('./assets/fonts/Segoe-Bold.ttf'),
+      'font-regulary': require('./assets/fonts/Segoe.ttf'),
+      'font-italic': require('./assets/fonts/Segoe-Italic.ttf'),
+      'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf')
     }),
   ]);
 }

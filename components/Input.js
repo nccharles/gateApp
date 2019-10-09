@@ -4,29 +4,27 @@ import {
   View,
   TextInput,
   StyleSheet,
-  Text, 
-  KeyboardAvoidingView, 
+  Text,
   Dimensions
 } from "react-native";
-
-const { width } = Dimensions.get("window");
-
-
+import Colors from "../constants/Colors";
 
 export function Inputs(props) {
-    const { title, color, keyboardtype, ...otherProps } = props;
+    const { title, color, keyboardtype,value,onChangeText, ...otherProps } = props;
     return (
       <View style={styles.container} {...otherProps}>
         <Text style={styles.title}>{title}</Text>
         <TextInput
           style={styles.input}
-          underlineColorAndroid="transparent"
-          autoCapitalize="none"
-          keyboardType={keyboardtype}
-        />
-        <KeyboardAvoidingView
-          behavior={"padding"}
-          keyboardVerticalOffset={width / 24}
+          selectionColor={Colors.primary}
+           placeholderTextColor={Colors.primary}
+           underlineColorAndroid={'transparent'}
+           autoCapitalize='none'
+           autoCorrect={false}
+           returnKeyType={"next"}
+           onChangeText={onChangeText}
+           value={value}
+           editable={true}
         />
       </View>
     );
@@ -36,6 +34,8 @@ Inputs.propTypes = {
     title: propTypes.string.isRequired,
     keyboardtype: propTypes.string,
     color: propTypes.string,
+    onChangeText: propTypes.func,
+    value: propTypes.any,
     ...View.propTypes
 };
 
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     margin: 5,
     width: 260,
     height: 35,
+    padding: 10,
     borderColor: "#d4d4d4",
     borderWidth: 1,
     borderRadius: 5,
