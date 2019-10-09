@@ -6,10 +6,7 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
-import LoginScreen from './screens/Login';
-import SignUpScreen from './screens/SignUpScreen';
 import Colors from './constants/Colors';
-import Caller from './screens/PersonalInfo';
 import GeneralStatusBarColor from './components/StatusBar/GeneralStatusBarColor';
 
 export default function App(props) {
@@ -27,7 +24,7 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         <GeneralStatusBarColor backgroundColor={Colors.primary} barStyle="light-content" />
-        <Caller />
+        <AppNavigator />
       </View>
     );
   }
