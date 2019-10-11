@@ -1,6 +1,6 @@
-const tintColor = 'rgba(41, 128, 185,1.0)';
-const primary="rgba(41, 128, 185,1.0)";
-const primary_trans="rgba(41, 128, 185,0.7)";
+const tintColor = 'rgba(43, 90, 220,1.0)';
+const primary="rgba(43, 90, 220,1.0)";
+const primary_trans="rgba(43, 90, 220,0.7)";
 const secondary='rgba(39, 174, 96,1.0)';
 const third="rgba(184, 233, 148,1.0)";
 const secondary_trans='rgba(39, 174, 96,.7)';
