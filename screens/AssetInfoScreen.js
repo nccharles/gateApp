@@ -18,7 +18,7 @@ import Header from "../components/Header/BackHeader";
 import MainButton from "../components/MainButton";
 const { width } = Dimensions.get("window");
 
-class FamilyInfoScreen extends Component {
+class AssetInfoScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
@@ -39,7 +39,7 @@ class FamilyInfoScreen extends Component {
         );
     }
 }
-export default FamilyInfoScreen;
+export default AssetInfoScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
