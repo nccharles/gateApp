@@ -17,9 +17,11 @@ import Inputs from '../components/Input';
 import Header from '../components/Header/BackHeader';
 import MainButton from "../components/Buttons/mainButton";
 import Colors from '../constants/Colors';
+import Datepicker from '../components/DatePickers/datePicker';
+import { TransInput } from '../components/TextInputs/EditInput';
 const { width } = Dimensions.get("window");
 
-class DocumentsScreen extends Component {
+class ClientProfileScreen extends Component {
     render() {
 
         return (
@@ -28,15 +30,27 @@ class DocumentsScreen extends Component {
                 <ScrollView>
                     <View style={styles.imageContainer}>
                         <Image style={styles.profile} source={require('../assets/images/icon.png')} />
+                        <Text style={styles.text}>Change Profile Photo</Text>
                     </View>
+                    <Text style={styles.title}>Current Resident</Text>
+                    <View style={styles.line}>
 
+                    </View>
                     <View style={styles.Form}>
-                        <Inputs title="National ID/Passport" />
-                        <Inputs title="Land Certificate" />
-                        <Inputs title="Marriage Certificate" />
-                        <Inputs title="Birth Certificate" />
-                        <Inputs title="Other relevant Document" />
-                        <MainButton text="Done" />
+                        <TransInput title="Name" />
+                        <TransInput title="Country" />
+                        <TransInput title="Province" />
+                        <TransInput title="District" />
+                        <TransInput title="Sector" />
+                    </View>
+                    <Text style={styles.title}>Address Information</Text>
+                    <View style={styles.line}>
+
+                    </View>
+                    <View style={styles.Form}>
+                        <TransInput title="Email Address" />
+                        <TransInput title="Primary number" />
+                        <TransInput title="Secondary number" />
                     </View>
 
                 </ScrollView>
@@ -48,27 +62,30 @@ class DocumentsScreen extends Component {
         )
     }
 }
-export default DocumentsScreen;
+export default ClientProfileScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
     Form: {
         fontFamily: 'font-regulary',
-        justifyContent: 'center',
-        alignItems: 'center',
+        color: '#707070',
+        // paddingBottom: 20,
+        padding: 10,
+        lineHeight: 40,
     },
     text: {
         fontFamily: 'font-regulary',
         textAlign: 'center',
         padding: 15,
-        fontSize: 20,
+        fontSize: 15,
+        color: Colors.tintColor,
+
     },
     profile: {
         width: 180,
         height: 180,
         borderRadius: 90,
-        // backgroundColor: Colors.form_gradient,
 
     },
     imageContainer: {
@@ -83,5 +100,18 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.22,
         shadowRadius: 2.22,
         elevation: 3,
-    }
+    },
+    line: {
+        borderBottomWidth: 0.2,
+        borderBottomColor: '#707070',
+        opacity: 0.4,
+
+    },
+
+    title: {
+        fontFamily: 'font-bold',
+        fontSize: 15,
+        padding: 10,
+    },
+
 })

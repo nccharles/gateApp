@@ -15,19 +15,20 @@ import {
 } from "react-native";
 import Inputs from "../components/Input";
 import Header from "../components/Header/BackHeader";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/Buttons/mainButton";
 const { width } = Dimensions.get("window");
 
-class FamilyInfoScreen extends Component {
+class UserRegistrationScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Header headerName="Request" />
                 <ScrollView>
-                    <Header headerName="profile" />
-                    <Text style={styles.text}>Asset Information</Text>
+                    <Text style={styles.text}></Text>
                     <View style={styles.Form}>
-                        <Inputs title="Asset Type" />
-                        <MainButton text="Next" />
+                        <Inputs title="Enter Code" />
+                        <Inputs title="User's National ID/Passport" />
+                        <MainButton text="Continue" />
                     </View>
 
                 </ScrollView>
@@ -39,7 +40,7 @@ class FamilyInfoScreen extends Component {
         );
     }
 }
-export default FamilyInfoScreen;
+export default UserRegistrationScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,

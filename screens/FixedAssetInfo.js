@@ -10,10 +10,11 @@ import {
     TextInput,
     Picker,
     TouchableHighlight,
-    Dimensions
+    Dimensions,
+    KeyboardAvoidingView
 } from "react-native";
 import Inputs from "../components/Input";
-import Header from "../components/Header";
+import Header from "../components/Header/BackHeader";
 import MainButton from "../components/Buttons/mainButton";
 import Colors from "../constants/Colors";
 const { width } = Dimensions.get("window");
@@ -21,26 +22,32 @@ const { width } = Dimensions.get("window");
 class FixedAssetInfo extends Component {
     render() {
         return (
-            <ScrollView style={styles.container}>
-                <Header title="profile" />
-                <Text style={styles.text}>Fixed Asset Information</Text>
-                <View style={styles.Form}>
-                    <Inputs title="Select" />
-                    <Inputs title="Land Number" />
-                    <Inputs title="TIN Number" />
-                </View>
-                <View>
+            <View style={styles.container}>
+                <Header headerName="profile" />
+                <ScrollView>
+                    <Text style={styles.text}>Fixed Asset Information</Text>
+                    <View style={styles.Form}>
+                        <Inputs title="Select" />
+                        <Inputs title="Land Number" />
+                    </View>
+                    <View>
 
-                    <Text style={styles.textForm}>Address</Text>
-                </View>
-                <View style={styles.Form}>
-                    <Inputs title="Country" />
-                    <Inputs title="Province" />
-                    <Inputs title="District" />
-                    <Inputs title="Sector" />
-                    <MainButton text="Next" />
-                </View>
-            </ScrollView>
+                        <Text style={styles.textForm}>Address</Text>
+                    </View>
+                    <View style={styles.Form}>
+                        <Inputs title="Country" />
+                        <Inputs title="Province" />
+                        <Inputs title="District" />
+                        <Inputs title="Sector" />
+                        <MainButton text="Next" />
+                    </View>
+
+                </ScrollView>
+                <KeyboardAvoidingView
+                    behavior={"padding"}
+                    keyboardVerticalOffset={width / 24}
+                />
+            </View>
         );
     }
 }
@@ -50,10 +57,12 @@ const styles = StyleSheet.create({
         flex: 1
     },
     Form: {
+        fontFamily: 'font-regulary',
         justifyContent: "center",
         alignItems: "center"
     },
     text: {
+        fontFamily: 'font-regulary',
         textAlign: "center",
         padding: 15,
         fontSize: 20

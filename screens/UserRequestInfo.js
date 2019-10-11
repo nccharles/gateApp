@@ -15,18 +15,17 @@ import {
 } from "react-native";
 import Inputs from "../components/Input";
 import Header from "../components/Header/BackHeader";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/Buttons/mainButton";
 const { width } = Dimensions.get("window");
 
 class FamilyInfoScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Header headerName="Info Request" />
                 <ScrollView>
-                    <Header headerName="profile" />
-                    <Text style={styles.text}>Asset Information</Text>
                     <View style={styles.Form}>
-                        <Inputs title="Asset Type" />
+                        <Inputs title="Enter User Code" keyboardtype="numeric" />
                         <MainButton text="Next" />
                     </View>
 
@@ -36,6 +35,7 @@ class FamilyInfoScreen extends Component {
                     keyboardVerticalOffset={width / 24}
                 />
             </View>
+
         );
     }
 }
@@ -43,6 +43,7 @@ export default FamilyInfoScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+
     },
     Form: {
         fontFamily: 'font-regulary',
