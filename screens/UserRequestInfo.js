@@ -18,15 +18,14 @@ import Header from "../components/Header/BackHeader";
 import MainButton from "../components/Buttons/mainButton";
 const { width } = Dimensions.get("window");
 
-class BankInfoScreen extends Component {
+class FamilyInfoScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Header headerName="Info Request" />
                 <ScrollView>
-                    <Header headerName="profile" />
-                    <Text style={styles.text}>Bank Information</Text>
                     <View style={styles.Form}>
-                        <Inputs title="Do you have a bank account?" />
+                        <Inputs title="Enter User Code" keyboardtype="numeric" />
                         <MainButton text="Next" />
                     </View>
 
@@ -36,10 +35,11 @@ class BankInfoScreen extends Component {
                     keyboardVerticalOffset={width / 24}
                 />
             </View>
+
         );
     }
 }
-export default BankInfoScreen;
+export default FamilyInfoScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,

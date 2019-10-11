@@ -46,6 +46,10 @@ class SignUpScreen extends Component {
             <MainButton text="Sign Up" />
           </View>
         </View>
+        <KeyboardAvoidingView
+          behavior={"padding"}
+          keyboardVerticalOffset={width / 24}
+        />
       </ScrollView>
     )
   }
@@ -73,6 +77,7 @@ const styles = StyleSheet.create({
     height: 120
   },
   Form: {
+    fontFamily: 'font-regulary',
     justifyContent: 'center',
     alignItems: 'center',
   },

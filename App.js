@@ -8,6 +8,14 @@ import { Ionicons } from '@expo/vector-icons';
 import AppNavigator from './navigation/AppNavigator';
 import Colors from './constants/Colors';
 import GeneralStatusBarColor from './components/StatusBar/GeneralStatusBarColor';
+import DocumentsScreen from './screens/DocumentsScreen';
+import ClientHomeScreen from './screens/ClientHomeScreen';
+import ClientProfileScreen from './screens/ClientProfileScreen';
+import InsuranceInfoDetails from './screens/InsuranceInfoDetails';
+import ClientFormScreen from './screens/ClientFormScreen';
+import ClientFormtwoScreen from './screens/ClientFormtwoScreen';
+import ClientFormthreeScreen from './screens/ClientFromthreeScreen';
+import UserProfileScreen from './screens/UserProfileScreen';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);

@@ -16,41 +16,38 @@ import {
 import Inputs from '../components/Input';
 import Header from '../components/Header/BackHeader';
 import MainButton from "../components/Buttons/mainButton";
+import MainCheckBox from '../components/CheckBoxs/mainCheckBox';
 const { width } = Dimensions.get("window");
 
-class FamilyInfoScreen extends Component {
+class ClientFormtwoScreen extends Component {
     render() {
 
         return (
             <View style={styles.container}>
-                <Header headerName="profile" />
+                <Header headerName="Info Request" />
                 <ScrollView>
+                    <Text style={styles.small}>Please Check every option that you need</Text>
                     <Text style={styles.text}>Family Information</Text>
                     <View style={styles.Form}>
-                        <Inputs title="Father's Firstname" />
-                        <Inputs title="Father's Surname" />
-                        <Inputs title="Mother's Firstname" />
-                        <Inputs title="Mother's Surname" />
-                        <Inputs title="Spouse Firstname" />
-                        <Inputs title="Spouse Middle Name" />
-                        <Inputs title="Spouse Lastname" />
-                        <Inputs title="Spouse ID" keyboardtype="numeric" />
-                        <Inputs title="Telephone" keyboardtype="numeric" />
-                        <Inputs title="Number of Children(if any)" keyboardtype="numeric" />
-                        <Inputs title="Dependency (if any)" keyboardtype="numeric" />
+                        <MainCheckBox title="Father's Firstname" />
+                        <MainCheckBox title="Father's Surname" />
+                        <MainCheckBox title="Mother's Firstname" />
+                        <MainCheckBox title="Mother's Surname" />
+                        <MainCheckBox title="Spouse Firstname" />
+                        <MainCheckBox title="Spouse Middle Name" />
+                        <MainCheckBox title="Spouse Lastname" />
+                        <MainCheckBox title="Spouse ID" />
+                        <MainCheckBox title="Telephone" />
+                        <MainCheckBox title="Number of Children" />
+                        <MainCheckBox title="Dependency" />
                         <MainButton text="Next" />
                     </View>
-
                 </ScrollView>
-                <KeyboardAvoidingView
-                    behavior={"padding"}
-                    keyboardVerticalOffset={width / 24}
-                />
             </View>
         )
     }
 }
-export default FamilyInfoScreen;
+export default ClientFormtwoScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -66,4 +63,11 @@ const styles = StyleSheet.create({
         padding: 15,
         fontSize: 20,
     },
+    small: {
+        fontFamily: 'font-regulary',
+        textAlign: 'center',
+        padding: 15,
+        fontSize: 12,
+        color: '#707070'
+    }
 })

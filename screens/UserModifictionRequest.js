@@ -18,16 +18,17 @@ import Header from "../components/Header/BackHeader";
 import MainButton from "../components/Buttons/mainButton";
 const { width } = Dimensions.get("window");
 
-class BankInfoScreen extends Component {
+class UserRegistrationScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Header headerName="Request" />
                 <ScrollView>
-                    <Header headerName="profile" />
-                    <Text style={styles.text}>Bank Information</Text>
+                    <Text style={styles.text}></Text>
                     <View style={styles.Form}>
-                        <Inputs title="Do you have a bank account?" />
-                        <MainButton text="Next" />
+                        <Inputs title="Enter Code" />
+                        <Inputs title="User's National ID/Passport" />
+                        <MainButton text="Continue" />
                     </View>
 
                 </ScrollView>
@@ -39,11 +40,10 @@ class BankInfoScreen extends Component {
         );
     }
 }
-export default BankInfoScreen;
+export default UserRegistrationScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-
     },
     Form: {
         fontFamily: 'font-regulary',
