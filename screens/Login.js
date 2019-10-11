@@ -48,7 +48,7 @@ export default class LoginScreen extends Component {
         {/* <TouchableOpacity style={styles.btnLogin}>
           <Text style={styles.text}>Login</Text>
         </TouchableOpacity> */}
-        <MainButton text="login"/>
+        <MainButton text="login" />
         <KeyboardAvoidingView
           behavior={"padding"}
           keyboardVerticalOffset={width / 24}
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     paddingLeft: 18,
     backgroundColor: "#d8ebe2",
     color: "black",
-    marginHorizontal:  25
+    marginHorizontal: 25
   },
   btnLogin: {
     width: width - 205,

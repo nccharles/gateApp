@@ -17,6 +17,18 @@ import ClientFormtwoScreen from './screens/ClientFormtwoScreen';
 import ClientFormthreeScreen from './screens/ClientFromthreeScreen';
 import UserProfileScreen from './screens/UserProfileScreen';
 
+import SignUpScreen from './screens/SignUpScreen';
+import Login from './screens/Login';
+import Occupation from './screens/Occupation';
+import StudentOccupation from './screens/StudentOccupation';
+import EmployeeOccupation from './screens/EmployeeOccupation';
+import SelfEmployedOccupation from './screens/SelfEmployedOccupation';
+import OtherOccupation from './screens/OtherOccupation';
+import SocialMedia from './screens/SocialMedia';
+import NotificationUser from './screens/NotificationUser';
+import ModalTester from './screens/Welcome';
+
+
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
