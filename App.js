@@ -26,7 +26,8 @@ import SelfEmployedOccupation from './screens/SelfEmployedOccupation';
 import OtherOccupation from './screens/OtherOccupation';
 import SocialMedia from './screens/SocialMedia';
 import NotificationUser from './screens/NotificationUser';
-import ModalTester from './screens/Welcome';
+import Profile from './screens/Profile';
+import Welcome from './screens/Welcome';
 
 
 export default function App(props) {
