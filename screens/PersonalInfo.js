@@ -1,52 +1,73 @@
-import React from "react";
-import { StyleSheet, Text, View,KeyboardAvoidingView,Dimensions, ScrollView } from "react-native";
+import React, { Component } from "react";
+import { Picker, StyleSheet, Text, View, KeyboardAvoidingView, Dimensions, ScrollView } from "react-native";
 import Inputs from "../components/Input";
 import MainButton from "../components/Buttons/mainButton";
 import BackHeader from "../components/Header/BackHeader";
 import Colors from "../constants/Colors";
 const { width } = Dimensions.get("window");
-export default function Caller() {
-  return (
-    <View style={styles.container}>
-      <BackHeader headerName="Profile" onPress={() => alert('it should go back')}/>
-      <ScrollView>
-        <Text style={styles.Text}>Personal Information</Text>
 
-        <View style={styles.Form}>
-          <Inputs title="First Name" />
-          <Inputs title="Second Name" />
-          <Inputs title="Date" />
-          <Inputs title="Place of Birth" />
-          <Inputs title="Sex" />
-          <Inputs title="Nationality" />
-          <Inputs title="National ID/Passport" keyboardtype="numeric" />
-          <Inputs title="Marital Status" />
-        </View>
-        <Text style={styles.UnderText}>Current Resident</Text>
-        <View style={styles.Form}>
-          <Inputs title="Country" />
-          <Inputs title="Province" />
-          <Inputs title="District" />
-          <Inputs title="Cell" />
-          <Inputs title="Village" />
-        </View>
-        <Text style={styles.UnderText}>Address Information</Text>
-        <View style={styles.Form}>
-          <Inputs title="Email Address(Personal)" />
-          <Inputs title="Email Address(Work)" />
-          <Inputs title="Primary Number" keyboardtype="numeric" />
-          <Inputs title="Second Number" keyboardtype="numeric" />
-          <MainButton text="Next" />
-        </View>
-      </ScrollView>
-      <KeyboardAvoidingView
+export default class Caller extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      language: ""
+    };
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <BackHeader headerName="Profile" onPress={() => alert('it should go back')} />
+        <ScrollView>
+          <Text style={styles.Text}>Personal Information</Text>
+
+          <View style={styles.Form}>
+            <Inputs title="First Name" />
+            <Inputs title="Second Name" />
+            <Inputs title="Date" />
+            <Inputs title="Place of Birth" />
+            <View style={styles.gendertext}>
+              <Text style={styles.gender}>Sex</Text>
+            </View>
+            <View style={styles.border}>
+              <Picker
+                style={styles.picker}
+                selectedValue={this.state.language}
+                onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+                <Picker.Item label="Select" value="Select" />
+                <Picker.Item label="Female" value="Female" />
+                <Picker.Item label="Male" value="Male" />
+              </Picker>
+            </View>
+
+            <Inputs title="Nationality" />
+            <Inputs title="National ID/Passport" keyboardtype="numeric" />
+            <Inputs title="Marital Status" />
+          </View>
+          <Text style={styles.UnderText}>Current Resident</Text>
+          <View style={styles.Form}>
+            <Inputs title="Country" />
+            <Inputs title="Province" />
+            <Inputs title="District" />
+            <Inputs title="Cell" />
+            <Inputs title="Village" />
+          </View>
+          <Text style={styles.UnderText}>Address Information</Text>
+          <View style={styles.Form}>
+            <Inputs title="Email Address(Personal)" />
+            <Inputs title="Email Address(Work)" />
+            <Inputs title="Primary Number" keyboardtype="numeric" />
+            <Inputs title="Second Number" keyboardtype="numeric" />
+            <MainButton text="Next" />
+          </View>
+        </ScrollView>
+        <KeyboardAvoidingView
           behavior={"padding"}
           keyboardVerticalOffset={width / 24}
         />
-    </View>
-  );
+      </View>
+    );
+  }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -69,5 +90,29 @@ const styles = StyleSheet.create({
     paddingLeft: 45,
     paddingBottom: 5,
     padding: 15
+  },
+  picker: {
+    fontSize: 14,
+    height: 35,
+    width: 260,
+    color: '#707070',
+    borderColor: "#d4d4d4",
+    borderWidth: 1,
+    borderRadius: 5,
+    backgroundColor: "#f8f8f8"
+  },
+  gendertext: {
+    margin: 8,
+    // textAlign: 'left',
+    marginRight: 250,
+  },
+  gender: {
+    fontSize: 14,
+    color: "#707070",
+  },
+  border: {
+    borderColor: "#d4d4d4",
+    borderWidth: 1,
+    borderRadius: 5,
   }
 });

@@ -19,6 +19,12 @@ import MainButton from "../components/MainButton";
 const { width } = Dimensions.get("window");
 
 class AssetInfoScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            language: ""
+        };
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -26,7 +32,16 @@ class AssetInfoScreen extends Component {
                     <Header headerName="profile" />
                     <Text style={styles.text}>Asset Information</Text>
                     <View style={styles.Form}>
-                        <Inputs title="Asset Type" />
+                        <Picker
+
+                            selectedValue={this.state.language}
+                            style={styles.picker}
+                            onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+                            <Picker.Item label="Select" value="Select" />
+                            <Picker.Item label="Fixed" value="Fixed" />
+                            <Picker.Item label="Current" value="Current" />
+
+                        </Picker>
                         <MainButton text="Next" />
                     </View>
 
@@ -54,5 +69,15 @@ const styles = StyleSheet.create({
         textAlign: "center",
         padding: 15,
         fontSize: 20
+    },
+    picker: {
+        height: 35,
+        width: 260,
+        color: '#707070',
+        paddingTop: 15,
+        borderColor: "#d4d4d4",
+        borderWidth: 1,
+        borderRadius: 5,
+        backgroundColor: "#f8f8f8"
     }
 });
