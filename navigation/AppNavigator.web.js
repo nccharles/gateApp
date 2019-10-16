@@ -1,13 +1,30 @@
 import { createBrowserApp } from '@react-navigation/web';
-import { createSwitchNavigator } from 'react-navigation';
+import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
+import SignUpScreen from '../screens/SignUpScreen';
+import LoginScreen from '../screens/Login';
+import Welcome from '../screens/Welcome';
 
-const switchNavigator = createSwitchNavigator({
-  // You could add another route here for authentication.
-  // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-  Main: MainTabNavigator,
-});
-switchNavigator.path = '';
+ const createAccount= createStackNavigator({
+   Login: LoginScreen,
+   Signup: SignUpScreen,
+   Welcome:Welcome,
+  })
+ const MainScreen= createSwitchNavigator({
+    Main: MainTabNavigator,
+  })
 
-export default createBrowserApp(switchNavigator, { history: 'hash' });
+const SwitchNavigator = createSwitchNavigator(
+  {
+    IntroScreen: {
+      screen: createAccount
+    },
+    TabScreen: {
+      screen: MainScreen,
+    }
+  }
+);
+SwitchNavigator.path = '';
+
+export default createBrowserApp(SwitchNavigator, { history: 'hash' });

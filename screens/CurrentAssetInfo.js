@@ -40,6 +40,9 @@ class CurrentAssetInfo extends Component {
         );
     }
 }
+CurrentAssetInfo.navigationOptions = {
+    header: null,
+  };
 export default CurrentAssetInfo;
 const styles = StyleSheet.create({
     container: {

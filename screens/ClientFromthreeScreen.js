@@ -54,6 +54,9 @@ class ClientFormthreeScreen extends Component {
         )
     }
 }
+ClientFormthreeScreen.navigationOptions = {
+    header: null,
+  };
 export default ClientFormthreeScreen;
 const styles = StyleSheet.create({
     container: {

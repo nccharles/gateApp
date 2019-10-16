@@ -55,6 +55,9 @@ class UserHomeScreen extends Component {
         );
     }
 }
+UserHomeScreen.navigationOptions = {
+    header: null,
+  };
 export default UserHomeScreen;
 const styles = StyleSheet.create({
     container: {

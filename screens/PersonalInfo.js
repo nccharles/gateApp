@@ -6,7 +6,7 @@ import BackHeader from "../components/Header/BackHeader";
 import Colors from "../constants/Colors";
 const { width } = Dimensions.get("window");
 
-export default class Caller extends Component {
+export default class Personalinfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,6 +68,9 @@ export default class Caller extends Component {
     );
   }
 }
+Personalinfo.navigationOptions = {
+  header: null,
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,

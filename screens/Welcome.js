@@ -12,11 +12,12 @@ import MainButton from "../components/Buttons/mainButton";
 
 export default class Welcome extends Component {
   state = {
-    modalVisible: false
+    modalVisible: true
   };
 
   toggleModal(visible) {
     this.setState({ modalVisible: visible });
+    this.props.navigation.navigate('TabScreen');
   }
 
   render() {
@@ -37,12 +38,11 @@ export default class Welcome extends Component {
             />
             <View>
               <Text style={styles.text}>
-                You have successfully created you account Please check your
-                email or phone for activation code
+                You have successfully created your account.Welcome!
               </Text>
             </View>
             <MainButton
-              text="Next"
+              text="Continue"
               style={styles.touchableButton}
               onPress={() => {
                 this.toggleModal(!this.state.modalVisible);
@@ -52,19 +52,13 @@ export default class Welcome extends Component {
             </MainButton>
           </View>
         </Modal>
-
-        <MainButton
-          text="Next"
-          style={styles.touchableButton}
-          onPress={() => {
-            this.toggleModal(true);
-          }}
-        ></MainButton>
       </View>
     );
   }
 }
-
+Welcome.navigationOptions = {
+  header: null,
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,

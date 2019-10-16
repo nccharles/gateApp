@@ -29,7 +29,7 @@ import NotificationUser from './screens/NotificationUser';
 import ModalTester from './screens/Welcome';
 import InsuranceInfoScreen from './screens/InsuranceInfoScreen';
 import BankInfoScreen from './screens/BankInfoScreen';
-import Caller from './screens/PersonalInfo';
+import Personalinfo from './screens/PersonalInfo';
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 

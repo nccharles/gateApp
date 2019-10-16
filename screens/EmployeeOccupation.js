@@ -30,7 +30,9 @@ export default function EmployeeOccupation() {
     </ScrollView>
   );
 }
-
+EmployeeOccupation.navigationOptions = {
+  header: null,
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,

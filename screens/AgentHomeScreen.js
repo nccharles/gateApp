@@ -50,6 +50,9 @@ class AgentHomeScreen extends Component {
         );
     }
 }
+AgentHomeScreen.navigationOptions = {
+    header: null,
+  };
 export default AgentHomeScreen;
 const styles = StyleSheet.create({
     container: {

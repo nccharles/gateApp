@@ -54,7 +54,7 @@ class SignUpScreen extends Component {
               <Picker.Item label="client" value="client" />
               <Picker.Item label="Agent" value="Agent" />
             </Picker>
-            <MainButton text="Sign Up" />
+            <MainButton text="Sign Up" onPress={()=>this.props.navigation.navigate('Welcome')}/>
 
           </View>
 
@@ -69,6 +69,9 @@ class SignUpScreen extends Component {
     )
   }
 }
+SignUpScreen.navigationOptions = {
+  header: null,
+};
 export default SignUpScreen;
 const styles = StyleSheet.create({
   container: {

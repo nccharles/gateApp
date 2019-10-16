@@ -45,10 +45,7 @@ export default class LoginScreen extends Component {
           />
         </View>
 
-        {/* <TouchableOpacity style={styles.btnLogin}>
-          <Text style={styles.text}>Login</Text>
-        </TouchableOpacity> */}
-        <MainButton text="login" />
+        <MainButton text="login" onPress={()=>this.props.navigation.navigate('TabScreen')}/>
         <KeyboardAvoidingView
           behavior={"padding"}
           keyboardVerticalOffset={width / 24}
@@ -57,7 +54,9 @@ export default class LoginScreen extends Component {
     );
   }
 }
-
+LoginScreen.navigationOptions = {
+  header: null,
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,

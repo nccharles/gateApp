@@ -47,6 +47,9 @@ class ClientFormtwoScreen extends Component {
         )
     }
 }
+ClientFormtwoScreen.navigationOptions = {
+    header: null,
+  };
 export default ClientFormtwoScreen;
 const styles = StyleSheet.create({
     container: {

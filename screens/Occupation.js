@@ -15,7 +15,9 @@ export default function Occupation() {
     </ScrollView>
   );
 }
-
+Occupation.navigationOptions = {
+  header: null,
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,

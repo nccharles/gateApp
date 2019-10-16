@@ -19,6 +19,7 @@ import MainButton from "../components/Buttons/mainButton";
 import Colors from '../constants/Colors';
 import Datepicker from '../components/DatePickers/datePicker';
 import { TransInput } from '../components/TextInputs/EditInput';
+import NobackHeader from '../components/Header/NoBackHeader';
 const { width } = Dimensions.get("window");
 
 class ClientProfileScreen extends Component {
@@ -26,7 +27,7 @@ class ClientProfileScreen extends Component {
 
         return (
             <View style={styles.container}>
-                <Header headerName="profile" />
+                <NobackHeader headerName="profile" />
                 <ScrollView>
                     <View style={styles.imageContainer}>
                         <Image style={styles.profile} source={require('../assets/images/icon.png')} />
@@ -62,6 +63,9 @@ class ClientProfileScreen extends Component {
         )
     }
 }
+ClientProfileScreen.navigationOptions = {
+    header: null,
+  };
 export default ClientProfileScreen;
 const styles = StyleSheet.create({
     container: {

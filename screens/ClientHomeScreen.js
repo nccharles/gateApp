@@ -50,6 +50,9 @@ class ClientHomeScreen extends Component {
         );
     }
 }
+ClientHomeScreen.navigationOptions = {
+    header: null,
+  };
 export default ClientHomeScreen;
 const styles = StyleSheet.create({
     container: {

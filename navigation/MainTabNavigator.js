@@ -3,9 +3,10 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import NotificationScreen from '../screens/NotificationUser';
+import ClientHomeScreen from '../screens/ClientHomeScreen';
+import Profile from '../screens/Profile';
+import ClientProfileScreen from '../screens/ClientProfileScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -14,7 +15,7 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Home: ClientHomeScreen,
   },
   config
 );
@@ -26,8 +27,8 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-home${focused ? '' : '-outline'}`
+          : 'md-home'
       }
     />
   ),
@@ -35,25 +36,40 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const NotificationStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Notification: NotificationScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+NotificationStack.navigationOptions = {
+  tabBarLabel: 'Notification',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications'} />
   ),
 };
 
-LinksStack.path = '';
+NotificationStack.path = '';
 
+const ProfileStack = createStackNavigator(
+  {
+    Profile: Profile,
+  },
+  config
+);
+
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-contact' : 'md-contact'} />
+  ),
+};
+
+ProfileStack.path = '';
 const SettingsStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Settings: ClientProfileScreen,
   },
   config
 );
@@ -61,7 +77,7 @@ const SettingsStack = createStackNavigator(
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-cog' : 'md-cog'} />
   ),
 };
 
@@ -69,7 +85,8 @@ SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  NotificationStack,
+  ProfileStack,
   SettingsStack,
 });
 

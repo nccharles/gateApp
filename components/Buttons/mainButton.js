@@ -28,9 +28,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 15,
     // width: width-35,
-    backgroundColor: '#26d07c',   // White colored border
-    paddingHorizontal: 40,    // Horizontal padding
-    paddingVertical: 8,      // Vertical padding
+    backgroundColor: Colors.secondary, 
+    paddingHorizontal: 40,   
+    paddingVertical: 8,   
     width: 150,
     height: 40,
     alignItems: "center",
