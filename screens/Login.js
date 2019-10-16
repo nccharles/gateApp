@@ -5,11 +5,13 @@ import {
   View,
   Image,
   Dimensions,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  TouchableHighlight
 } from "react-native";
 import { black } from "ansi-colors";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import MainButton from "../components/Buttons/mainButton";
+import Inputs from "../components/Input";
 
 const { width } = Dimensions.get("window");
 
@@ -23,29 +25,23 @@ export default class LoginScreen extends Component {
             style={styles.logo}
           />
         </View>
-
         <Text style={styles.logoText}>Login</Text>
-
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>User Name</Text>
-          <TextInput
-            style={styles.input}
-            placeholderTextColor={"rgba(255, 255, 255, 0.7)"}
-            underlineColorAndroid="transparent"
-          />
+          <Inputs title="Phone Number" />
         </View>
 
         <View style={styles.inputContainer}>
-          <Text style={styles.label}>Verification Code</Text>
-          <TextInput
-            style={styles.input}
-            secureTextEntry={true}
-            placeholderTextColor={"rgba(255, 255, 255, 0.7)"}
-            underlineColorAndroid="transparent"
-          />
+          <Inputs title="Verification Code" />
         </View>
 
-        <MainButton text="login" onPress={()=>this.props.navigation.navigate('TabScreen')}/>
+        <MainButton
+          text="login"
+          onPress={() => this.props.navigation.navigate("TabScreen")}
+        />
+
+        <TouchableHighlight onPress={() => this.props.navigation.navigate("Signup")}>
+          <Text style={styles.highlight}>Don't have an account?</Text>
+        </TouchableHighlight>
         <KeyboardAvoidingView
           behavior={"padding"}
           keyboardVerticalOffset={width / 24}
@@ -55,7 +51,7 @@ export default class LoginScreen extends Component {
   }
 }
 LoginScreen.navigationOptions = {
-  header: null,
+  header: null
 };
 const styles = StyleSheet.create({
   container: {
@@ -72,7 +68,7 @@ const styles = StyleSheet.create({
   },
 
   inputContainer: {
-    marginTop: 10
+    paddingBottom: 5
   },
 
   logo: {
