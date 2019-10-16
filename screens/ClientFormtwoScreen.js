@@ -13,7 +13,7 @@ import {
     Dimensions,
     KeyboardAvoidingView
 } from 'react-native';
-import Inputs from '../components/Input';
+// import Inputs from '../components/Input';
 import Header from '../components/Header/BackHeader';
 import MainButton from "../components/Buttons/mainButton";
 import MainCheckBox from '../components/CheckBoxs/mainCheckBox';
@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
     },
     Form: {
         fontFamily: 'font-regulary',
-        justifyContent: 'center',
-        alignItems: 'center',
+        padding: 15,
+
     },
     text: {
         fontFamily: 'font-regulary',

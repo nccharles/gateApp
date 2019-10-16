@@ -20,7 +20,9 @@ import Datepicker from '../components/DatePickers/datePicker';
 import MainCheckBox from '../components/CheckBoxs/mainCheckBox';
 const { width } = Dimensions.get("window");
 
+
 class ClientFormScreen extends Component {
+
     render() {
 
         return (
@@ -61,7 +63,9 @@ class ClientFormScreen extends Component {
                         <MainCheckBox title="Second Number" />
                         <MainButton text="Next" />
                     </View>
+
                 </ScrollView>
+
             </View>
 
         )
@@ -74,8 +78,9 @@ const styles = StyleSheet.create({
     },
     Form: {
         fontFamily: 'font-regulary',
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        padding: 15,
     },
     text: {
         fontFamily: 'font-regulary',
