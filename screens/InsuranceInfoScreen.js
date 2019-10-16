@@ -19,6 +19,12 @@ import MainButton from "../components/Buttons/mainButton";
 const { width } = Dimensions.get("window");
 
 class InsuranceInfoScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            language: ""
+        };
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -26,8 +32,16 @@ class InsuranceInfoScreen extends Component {
                 <ScrollView>
                     <Text style={styles.text}>Insurance Information</Text>
                     <View style={styles.Form}>
-                        <Inputs title="Insurance Type" />
-                        <MainButton text="Next" />
+                        <Picker
+                            style={styles.picker}
+                            selectedValue={this.state.language}
+                            onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+                            <Picker.Item label="Select" value="Select" />
+                            <Picker.Item label="Mituel" value="Mituel" />
+                            <Picker.Item label="RSSB" value="RSSB" />
+                            <Picker.Item label="UAP" value="UAP" />
+                            <Picker.Item label="Other" value="other" />
+                        </Picker>
                     </View>
 
                 </ScrollView>
@@ -54,5 +68,6 @@ const styles = StyleSheet.create({
         textAlign: "center",
         padding: 15,
         fontSize: 20
-    }
+    },
+
 });

@@ -18,6 +18,7 @@ import Header from '../components/Header/BackHeader';
 import MainButton from "../components/Buttons/mainButton";
 import Datepicker from '../components/DatePickers/datePicker';
 import MainCheckBox from '../components/CheckBoxs/mainCheckBox';
+import TransInput from '../components/TextInputs/EditInput'
 const { width } = Dimensions.get("window");
 
 class InsuranceInfoDetails extends Component {
@@ -36,9 +37,19 @@ class InsuranceInfoDetails extends Component {
                         <Inputs title="Date of Issue" />
                         <Inputs title="Expiration Date" />
                         <Inputs title="Insurance Coverage" />
+                        <MainCheckBox title="Liability Coverage" />
+                        <MainCheckBox title="Comprehensive Insurance" />
+                        <MainCheckBox title="Uninsured Motorist Insurance" />
+                        <MainCheckBox title="Medical payments Coverage" />
+                        <MainCheckBox title="Personal Injury" />
+                        <MainCheckBox title="Gap Insurance" />
+                        <MainCheckBox title="Towing and Labor Insurance" />
+                        <MainCheckBox title="Rental reimbursement Insurance" />
+                        <MainCheckBox title="Classic Car Insurance" />
+                        <TransInput title="Other:" />
                         <MainButton text="Next" />
                         <MainButton text="Add" />
-                        <MainCheckBox title="main" />
+
                     </View>
 
                 </ScrollView>
@@ -57,8 +68,7 @@ const styles = StyleSheet.create({
     },
     Form: {
         fontFamily: 'font-regulary',
-        justifyContent: 'center',
-        alignItems: 'center',
+        padding: 15,
     },
     text: {
         fontFamily: 'font-regulary',

@@ -27,11 +27,11 @@ class UserProfileScreen extends Component {
         return (
             <View style={styles.container}>
                 <Header headerName="profile" />
-                <View style={styles.imageContainer}>
-                    <Image style={styles.profile} source={require('../assets/images/icon.png')} />
-                </View>
-                <ScrollView>
 
+                <ScrollView>
+                    <View style={styles.imageContainer}>
+                        <Image style={styles.profile} source={require('../assets/images/icon.png')} />
+                    </View>
                     <Text style={styles.title}>Personal Information</Text>
                     <View style={styles.line}>
 
