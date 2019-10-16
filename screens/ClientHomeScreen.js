@@ -23,8 +23,9 @@ class ClientHomeScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Header headerName="Client" />
                 <ScrollView>
-                    <Header headerName="Client" />
+
                     <Text style={styles.text}>Services</Text>
                     <Text style={styles.title}> Get User Information</Text>
                     <View style={styles.description}>
@@ -52,7 +53,7 @@ class ClientHomeScreen extends Component {
 }
 ClientHomeScreen.navigationOptions = {
     header: null,
-  };
+};
 export default ClientHomeScreen;
 const styles = StyleSheet.create({
     container: {

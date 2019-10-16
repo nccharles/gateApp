@@ -42,6 +42,7 @@ class SignUpScreen extends Component {
           <View style={styles.Form}>
             <Inputs title="Firstname" />
             <Inputs title="Middle name(Optional)" />
+            <Inputs title="Lastname" />
             <Inputs title="Email(Optional)" />
             <Inputs title="National ID/passport" keyboardtype="numeric" />
             <Inputs title="Telephone" keyboardtype="numeric" />
@@ -54,7 +55,14 @@ class SignUpScreen extends Component {
               <Picker.Item label="client" value="client" />
               <Picker.Item label="Agent" value="Agent" />
             </Picker>
-            <MainButton text="Sign Up" onPress={()=>this.props.navigation.navigate('Welcome')}/>
+            <MainButton text="Sign Up" onPress={() => this.props.navigation.navigate('Welcome')} />
+            <TouchableOpacity onPress={
+              () => this.props.navigation.navigate('Login')}>
+
+              <Text>Already an Account ? Login
+        </Text>
+
+            </TouchableOpacity>
 
           </View>
 
@@ -99,15 +107,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  picker: {
-    height: 35,
-    width: 260,
+  // picker: {
+  //   height: 35,
+  //   width: 260,
+  //   color: '#707070',
+  //   paddingTop: 15,
+  //   borderColor: "#d4d4d4",
+  //   borderWidth: 1,
+  //   borderRadius: 5,
+  //   backgroundColor: "#f8f8f8"
+  // },
+  text: {
+    fontFamily: 'font-regulary',
+    padding: 15,
+    fontSize: 20,
     color: '#707070',
-    paddingTop: 15,
-    borderColor: "#d4d4d4",
-    borderWidth: 1,
-    borderRadius: 5,
-    backgroundColor: "#f8f8f8"
-  }
+    textAlign: 'center',
+    fontWeight: '500'
+  },
 
 })
