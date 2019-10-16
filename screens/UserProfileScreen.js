@@ -151,6 +151,9 @@ class UserProfileScreen extends Component {
         )
     }
 }
+UserProfileScreen.navigationOptions = {
+    header: null,
+  };
 export default UserProfileScreen;
 const styles = StyleSheet.create({
     container: {

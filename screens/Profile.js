@@ -60,7 +60,9 @@ class Profile extends Component {
     );
   }
 }
-
+Profile.navigationOptions = {
+  header: null,
+};
 const styles = StyleSheet.create({
   Profile: {
     flexDirection: "row",

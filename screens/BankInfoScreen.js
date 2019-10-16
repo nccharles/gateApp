@@ -56,6 +56,9 @@ class BankInfoScreen extends Component {
         );
     }
 }
+BankInfoScreen.navigationOptions = {
+    header: null,
+  };
 export default BankInfoScreen;
 const styles = StyleSheet.create({
     container: {

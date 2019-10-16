@@ -48,6 +48,9 @@ class DocumentsScreen extends Component {
         )
     }
 }
+DocumentsScreen.navigationOptions = {
+    header: null,
+  };
 export default DocumentsScreen;
 const styles = StyleSheet.create({
     container: {

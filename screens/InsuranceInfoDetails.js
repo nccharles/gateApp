@@ -61,6 +61,9 @@ class InsuranceInfoDetails extends Component {
         )
     }
 }
+InsuranceInfoDetails.navigationOptions = {
+    header: null,
+  };
 export default InsuranceInfoDetails;
 const styles = StyleSheet.create({
     container: {

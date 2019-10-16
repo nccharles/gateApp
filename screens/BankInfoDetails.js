@@ -39,6 +39,9 @@ class BankInfoDetails extends Component {
         );
     }
 }
+BankInfoDetails.navigationOptions = {
+    header: null,
+  };
 export default BankInfoDetails;
 const styles = StyleSheet.create({
     container: {

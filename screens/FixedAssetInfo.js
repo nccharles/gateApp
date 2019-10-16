@@ -51,6 +51,9 @@ class FixedAssetInfo extends Component {
         );
     }
 }
+FixedAssetInfo.navigationOptions = {
+    header: null,
+  };
 export default FixedAssetInfo;
 const styles = StyleSheet.create({
     container: {

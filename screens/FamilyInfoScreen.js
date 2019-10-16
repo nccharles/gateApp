@@ -50,6 +50,9 @@ class FamilyInfoScreen extends Component {
         )
     }
 }
+FamilyInfoScreen.navigationOptions = {
+    header: null,
+  };
 export default FamilyInfoScreen;
 const styles = StyleSheet.create({
     container: {

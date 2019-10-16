@@ -31,7 +31,9 @@ export default function SelfEmployedOccupation() {
     </ScrollView>
   );
 }
-
+SelfEmployedOccupation.navigationOptions = {
+  header: null,
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,

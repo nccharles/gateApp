@@ -19,7 +19,7 @@ const NobackHeader = (props) => {
           <TouchableOpacity
             onPress={onPress}>
             <Icon.Ionicons
-            name={Platform.os==='ios'?'ios-done-all':'md-done-all'}
+            name={Platform.os==='ios'?'ios-contact':'md-contact'}
             size={25}
             color={Colors.primary_white} />
           </TouchableOpacity>

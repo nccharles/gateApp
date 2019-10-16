@@ -71,6 +71,9 @@ class ClientFormScreen extends Component {
         )
     }
 }
+ClientFormScreen.navigationOptions = {
+    header: null,
+  };
 export default ClientFormScreen;
 const styles = StyleSheet.create({
     container: {

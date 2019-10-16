@@ -40,6 +40,9 @@ class UserRegistrationScreen extends Component {
         );
     }
 }
+UserRegistrationScreen.navigationOptions = {
+    header: null,
+  };
 export default UserRegistrationScreen;
 const styles = StyleSheet.create({
     container: {
