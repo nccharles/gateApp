@@ -22,12 +22,13 @@ export default function SelfEmployedOccupation() {
         <Inputs title="Province" />
         <Inputs title="District" />
         <Inputs title="Street" />
-        <Button text="Next" />
+        <Button text="Next" onPress={
+          () => this.props.navigation.navigate('InsuranceInfo')} />
       </View>
       <KeyboardAvoidingView
-          behavior={"padding"}
-          keyboardVerticalOffset={width / 24}
-        />
+        behavior={"padding"}
+        keyboardVerticalOffset={width / 24}
+      />
     </ScrollView>
   );
 }

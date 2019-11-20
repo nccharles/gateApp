@@ -18,10 +18,11 @@ import Header from '../components/Header/BackHeader';
 import MainButton from "../components/Buttons/mainButton";
 import Colors from '../constants/Colors';
 import Datepicker from '../components/DatePickers/datePicker';
+// import { TransInput } from '../components/TextInputs/EditInput';
 import Label from '../components/TextInputs/labels'
 const { width } = Dimensions.get("window");
 
-class UserProfileScreen extends Component {
+class UserInfoClient extends Component {
     render() {
 
         return (
@@ -141,15 +142,9 @@ class UserProfileScreen extends Component {
                         <Label title="Tik-Tok" />
 
                     </View>
-                    <View style={styles.inline}>
-                        <TouchableOpacity >
-                            <Text style={styles.down}>Download</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.downEdit}>Edit</Text>
-                        </TouchableOpacity>
-                    </View>
-
+                    <TouchableOpacity>
+                        <Text style={styles.down}>Download</Text>
+                    </TouchableOpacity>
 
                 </ScrollView>
                 <KeyboardAvoidingView
@@ -160,10 +155,10 @@ class UserProfileScreen extends Component {
         )
     }
 }
-UserProfileScreen.navigationOptions = {
+UserInfoClient.navigationOptions = {
     header: null,
 };
-export default UserProfileScreen;
+export default UserInfoClient;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -220,18 +215,6 @@ const styles = StyleSheet.create({
         padding: 10,
         textAlign: 'center',
         color: Colors.primary,
-        // marginLeft: 'auto',
-    },
-    downEdit: {
-        fontFamily: 'font-bold',
-        fontSize: 18,
-        padding: 10,
-        textAlign: 'center',
-        color: Colors.primary,
-
-    },
-    inline: {
-        flexDirection: 'row',
-        marginLeft: 'auto',
     }
+
 })

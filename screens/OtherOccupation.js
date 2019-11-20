@@ -35,7 +35,8 @@ export default function OtherOccupation() {
           <Inputs title="Province" />
           <Inputs title="District" />
           <Inputs title="Street" />
-          <Button text="Next" />
+          <Button text="Next" onPress={
+            () => this.props.navigation.navigate('InsuranceInfo')} />
         </View>
       </ScrollView>
       <KeyboardAvoidingView

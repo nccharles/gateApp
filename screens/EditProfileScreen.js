@@ -19,9 +19,10 @@ import MainButton from "../components/Buttons/mainButton";
 import Colors from '../constants/Colors';
 import Datepicker from '../components/DatePickers/datePicker';
 import Label from '../components/TextInputs/labels'
+import TransInput from '../components/TextInputs/EditInput'
 const { width } = Dimensions.get("window");
 
-class UserProfileScreen extends Component {
+class EditProfileScreen extends Component {
     render() {
 
         return (
@@ -37,81 +38,81 @@ class UserProfileScreen extends Component {
 
                     </View>
                     <View style={styles.Form}>
-                        <Label title="Date of Birth" text="12/09/2323" />
+                        <TransInput title="Date of Birth" text="12/09/2323" />
 
-                        <Label title="Place Of Birth " text="12/09/2323" />
-                        <Label title="Sex" />
-                        <Label title="Nationality" />
-                        <Label title="National ID/Passport" text="Rwandese" />
-                        <Label title="Marital Status" />
+                        <TransInput title="Place Of Birth " text="12/09/2323" />
+                        <TransInput title="Sex" />
+                        <TransInput title="Nationality" />
+                        <TransInput title="National ID/Passport" text="Rwandese" />
+                        <TransInput title="Marital Status" />
                     </View>
                     <Text style={styles.title}>Current Resident</Text>
                     <View style={styles.line}>
 
                     </View>
                     <View style={styles.Form}>
-                        <Label title="Country" />
-                        <Label title="Province" />
-                        <Label title="District" />
-                        <Label title="Sector" />
-                        <Label title="Cell" />
-                        <Label title="Village" />
+                        <TransInput title="Country" />
+                        <TransInput title="Province" />
+                        <TransInput title="District" />
+                        <TransInput title="Sector" />
+                        <TransInput title="Cell" />
+                        <TransInput title="Village" />
                     </View>
                     <Text style={styles.title}>Current Information</Text>
                     <View style={styles.line}>
 
                     </View>
                     <View style={styles.Form}>
-                        <Label title="Email Address(Personal)" />
-                        <Label title="Email Address (Work)" />
-                        <Label title="Primary Number" />
-                        <Label title="Second Number" />
+                        <TransInput title="Email Address(Personal)" />
+                        <TransInput title="Email Address (Work)" />
+                        <TransInput title="Primary Number" />
+                        <TransInput title="Second Number" />
                     </View>
                     <Text style={styles.title}>Family Information</Text>
                     <View style={styles.line}>
 
                     </View>
                     <View style={styles.Form}>
-                        <Label title="Father's Firstname" />
-                        <Label title="Father's Lastname" />
-                        <Label title="Mother's Firstname" />
-                        <Label title="Mother's Lastname" />
-                        <Label title="Spouse Firstname" />
-                        <Label title="Spouse Middlename" />
-                        <Label title="Spouse lastname" />
-                        <Label title="Spouse ID" />
-                        <Label title="Spouse Telephone" />
-                        <Label title="Number of Children" />
-                        <Label title="Dependency" />
+                        <TransInput title="Father's Firstname" />
+                        <TransInput title="Father's Lastname" />
+                        <TransInput title="Mother's Firstname" />
+                        <TransInput title="Mother's Lastname" />
+                        <TransInput title="Spouse Firstname" />
+                        <TransInput title="Spouse Middlename" />
+                        <TransInput title="Spouse lastname" />
+                        <TransInput title="Spouse ID" />
+                        <TransInput title="Spouse Telephone" />
+                        <TransInput title="Number of Children" />
+                        <TransInput title="Dependency" />
                     </View>
                     <Text style={styles.title}>Occupation</Text>
                     <View style={styles.line}>
 
                     </View>
                     <View style={styles.Form}>
-                        <Label title="Student" />
-                        <Label title="University" />
+                        <TransInput title="Student" />
+                        <TransInput title="University" />
                     </View>
                     <Text style={styles.title}>Address</Text>
 
                     <View style={styles.Form}>
-                        <Label title="Country" />
-                        <Label title="Province" />
-                        <Label title="Sector" />
+                        <TransInput title="Country" />
+                        <TransInput title="Province" />
+                        <TransInput title="Sector" />
                     </View>
                     <Text style={styles.title}>Insurance Information</Text>
                     <View style={styles.line}>
 
                     </View>
                     <View style={styles.Form}>
-                        <Label title="Insurance type" />
-                        <Label title="Holder" />
-                        <Label title="Card Number" />
-                        <Label title="Date of Issue" />
-                        <Label title="Insurance expiry Date" />
-                        <Label title="Insurance Coverage" />
-                        <Label title="Spouse Lastname" />
-                        <Label title="Insurance Coverage" />
+                        <TransInput title="Insurance type" />
+                        <TransInput title="Holder" />
+                        <TransInput title="Card Number" />
+                        <TransInput title="Date of Issue" />
+                        <TransInput title="Insurance expiry Date" />
+                        <TransInput title="Insurance Coverage" />
+                        <TransInput title="Spouse Lastname" />
+                        <TransInput title="Insurance Coverage" />
 
                     </View>
                     <Text style={styles.title}>Bank Information</Text>
@@ -119,14 +120,14 @@ class UserProfileScreen extends Component {
 
                     </View>
                     <View style={styles.Form}>
-                        <Label title="Bank name" />
+                        <TransInput title="Bank name" />
                     </View>
                     <Text style={styles.title}>Bank Information</Text>
                     <View style={styles.line}>
 
                     </View>
                     <View style={styles.Form}>
-                        <Label title="Bank Name" />
+                        <TransInput title="Bank Name" />
 
                     </View>
                     <Text style={styles.title}>Social Media Information</Text>
@@ -134,23 +135,13 @@ class UserProfileScreen extends Component {
 
                     </View>
                     <View style={styles.Form}>
-                        <Label title="Twitter" />
-                        <Label title="Facebook" />
-                        <Label title="Instagram" />
-                        <Label title="Pinterest" />
-                        <Label title="Tik-Tok" />
+                        <TransInput title="Twitter" />
+                        <TransInput title="Facebook" />
+                        <TransInput title="Instagram" />
+                        <TransInput title="Pinterest" />
+                        <TransInput title="Tik-Tok" />
 
                     </View>
-                    <View style={styles.inline}>
-                        <TouchableOpacity >
-                            <Text style={styles.down}>Download</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.downEdit}>Edit</Text>
-                        </TouchableOpacity>
-                    </View>
-
-
                 </ScrollView>
                 <KeyboardAvoidingView
                     behavior={"padding"}
@@ -160,10 +151,10 @@ class UserProfileScreen extends Component {
         )
     }
 }
-UserProfileScreen.navigationOptions = {
+EditProfileScreen.navigationOptions = {
     header: null,
 };
-export default UserProfileScreen;
+export default EditProfileScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,

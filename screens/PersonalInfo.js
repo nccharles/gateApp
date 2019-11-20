@@ -57,7 +57,8 @@ export default class Personalinfo extends Component {
             <Inputs title="Email Address(Work)" />
             <Inputs title="Primary Number" keyboardtype="numeric" />
             <Inputs title="Second Number" keyboardtype="numeric" />
-            <MainButton text="Next" />
+            <MainButton text="Next" onPress={
+              () => this.props.navigation.navigate('FamilyInfo')} />
           </View>
         </ScrollView>
         <KeyboardAvoidingView
