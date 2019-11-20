@@ -26,25 +26,31 @@ class AgentHomeScreen extends Component {
                 <ScrollView>
                     <Header headerName="Agent" />
                     <Text style={styles.text}>Services</Text>
-                    <Text style={styles.title}> User Registration</Text>
-                    <View style={styles.description}>
+                    <TouchableOpacity onPress={
+                        () => this.props.navigation.navigate('Registration')}>
+                        <Text style={styles.title}> User Registration</Text>
+                        <View style={styles.description}>
 
-                        <Icon.Feather name={Platform.os === 'ios' ? 'user-check' : 'user-check'}
-                            size={30} style={styles.icon} />
+                            <Icon.Feather name={Platform.os === 'ios' ? 'user-check' : 'user-check'}
+                                size={30} style={styles.icon} />
 
-                        <Text style={styles.Form}>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                            <Text style={styles.Form}>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
                 lorem ipsum</Text>
-                    </View>
+                        </View>
+                    </TouchableOpacity>
                     <View style={styles.line}>
 
                     </View>
-                    <Text style={styles.title}>Request User Account Modification</Text>
-                    <View style={styles.description}>
-                        <Icon.Entypo name={Platform.os === 'ios' ? 'popup' : 'popup'}
-                            size={30} style={styles.icon} />
-                        <Text style={styles.Form}>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                    <TouchableOpacity onPress={
+                        () => this.props.navigation.navigate('Modification')}>
+                        <Text style={styles.title}>Request User Account Modification</Text>
+                        <View style={styles.description}>
+                            <Icon.Entypo name={Platform.os === 'ios' ? 'popup' : 'popup'}
+                                size={30} style={styles.icon} />
+                            <Text style={styles.Form}>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
                 lorem ipsum</Text>
-                    </View>
+                        </View>
+                    </TouchableOpacity>
                 </ScrollView>
             </View>
         );
@@ -52,7 +58,7 @@ class AgentHomeScreen extends Component {
 }
 AgentHomeScreen.navigationOptions = {
     header: null,
-  };
+};
 export default AgentHomeScreen;
 const styles = StyleSheet.create({
     container: {

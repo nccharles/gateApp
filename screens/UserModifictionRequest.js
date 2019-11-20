@@ -18,7 +18,7 @@ import Header from "../components/Header/BackHeader";
 import MainButton from "../components/Buttons/mainButton";
 const { width } = Dimensions.get("window");
 
-class UserRegistrationScreen extends Component {
+class UserModificationScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
@@ -40,10 +40,10 @@ class UserRegistrationScreen extends Component {
         );
     }
 }
-UserRegistrationScreen.navigationOptions = {
+UserModificationScreen.navigationOptions = {
     header: null,
-  };
-export default UserRegistrationScreen;
+};
+export default UserModificationScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,

@@ -30,6 +30,8 @@ import ModalTester from './screens/Welcome';
 import InsuranceInfoScreen from './screens/InsuranceInfoScreen';
 import BankInfoScreen from './screens/BankInfoScreen';
 import Personalinfo from './screens/PersonalInfo';
+import UserInfoClient from './screens/UserInfoClient'
+import EditProfileScreen from './screens/EditProfileScreen';
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 

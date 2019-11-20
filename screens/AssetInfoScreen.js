@@ -56,7 +56,7 @@ class AssetInfoScreen extends Component {
 }
 AssetInfoScreen.navigationOptions = {
     header: null,
-  };
+};
 export default AssetInfoScreen;
 const styles = StyleSheet.create({
     container: {

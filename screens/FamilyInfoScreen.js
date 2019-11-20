@@ -23,7 +23,8 @@ class FamilyInfoScreen extends Component {
 
         return (
             <View style={styles.container}>
-                <Header headerName="profile" />
+                <Header onPress={
+                    () => this.props.navigation.navigate('PersonalInfo')} headerName="profile" />
                 <ScrollView>
                     <Text style={styles.text}>Family Information</Text>
                     <View style={styles.Form}>
@@ -38,7 +39,8 @@ class FamilyInfoScreen extends Component {
                         <Inputs title="Telephone" keyboardtype="numeric" />
                         <Inputs title="Number of Children(if any)" keyboardtype="numeric" />
                         <Inputs title="Dependency (if any)" keyboardtype="numeric" />
-                        <MainButton text="Next" />
+                        <MainButton text="Next" onPress={
+                            () => this.props.navigation.navigate('Occupation')} />
                     </View>
 
                 </ScrollView>
@@ -52,7 +54,7 @@ class FamilyInfoScreen extends Component {
 }
 FamilyInfoScreen.navigationOptions = {
     header: null,
-  };
+};
 export default FamilyInfoScreen;
 const styles = StyleSheet.create({
     container: {

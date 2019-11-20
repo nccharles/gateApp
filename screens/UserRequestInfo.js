@@ -26,7 +26,8 @@ class UserRequestInfo extends Component {
                 <ScrollView>
                     <View style={styles.Form}>
                         <Inputs title="Enter User Code" keyboardtype="numeric" />
-                        <MainButton text="Next" />
+                        <MainButton text="Next" onPress={
+                            () => this.props.navigation.navigate('FormOne')} />
                     </View>
 
                 </ScrollView>
@@ -41,7 +42,7 @@ class UserRequestInfo extends Component {
 }
 UserRequestInfo.navigationOptions = {
     header: null,
-  };
+};
 export default UserRequestInfo;
 const styles = StyleSheet.create({
     container: {

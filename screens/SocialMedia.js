@@ -12,33 +12,33 @@ export default function SocialMedia() {
       <Text style={styles.Text}>Social Media</Text>
       <View style={styles.Form}>
         <View style={styles.iconalign}>
-            <Icon name="logo-twitter" size={40} color='#707070' style={styles.iconback} />
-            <Text style={styles.iconlabel}>Twitter</Text>
-            <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
+          <Icon name="logo-twitter" size={40} color='#707070' style={styles.iconback} />
+          <Text style={styles.iconlabel}>Twitter</Text>
+          <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
 
         </View>
         <View style={styles.iconalign}>
-            <Icon name="logo-whatsapp" size={40} color='#707070' style={styles.iconback} />
-            <Text style={styles.iconlabel}>Whatsapp</Text>
-            <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
+          <Icon name="logo-whatsapp" size={40} color='#707070' style={styles.iconback} />
+          <Text style={styles.iconlabel}>Whatsapp</Text>
+          <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
         </View>
         <View style={styles.iconalign}>
-            <Icon name="logo-instagram" size={40} color='#707070' style={styles.iconback} />
-            <Text style={styles.iconlabel}>Instagram</Text>
-            <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
+          <Icon name="logo-instagram" size={40} color='#707070' style={styles.iconback} />
+          <Text style={styles.iconlabel}>Instagram</Text>
+          <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
         </View>
         <View style={styles.iconalign}>
-            <Icon name="logo-linkedin" size={40} color='#707070' style={styles.iconback} />
-            <Text style={styles.iconlabel}>Linkedin</Text>
-            <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
+          <Icon name="logo-linkedin" size={40} color='#707070' style={styles.iconback} />
+          <Text style={styles.iconlabel}>Linkedin</Text>
+          <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
         </View>
         <View style={styles.iconalign}>
-            <Icon name="logo-facebook" size={40} color='#707070' style={styles.iconback} />
-            <Text style={styles.iconlabel}>Facebook</Text>
-            <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
+          <Icon name="logo-facebook" size={40} color='#707070' style={styles.iconback} />
+          <Text style={styles.iconlabel}>Facebook</Text>
+          <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
         </View>
       </View>
-      <Button text="Next" />
+      <Button text="Next" onPress={() => this.props.navigation.navigate('Document')} />
     </ScrollView>
   );
 }
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   Text: {
     fontSize: 16,
-    textAlign:'center',
+    textAlign: 'center',
     paddingTop: 44,
     justifyContent: 'center',
     alignItems: 'center'
@@ -62,17 +62,17 @@ const styles = StyleSheet.create({
     marginTop: 40
   },
   iconalign: {
-      flexDirection: 'row',
-      paddingLeft: 80,
+    flexDirection: 'row',
+    paddingLeft: 80,
   },
-  iconlabel:{
-      margin: 20
+  iconlabel: {
+    margin: 20
   },
   add: {
-      backgroundColor: 'green',
-      height: 40,
-      borderRadius: 20,
-      color: 'white',
-      paddingEnd: 6
+    backgroundColor: 'green',
+    height: 40,
+    borderRadius: 20,
+    color: 'white',
+    paddingEnd: 6
   }
 });
