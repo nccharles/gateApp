@@ -5,7 +5,9 @@ import MainTabNavigator from './MainTabNavigator';
 import SignUpScreen from '../screens/SignUpScreen';
 import LoginScreen from '../screens/Login';
 import Welcome from '../screens/Welcome';
-import ClientFormScreen from '../screens/ClientFormScreen';
+import ClientHomeScreen from '../screens/ClientHomeScreen';
+import AgentHomeScreen from '../screens/AgentHomeScreen';
+import UserHomeScreen from '../screens/UserHomeScreen';
 import ClientFormtwoScreen from '../screens/ClientFormtwoScreen';
 import ClientFormthreeScreen from '../screens/ClientFromthreeScreen';
 import Personalinfo from '../screens/PersonalInfo';
@@ -24,16 +26,23 @@ import FixedAssetInfo from '../screens/FixedAssetInfo';
 import CurrentAssetInfo from '../screens/CurrentAssetInfo';
 import SocialMedia from '../screens/SocialMedia';
 import DocumentsScreen from '../screens/DocumentsScreen';
-import AgentHomeScreen from '../screens/AgentHomeScreen';
 import UserRegistrationScreen from '../screens/UserRegistrationScreen';
 import UserRequestInfo from '../screens/UserRequestInfo';
 import UserModificationScreen from '../screens/UserModifictionRequest';
 import ClientProfileScreen from '../screens/ClientProfileScreen';
-import ClientHomeScreen from '../screens/ClientHomeScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
 
 const createAccount = createStackNavigator({
   Signup: SignUpScreen,
+   Login: LoginScreen,
+   Welcome: Welcome,
+   ClientHome: ClientHomeScreen,
+   AgentHome: AgentHomeScreen,
+   UserHome: UserHomeScreen,
+  })
+ const MainScreen= createSwitchNavigator({
+    Main: MainTabNavigator,
+  })
   Login: LoginScreen,
   Welcome: Welcome,
   // FormOne: ClientFormScreen
