@@ -87,12 +87,11 @@ class SignUpScreen extends Component {
           </View>
 
         </View>
-
-        <KeyboardAvoidingView
-          behavior={"padding"}
-          keyboardVerticalOffset={width / 24}
-        />
-
+          <KeyboardAvoidingView
+            behavior={"padding"}
+            keyboardVerticalOffset={width / 24}
+          />
+        </View>
       </ScrollView>
     )
   }
@@ -127,16 +126,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // picker: {
-  //   height: 35,
-  //   width: 260,
-  //   color: '#707070',
-  //   paddingTop: 15,
-  //   borderColor: "#d4d4d4",
-  //   borderWidth: 1,
-  //   borderRadius: 5,
-  //   backgroundColor: "#f8f8f8"
-  // },
+  picker: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
   text: {
     fontFamily: 'font-regulary',
     padding: 15,

@@ -30,7 +30,8 @@ class BankInfoScreen extends Component {
         return (
             <View style={styles.container}>
                 <ScrollView>
-                    <Header headerName="profile" />
+                    <Header onPress={
+                        () => this.props.navigation.navigate('InsuranceDetails')} headerName="profile" />
                     <Text style={styles.text}>Bank Information</Text>
                     <Text style={styles.small}>Do you have a bank Account?</Text>
                     <View style={styles.Form}>
@@ -58,7 +59,7 @@ class BankInfoScreen extends Component {
 }
 BankInfoScreen.navigationOptions = {
     header: null,
-  };
+};
 export default BankInfoScreen;
 const styles = StyleSheet.create({
     container: {

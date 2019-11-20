@@ -17,6 +17,7 @@ const HomeStack = createStackNavigator(
   {
     Home: ClientHomeScreen,
   },
+
   config
 );
 

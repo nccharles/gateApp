@@ -23,19 +23,27 @@ class ClientHomeScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header headerName="Client" />
+                <Header onPress={
+                    () => this.props.navigation.navigate('Cprofile')} headerName="Client" />
                 <ScrollView>
 
                     <Text style={styles.text}>Services</Text>
-                    <Text style={styles.title}> Get User Information</Text>
-                    <View style={styles.description}>
+                    <TouchableOpacity onPress={
+                        () => this.props.navigation.navigate('Request')}>
 
-                        <Icon.Feather name={Platform.os === 'ios' ? 'user-check' : 'user-check'}
-                            size={30} style={styles.icon} />
+                        <Text style={styles.title}>Get user Information
+                        </Text>
 
-                        <Text style={styles.Form}>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+
+                        <View style={styles.description}>
+
+                            <Icon.Feather name={Platform.os === 'ios' ? 'user-check' : 'user-check'}
+                                size={30} style={styles.icon} />
+
+                            <Text style={styles.Form}>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
                 lorem ipsum</Text>
-                    </View>
+                        </View>
+                    </TouchableOpacity>
                     <View style={styles.line}>
 
                     </View>

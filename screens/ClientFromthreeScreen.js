@@ -34,7 +34,7 @@ class ClientFormthreeScreen extends Component {
 
         return (
             <View style={styles.container}>
-                <Header headerName="Info Request" />
+                <Header onPress={() => this.props.navigation.goBack()} headerName="Info Request" />
                 <ScrollView>
                     <Text style={styles.small}>Please Check every option that you need</Text>
                     <Text style={styles.text}>Other</Text>
@@ -56,7 +56,7 @@ class ClientFormthreeScreen extends Component {
 }
 ClientFormthreeScreen.navigationOptions = {
     header: null,
-  };
+};
 export default ClientFormthreeScreen;
 const styles = StyleSheet.create({
     container: {

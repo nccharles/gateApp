@@ -22,13 +22,15 @@ class CurrentAssetInfo extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header headerName="profile" />
+                <Header onPress={
+                    () => this.props.navigation.navigate('Asset')} headerName="profile" />
                 <ScrollView>
                     <Text style={styles.text}>Current Asset Information</Text>
                     <View style={styles.Form}>
                         <Inputs title="Asset Name" />
                         <Inputs title="Registration Number" />
-                        <MainButton text="next" />
+                        <MainButton text="next" onPress={
+                            () => this.props.navigation.navigate('Social')} />
                     </View>
 
                 </ScrollView>
@@ -42,7 +44,7 @@ class CurrentAssetInfo extends Component {
 }
 CurrentAssetInfo.navigationOptions = {
     header: null,
-  };
+};
 export default CurrentAssetInfo;
 const styles = StyleSheet.create({
     container: {

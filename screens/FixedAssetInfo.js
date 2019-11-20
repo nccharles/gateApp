@@ -23,7 +23,8 @@ class FixedAssetInfo extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header headerName="profile" />
+                <Header headerName="profile" onPress={
+                    () => this.props.navigation.navigate('Asset')} />
                 <ScrollView>
                     <Text style={styles.text}>Fixed Asset Information</Text>
                     <View style={styles.Form}>
@@ -39,7 +40,8 @@ class FixedAssetInfo extends Component {
                         <Inputs title="Province" />
                         <Inputs title="District" />
                         <Inputs title="Sector" />
-                        <MainButton text="Next" />
+                        <MainButton text="Next" onPress={
+                            () => this.props.navigation.navigate('Social')} />
                     </View>
 
                 </ScrollView>
@@ -53,7 +55,7 @@ class FixedAssetInfo extends Component {
 }
 FixedAssetInfo.navigationOptions = {
     header: null,
-  };
+};
 export default FixedAssetInfo;
 const styles = StyleSheet.create({
     container: {

@@ -22,12 +22,14 @@ class BankInfoDetails extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header headerName="profile" />
+                <Header onPress={
+                    () => this.props.navigation.navigate('BankInfo')} headerName="profile" />
                 <ScrollView>
                     <Text style={styles.text}>Bank Information</Text>
                     <View style={styles.Form}>
                         <Inputs title="Bank" />
-                        <MainButton text="Next" />
+                        <MainButton text="Next" onPress={
+                            () => this.props.navigation.navigate('Asset')} />
                     </View>
 
                 </ScrollView>
@@ -41,7 +43,7 @@ class BankInfoDetails extends Component {
 }
 BankInfoDetails.navigationOptions = {
     header: null,
-  };
+};
 export default BankInfoDetails;
 const styles = StyleSheet.create({
     container: {

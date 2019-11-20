@@ -27,7 +27,8 @@ class ClientFormScreen extends Component {
 
         return (
             <View style={styles.container}>
-                <Header headerName="Info Request" />
+                <Header onPress={
+                    () => this.props.navigation.navigate('TabScreen')} headerName="Info Request" />
                 <ScrollView>
                     <Text style={styles.small}>Please Check every option that you need</Text>
                     <Text style={styles.text}>Personal Information</Text>
@@ -61,7 +62,7 @@ class ClientFormScreen extends Component {
                         <MainCheckBox title="Email Address(Work)" />
                         <MainCheckBox title="Primary Number" />
                         <MainCheckBox title="Second Number" />
-                        <MainButton text="Next" />
+                        <MainButton text="Next" onPress={() => this.props.navigation.navigate('FormTwo')} />
                     </View>
 
                 </ScrollView>
@@ -73,7 +74,7 @@ class ClientFormScreen extends Component {
 }
 ClientFormScreen.navigationOptions = {
     header: null,
-  };
+};
 export default ClientFormScreen;
 const styles = StyleSheet.create({
     container: {

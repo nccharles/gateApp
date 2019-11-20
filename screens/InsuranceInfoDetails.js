@@ -26,7 +26,8 @@ class InsuranceInfoDetails extends Component {
 
         return (
             <View style={styles.container}>
-                <Header headerName="profile" />
+                <Header onPress={
+                    () => this.props.navigation.navigate('InsuranceInfo')} headerName="profile" />
                 <ScrollView>
                     <Text style={styles.text}>Insurance</Text>
                     <View style={styles.Form}>
@@ -47,7 +48,8 @@ class InsuranceInfoDetails extends Component {
                         <MainCheckBox title="Rental reimbursement Insurance" />
                         <MainCheckBox title="Classic Car Insurance" />
                         <TransInput title="Other:" />
-                        <MainButton text="Next" />
+                        <MainButton text="Next" onPress={
+                            () => this.props.navigation.navigate('BankInfo')} />
                         <MainButton text="Add" />
 
                     </View>
@@ -63,7 +65,7 @@ class InsuranceInfoDetails extends Component {
 }
 InsuranceInfoDetails.navigationOptions = {
     header: null,
-  };
+};
 export default InsuranceInfoDetails;
 const styles = StyleSheet.create({
     container: {

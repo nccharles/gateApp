@@ -38,13 +38,16 @@ class UserHomeScreen extends Component {
                     <View style={styles.line}>
 
                     </View>
-                    <Text style={styles.title}>profile Modification</Text>
-                    <View style={styles.description}>
-                        <Icon.Entypo name={Platform.os === 'ios' ? 'popup' : 'popup'}
-                            size={30} style={styles.icon} />
-                        <Text style={styles.Form}>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                    <TouchableOpacity onPress={
+                        () => this.props.navigation.navigate('Edit')}>
+                        <Text style={styles.title}>profile Modification</Text>
+                        <View style={styles.description}>
+                            <Icon.Entypo name={Platform.os === 'ios' ? 'popup' : 'popup'}
+                                size={30} style={styles.icon} />
+                            <Text style={styles.Form}>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
                 lorem ipsum</Text>
-                    </View>
+                        </View>
+                    </TouchableOpacity>
 
                 </ScrollView>
                 <KeyboardAvoidingView
@@ -57,7 +60,7 @@ class UserHomeScreen extends Component {
 }
 UserHomeScreen.navigationOptions = {
     header: null,
-  };
+};
 export default UserHomeScreen;
 const styles = StyleSheet.create({
     container: {
