@@ -25,8 +25,28 @@ class SignUpScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: ""
+      userType: ""
     };
+  }
+
+  SignUp=()=>{
+    var signup = this.state.userType;
+    if(signup=="user"){
+      console.log(signup);
+      this.props.navigation.navigate('UserHome');
+    }
+    else if(signup=="client"){
+      console.log(signup);
+      this.props.navigation.navigate('ClientHome');
+    }
+    else if(signup=="Agent"){
+      console.log(signup);
+      this.props.navigation.navigate('AgentHome');
+    }
+    else{
+      alert("Please select account type");
+    }
+    
   }
 
   render() {
@@ -48,14 +68,14 @@ class SignUpScreen extends Component {
             <Inputs title="Telephone" keyboardtype="numeric" />
             <Picker
               style={styles.picker}
-              selectedValue={this.state.language}
-              onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+              selectedValue={this.state.userType}
+              onValueChange={(itemValue, itemIndex) => this.setState({ userType: itemValue })}>
               <Picker.Item label="Select" value="Select" />
               <Picker.Item label="user" value="user" />
               <Picker.Item label="client" value="client" />
               <Picker.Item label="Agent" value="Agent" />
             </Picker>
-            <MainButton text="Sign Up" onPress={() => this.props.navigation.navigate('Welcome')} />
+            <MainButton text="Sign Up" onPress={()=>this.SignUp()}/>
             <TouchableOpacity onPress={
               () => this.props.navigation.navigate('Login')}>
 

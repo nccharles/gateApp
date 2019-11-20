@@ -5,11 +5,17 @@ import MainTabNavigator from './MainTabNavigator';
 import SignUpScreen from '../screens/SignUpScreen';
 import LoginScreen from '../screens/Login';
 import Welcome from '../screens/Welcome';
+import ClientHomeScreen from '../screens/ClientHomeScreen';
+import AgentHomeScreen from '../screens/AgentHomeScreen';
+import UserHomeScreen from '../screens/UserHomeScreen';
 
  const createAccount= createStackNavigator({
   Signup: SignUpScreen,
    Login: LoginScreen,
-   Welcome:Welcome,
+   Welcome: Welcome,
+   ClientHome: ClientHomeScreen,
+   AgentHome: AgentHomeScreen,
+   UserHome: UserHomeScreen,
   })
  const MainScreen= createSwitchNavigator({
     Main: MainTabNavigator,
