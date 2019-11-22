@@ -31,6 +31,7 @@ import UserRequestInfo from '../screens/UserRequestInfo';
 import UserModificationScreen from '../screens/UserModifictionRequest';
 import ClientProfileScreen from '../screens/ClientProfileScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
+import ClientFormScreen from '../screens/ClientFormScreen';
 
 const createAccount = createStackNavigator({
   Signup: SignUpScreen,
@@ -43,14 +44,7 @@ const createAccount = createStackNavigator({
  const MainScreen= createSwitchNavigator({
     Main: MainTabNavigator,
   })
-  Login: LoginScreen,
-  Welcome: Welcome,
-  // FormOne: ClientFormScreen
-})
 
-const MainScreen = createSwitchNavigator({
-  Main: MainTabNavigator,
-})
 const clientScreen = createStackNavigator({
   FormOne: ClientFormScreen,
   FormTwo: ClientFormtwoScreen,

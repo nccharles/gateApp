@@ -15,7 +15,6 @@ import {
 } from "react-native";
 import Inputs from "../components/Input";
 import Header from "../components/Header/BackHeader";
-import MainButton from "../components/MainButton";
 const { width } = Dimensions.get("window");
 
 class AssetInfoScreen extends Component {
@@ -42,7 +41,7 @@ class AssetInfoScreen extends Component {
                             <Picker.Item label="Current" value="Current" />
 
                         </Picker>
-                        <MainButton text="Next" />
+                        
                     </View>
 
                 </ScrollView>
