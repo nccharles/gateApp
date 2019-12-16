@@ -27,7 +27,8 @@ class EditProfileScreen extends Component {
 
         return (
             <View style={styles.container}>
-                <Header headerName="profile" />
+                <Header onPress={
+                    () => this.props.navigation.navigate('UserHome')} headerName="profile" />
 
                 <ScrollView>
                     <View style={styles.imageContainer}>
@@ -39,7 +40,6 @@ class EditProfileScreen extends Component {
                     </View>
                     <View style={styles.Form}>
                         <TransInput title="Date of Birth" text="12/09/2323" />
-
                         <TransInput title="Place Of Birth " text="12/09/2323" />
                         <TransInput title="Sex" />
                         <TransInput title="Nationality" />

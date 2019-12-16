@@ -46,7 +46,7 @@ class ClientFormthreeScreen extends Component {
                         <MainCheckBox title="Assets Information" />
                         <MainCheckBox title="Social Media Profiles" />
                         <MainCheckBox title="Spouse Middle Name" />
-                        <MainButton text="Send Request" />
+                        <MainButton text="Send" />
                         {/* <Datepicker title="place" /> */}
                     </View>
                 </ScrollView>

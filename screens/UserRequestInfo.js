@@ -22,7 +22,8 @@ class UserRequestInfo extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header headerName="Info Request" />
+                <Header onPress={
+                    () => this.props.navigation.navigate('TabScreen')} headerName="Info Request" />
                 <ScrollView>
                     <View style={styles.Form}>
                         <Inputs title="Enter User Code" keyboardtype="numeric" />

@@ -32,24 +32,29 @@ import UserModificationScreen from '../screens/UserModifictionRequest';
 import ClientProfileScreen from '../screens/ClientProfileScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
 import ClientFormScreen from '../screens/ClientFormScreen';
+import ClientEditScreen from '../screens/ClientEditScreen';
+import Profile from '../screens/Profile';
+import UserProfileScreen from '../screens/UserProfileScreen';
 
 const createAccount = createStackNavigator({
   Signup: SignUpScreen,
-   Login: LoginScreen,
-   Welcome: Welcome,
-   ClientHome: ClientHomeScreen,
-   AgentHome: AgentHomeScreen,
-   UserHome: UserHomeScreen,
-  })
- const MainScreen= createSwitchNavigator({
-    Main: MainTabNavigator,
-  })
+  Login: LoginScreen,
+  Welcome: Welcome,
+  ClientHome: ClientHomeScreen,
+  AgentHome: AgentHomeScreen,
+  UserHome: UserHomeScreen,
+})
+const MainScreen = createSwitchNavigator({
+  Main: MainTabNavigator,
+})
 
 const clientScreen = createStackNavigator({
   FormOne: ClientFormScreen,
   FormTwo: ClientFormtwoScreen,
   FormThree: ClientFormthreeScreen,
   Cprofile: ClientProfileScreen,
+  ClientEdit: ClientEditScreen,
+  Profile: Profile
 })
 const usersScreen = createStackNavigator({
   PersonalInfo: Personalinfo,
@@ -73,6 +78,9 @@ const usersScreen = createStackNavigator({
   Modification: UserModificationScreen,
   Request: UserRequestInfo,
   Edit: EditProfileScreen,
+  UserProfile: UserProfileScreen,
+
+
 })
 const SwitchNavigator = createSwitchNavigator(
   {
