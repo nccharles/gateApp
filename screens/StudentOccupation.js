@@ -1,9 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView } from "react-native";
+import { Dimensions, StyleSheet, Text, View, ScrollView, KeyboardAvoidingView } from "react-native";
 
 import Header from "../components/Header/BackHeader";
 import Inputs from "../components/Input";
 import Button from "../components/Buttons/mainButton";
+const { width } = Dimensions.get("window");
 
 export default function StudentOccupation() {
   return (
@@ -23,9 +24,9 @@ export default function StudentOccupation() {
         <Button text="Next" />
       </View>
       <KeyboardAvoidingView
-          behavior={"padding"}
-          keyboardVerticalOffset={width / 24}
-        />
+        behavior={"padding"}
+        keyboardVerticalOffset={width / 24}
+      />
     </ScrollView>
   );
 }

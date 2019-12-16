@@ -18,18 +18,17 @@ import Header from '../components/Header/BackHeader';
 import MainButton from "../components/Buttons/mainButton";
 import Colors from '../constants/Colors';
 import Datepicker from '../components/DatePickers/datePicker';
-import { TransInput } from '../components/TextInputs/nonEditInput';
-import NobackHeader from '../components/Header/NoBackHeader';
-import Label from '../components/TextInputs/labels';
+import { TransInput } from '../components/TextInputs/EditInput';
+import NobackHeader from '../components/Header/BackHeader';
 const { width } = Dimensions.get("window");
 
-class ClientProfileScreen extends Component {
+class ClientEditScreen extends Component {
     render() {
 
         return (
             <View style={styles.container}>
-                <Header onPress={
-                    () => this.props.navigation.navigate('Profile')} headerName="profile" />
+                <NobackHeader headerName="profile" onPress={
+                    () => this.props.navigation.navigate('Cprofile')} />
                 <ScrollView>
                     <View style={styles.imageContainer}>
                         <Image style={styles.profile} source={require('../assets/images/icon.png')} />
@@ -39,23 +38,21 @@ class ClientProfileScreen extends Component {
                     <View style={styles.line}>
 
                     </View>
-                    <TouchableOpacity style={styles.Form} onPress={
-                        () => this.props.navigation.navigate('ClientEdit')}>
-                        <Label title="Name" text="Divine" />
-                        <Label title="Country" />
-                        <Label title="Province" />
-                        <Label title="District" />
-                        <Label title="Sector" />
-                    </TouchableOpacity>
+                    <View style={styles.Form}>
+                        <TransInput title="Name" />
+                        <TransInput title="Country" />
+                        <TransInput title="Province" />
+                        <TransInput title="District" />
+                        <TransInput title="Sector" />
+                    </View>
                     <Text style={styles.title}>Address Information</Text>
                     <View style={styles.line}>
 
                     </View>
-                    <View style={styles.Form} onPress={
-                        () => this.props.navigation.navigate('ClientEdit')}>
-                        <Label title="Email Address" />
-                        <Label title="Primary number" />
-                        <Label title="Secondary number" />
+                    <View style={styles.Form}>
+                        <TransInput title="Email Address" />
+                        <TransInput title="Primary number" />
+                        <TransInput title="Secondary number" />
                     </View>
 
                 </ScrollView>
@@ -67,10 +64,10 @@ class ClientProfileScreen extends Component {
         )
     }
 }
-ClientProfileScreen.navigationOptions = {
+ClientEditScreen.navigationOptions = {
     header: null,
 };
-export default ClientProfileScreen;
+export default ClientEditScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
