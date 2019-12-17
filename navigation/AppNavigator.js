@@ -32,6 +32,7 @@ import UserModificationScreen from '../screens/UserModifictionRequest';
 import ClientProfileScreen from '../screens/ClientProfileScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
 import ClientFormScreen from '../screens/ClientFormScreen';
+import UserProfileScreen from '../screens/UserProfileScreen';
 
 const createAccount = createStackNavigator({
   Signup: SignUpScreen,
@@ -73,6 +74,7 @@ const usersScreen = createStackNavigator({
   Modification: UserModificationScreen,
   Request: UserRequestInfo,
   Edit: EditProfileScreen,
+  UserProfile: UserProfileScreen,
 })
 const SwitchNavigator = createSwitchNavigator(
   {

@@ -19,7 +19,6 @@ import UserProfileScreen from './screens/UserProfileScreen';
 
 import SignUpScreen from './screens/SignUpScreen';
 import Login from './screens/Login';
-import Occupation from './screens/Occupation';
 import StudentOccupation from './screens/StudentOccupation';
 import EmployeeOccupation from './screens/EmployeeOccupation';
 import SelfEmployedOccupation from './screens/SelfEmployedOccupation';
@@ -32,6 +31,7 @@ import BankInfoScreen from './screens/BankInfoScreen';
 import Personalinfo from './screens/PersonalInfo';
 import UserInfoClient from './screens/UserInfoClient'
 import EditProfileScreen from './screens/EditProfileScreen';
+import Occupation from './screens/Occupation';
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 

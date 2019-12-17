@@ -42,6 +42,7 @@ class InsuranceInfoScreen extends Component {
                             <Picker.Item label="UAP" value="UAP" />
                             <Picker.Item label="Other" value="other" />
                         </Picker>
+                        <MainButton text="Next" />
                     </View>
 
                 </ScrollView>
