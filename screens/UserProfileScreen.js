@@ -26,7 +26,8 @@ class UserProfileScreen extends Component {
 
         return (
             <View style={styles.container}>
-                <Header headerName="profile" />
+                <Header onPress={
+                    () => this.props.navigation.navigate('UserHome')} headerName="profile" />
 
                 <ScrollView>
                     <View style={styles.imageContainer}>
@@ -36,7 +37,7 @@ class UserProfileScreen extends Component {
                     <View style={styles.line}>
 
                     </View>
-                    <View style={styles.Form}>
+                    <View style={styles.Form} >
                         <Label title="Date of Birth" text="12/09/2323" />
 
                         <Label title="Place Of Birth " text="12/09/2323" />
@@ -61,7 +62,8 @@ class UserProfileScreen extends Component {
                     <View style={styles.line}>
 
                     </View>
-                    <View style={styles.Form}>
+                    <View style={styles.Form} onPress={
+                        () => this.props.navigation.navigate('Edit')}>
                         <Label title="Email Address(Personal)" />
                         <Label title="Email Address (Work)" />
                         <Label title="Primary Number" />
@@ -71,7 +73,8 @@ class UserProfileScreen extends Component {
                     <View style={styles.line}>
 
                     </View>
-                    <View style={styles.Form}>
+                    <View style={styles.Form} onPress={
+                        () => this.props.navigation.navigate('Edit')}>
                         <Label title="Father's Firstname" />
                         <Label title="Father's Lastname" />
                         <Label title="Mother's Firstname" />
@@ -88,13 +91,15 @@ class UserProfileScreen extends Component {
                     <View style={styles.line}>
 
                     </View>
-                    <View style={styles.Form}>
+                    <View style={styles.Form} onPress={
+                        () => this.props.navigation.navigate('Edit')}>
                         <Label title="Student" />
                         <Label title="University" />
                     </View>
                     <Text style={styles.title}>Address</Text>
 
-                    <View style={styles.Form}>
+                    <View style={styles.Form} onPress={
+                        () => this.props.navigation.navigate('Edit')}>
                         <Label title="Country" />
                         <Label title="Province" />
                         <Label title="Sector" />
@@ -103,7 +108,8 @@ class UserProfileScreen extends Component {
                     <View style={styles.line}>
 
                     </View>
-                    <View style={styles.Form}>
+                    <View style={styles.Form} onPress={
+                        () => this.props.navigation.navigate('Edit')}>
                         <Label title="Insurance type" />
                         <Label title="Holder" />
                         <Label title="Card Number" />
@@ -118,7 +124,8 @@ class UserProfileScreen extends Component {
                     <View style={styles.line}>
 
                     </View>
-                    <View style={styles.Form}>
+                    <View style={styles.Form} onPress={
+                        () => this.props.navigation.navigate('Edit')}>
                         <Label title="Bank name" />
                     </View>
                     <Text style={styles.title}>Bank Information</Text>
@@ -133,7 +140,8 @@ class UserProfileScreen extends Component {
                     <View style={styles.line}>
 
                     </View>
-                    <View style={styles.Form}>
+                    <View style={styles.Form} onPress={
+                        () => this.props.navigation.navigate('Edit')}>
                         <Label title="Twitter" />
                         <Label title="Facebook" />
                         <Label title="Instagram" />

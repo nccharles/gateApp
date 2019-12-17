@@ -23,7 +23,8 @@ class UserHomeScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header headerName="Client" />
+                <Header headerName="Home" onPress={
+                    () => this.props.navigation.navigate('UserProfile')} />
                 <ScrollView>
                     <Text style={styles.text}>Services</Text>
                     <Text style={styles.title}> Get User Information</Text>

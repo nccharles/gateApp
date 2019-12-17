@@ -27,7 +27,7 @@ class AgentHomeScreen extends Component {
                     <Header headerName="Agent" />
                     <Text style={styles.text}>Services</Text>
                     <TouchableOpacity onPress={
-                        () => this.props.navigation.navigate('Registration')}>
+                        () => this.props.navigation.navigate('PersonalInfo')}>
                         <Text style={styles.title}> User Registration</Text>
                         <View style={styles.description}>
 

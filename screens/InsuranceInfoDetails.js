@@ -31,9 +31,9 @@ class InsuranceInfoDetails extends Component {
                 <ScrollView>
                     <Text style={styles.text}>Insurance</Text>
                     <View style={styles.Form}>
-                        <Inputs title="Holder" />
+                        <Inputs title="Insurance Name" />
 
-                        <Inputs title="Card Number" keyboardtype="numeric" />
+                        <Inputs title="Insurance Number" keyboardtype="numeric" />
                         <Inputs title="Telephone" keyboardtype="numeric" />
                         <Inputs title="Date of Issue" />
                         <Inputs title="Expiration Date" />

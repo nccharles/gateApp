@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Button, Text, Image, Alert } from "react-native";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 class Profile extends Component {
   render() {
@@ -19,7 +20,8 @@ class Profile extends Component {
           </View>
         </View>
         <View style={styles.SettingsButtons}>
-          <View style={styles.Button}>
+          <TouchableOpacity style={styles.Button} onPress={
+            () => this.props.navigation.navigate('ClientEdit')}>
             <Icon
               name="account-edit"
               size={36}
@@ -28,7 +30,7 @@ class Profile extends Component {
             />
 
             <Text style={styles.Label}>Edit Profile</Text>
-          </View>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.SettingsButtons}>
@@ -44,7 +46,8 @@ class Profile extends Component {
           </View>
         </View>
 
-        <View style={styles.SettingsButtons}>
+        <TouchableOpacity onPress={
+          () => this.props.navigation.navigate('Login')} style={styles.SettingsButtons}>
           <View style={styles.Button}>
             <Icon
               name="logout"
@@ -55,7 +58,7 @@ class Profile extends Component {
 
             <Text style={styles.Label}>Logout</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     );
   }
