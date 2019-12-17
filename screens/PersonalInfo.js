@@ -4,6 +4,7 @@ import Inputs from "../components/Input";
 import MainButton from "../components/Buttons/mainButton";
 import BackHeader from "../components/Header/BackHeader";
 import Colors from "../constants/Colors";
+import { UploadIcon } from "../components/UploadButton";
 const { width } = Dimensions.get("window");
 
 export default class Personalinfo extends Component {

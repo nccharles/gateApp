@@ -15,15 +15,28 @@ import {
 } from "react-native";
 import Inputs from "../components/Input";
 import Header from "../components/Header/BackHeader";
+import MainButton from "../components/Buttons/mainButton";
+
 const { width } = Dimensions.get("window");
 
 class AssetInfoScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            language: ""
+            assetType: ""
         };
     }
+
+    AssetType = () => {
+        var variable = this.state.assetType;
+        if (variable == "Fixed") {
+          this.props.navigation.navigate("Fixed");
+        } else if (variable == "Current") {
+          this.props.navigation.navigate("Current");
+        } else {
+          alert("Please select account type");
+        }
+      };
     render() {
         return (
             <View style={styles.container}>
@@ -33,15 +46,14 @@ class AssetInfoScreen extends Component {
                     <View style={styles.Form}>
                         <Picker
 
-                            selectedValue={this.state.language}
+                            selectedValue={this.state.assetType}
                             style={styles.picker}
-                            onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+                            onValueChange={(itemValue, itemIndex) => this.setState({ assetType: itemValue })}>
                             <Picker.Item label="Select" value="Select" />
                             <Picker.Item label="Fixed" value="Fixed" />
                             <Picker.Item label="Current" value="Current" />
-
+                            <MainButton text="Next" onPress={() => this.AssetType()}/>
                         </Picker>
-                        
                     </View>
 
                 </ScrollView>

@@ -23,9 +23,21 @@ class BankInfoScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            language: ""
+            bank: ""
         };
     }
+
+    Bank = () => {
+        var variable = this.state.bank;
+        if (variable == "Yes") {
+          this.props.navigation.navigate("BankDetails");
+        } else if (variable == "No") {
+          this.props.navigation.navigate("Asset");
+        } else {
+          alert("Please select Yes Or No");
+        }
+      };
+
     render() {
         return (
             <View style={styles.container}>
@@ -37,15 +49,15 @@ class BankInfoScreen extends Component {
                     <View style={styles.Form}>
                         <Picker
 
-                            selectedValue={this.state.language}
+                            selectedValue={this.state.bank}
                             style={styles.picker}
-                            onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
+                            onValueChange={(itemValue, itemIndex) => this.setState({ bank: itemValue })}>
                             <Picker.Item label="Select" value="Select" />
                             <Picker.Item label="Yes" value="Yes" />
                             <Picker.Item label="No" value="No" />
 
                         </Picker>
-                        <MainButton text="Next" />
+                        <MainButton text="Next" onPress={() => this.Bank()}/>
                     </View>
 
                 </ScrollView>

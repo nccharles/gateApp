@@ -32,7 +32,6 @@ import UserModificationScreen from '../screens/UserModifictionRequest';
 import ClientProfileScreen from '../screens/ClientProfileScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
 import ClientFormScreen from '../screens/ClientFormScreen';
-import ClientEditScreen from '../screens/ClientEditScreen';
 import Profile from '../screens/Profile';
 import UserProfileScreen from '../screens/UserProfileScreen';
 
@@ -79,8 +78,6 @@ const usersScreen = createStackNavigator({
   Request: UserRequestInfo,
   Edit: EditProfileScreen,
   UserProfile: UserProfileScreen,
-
-
 })
 const SwitchNavigator = createSwitchNavigator(
   {
