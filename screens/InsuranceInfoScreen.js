@@ -56,7 +56,7 @@ class InsuranceInfoScreen extends Component {
 }
 InsuranceInfoScreen.navigationOptions = {
     header: null,
-  };
+};
 export default InsuranceInfoScreen;
 const styles = StyleSheet.create({
     container: {

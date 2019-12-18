@@ -5,15 +5,17 @@ import MainButton from "../components/Buttons/mainButton";
 import BackHeader from "../components/Header/BackHeader";
 import Colors from "../constants/Colors";
 import { UploadIcon } from "../components/UploadButton";
+import Datepicker from '../components/DatePickers/datePicker';
 const { width } = Dimensions.get("window");
 
 export default class Personalinfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: ""
+      language: "", date: ''
     };
   }
+
   render() {
     return (
       <View style={styles.container}>
@@ -24,7 +26,8 @@ export default class Personalinfo extends Component {
           <View style={styles.Form}>
             <Inputs title="First Name" />
             <Inputs title="Second Name" />
-            <Inputs title="Date" />
+            <Datepicker title="Date of Issue" date={this.state.date}
+              onDateChange={(date) => { this.setState({ date: date }) }} />
             <Inputs title="Place of Birth" />
             <View style={styles.gendertext}>
               <Text style={styles.gender}>Sex</Text>

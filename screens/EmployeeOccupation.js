@@ -22,7 +22,7 @@ export default function EmployeeOccupation() {
         <Inputs title="District" />
         <Inputs title="Street" />
         <Button text="Next" onPress={
-          () => this.props.navigation.navigate('InsuranceInfo')} />
+          () => this.props.navigation.navigate('InsuranceDetails')} />
       </View>
       <KeyboardAvoidingView
         behavior={"padding"}

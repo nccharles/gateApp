@@ -39,7 +39,7 @@ class EditProfileScreen extends Component {
 
                     </View>
                     <View style={styles.Form}>
-                        <TransInput title="Date of Birth" text="12/09/2323" />
+                        {/* <TransInput title="Date of Birth" text="12/09/2323" /> */}
                         <TransInput title="Place Of Birth " text="12/09/2323" />
                         <TransInput title="Sex" />
                         <TransInput title="Nationality" />

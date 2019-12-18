@@ -34,6 +34,7 @@ import EditProfileScreen from '../screens/EditProfileScreen';
 import ClientFormScreen from '../screens/ClientFormScreen';
 import Profile from '../screens/Profile';
 import UserProfileScreen from '../screens/UserProfileScreen';
+import ClientEditScreen from '../screens/ClientEditScreen';
 
 const createAccount = createStackNavigator({
   Signup: SignUpScreen,

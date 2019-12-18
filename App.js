@@ -32,6 +32,7 @@ import Personalinfo from './screens/PersonalInfo';
 import UserInfoClient from './screens/UserInfoClient'
 import EditProfileScreen from './screens/EditProfileScreen';
 import Occupation from './screens/Occupation';
+import ClientEditScreen from './screens/ClientEditScreen';
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
@@ -47,7 +48,7 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         <GeneralStatusBarColor backgroundColor={Colors.primary} barStyle="light-content" />
-        <InsuranceInfoDetails />
+        <Personalinfo />
       </View>
     );
   }
