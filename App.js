@@ -51,7 +51,7 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         <GeneralStatusBarColor backgroundColor={Colors.primary} barStyle="light-content" />
-        <FamilyInfoScreen />
+        <AppNavigator />
       </View>
     );
   }
