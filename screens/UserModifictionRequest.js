@@ -19,23 +19,34 @@ import MainButton from "../components/Buttons/mainButton";
 const { width } = Dimensions.get("window");
 
 class UserModificationScreen extends Component {
+
     render() {
+
         return (
+
             <View style={styles.container}>
+
                 <Header headerName="Request" />
+
                 <ScrollView>
+
                     <Text style={styles.text}></Text>
+
                     <View style={styles.Form}>
+
                         <Inputs title="Enter Code" />
                         <Inputs title="User's National ID/Passport" />
                         <MainButton text="Continue" />
+
                     </View>
 
                 </ScrollView>
+
                 <KeyboardAvoidingView
                     behavior={"padding"}
                     keyboardVerticalOffset={width / 24}
                 />
+
             </View>
         );
     }
@@ -48,11 +59,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+
     Form: {
         fontFamily: 'font-regulary',
         justifyContent: "center",
         alignItems: "center"
     },
+
     text: {
         fontFamily: 'font-regulary',
         textAlign: "center",

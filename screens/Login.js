@@ -16,36 +16,46 @@ import Inputs from "../components/Input";
 const { width } = Dimensions.get("window");
 
 export default class LoginScreen extends Component {
+
   render() {
+
     return (
+
       <View style={styles.container}>
+
         <View style={styles.logoContainer}>
-          <Image
-            source={require("../assets/images/icon.png")}
-            style={styles.logo}
-          />
+
+          <Image source={require("../assets/images/icon.png")} style={styles.logo} />
+
         </View>
+
         <Text style={styles.logoText}>Login</Text>
+
         <View style={styles.inputContainer}>
+
           <Inputs title="Phone Number" />
+
         </View>
 
         <View style={styles.inputContainer}>
+
           <Inputs title="Verification Code" />
+
         </View>
 
-        <MainButton
-          text="login"
-          onPress={() => this.props.navigation.navigate("TabScreen")}
-        />
+        <MainButton text="login" onPress={() => this.props.navigation.navigate("TabScreen")} />
 
         <TouchableHighlight onPress={() => this.props.navigation.navigate("Signup")}>
+
           <Text style={styles.highlight}>Don't have an account?</Text>
+
         </TouchableHighlight>
+
         <KeyboardAvoidingView
           behavior={"padding"}
           keyboardVerticalOffset={width / 24}
         />
+
       </View>
     );
   }

@@ -6,28 +6,41 @@ import Inputs from "../components/Input";
 import Button from "../components/Buttons/mainButton";
 
 export default function EmployeeOccupation() {
+
   return (
+
     <ScrollView style={styles.container}>
+
       <Header headerName="Employee Job" />
+
       <Text style={styles.Text}>Employee</Text>
+
       <View style={styles.Form}>
+
         <Inputs title="Occupation" />
         <Inputs title="Company" />
         <Inputs title="Position" />
+
       </View>
+
       <Text style={styles.UnderText}>Address</Text>
+
       <View style={styles.Form}>
+
         <Inputs title="Country" />
         <Inputs title="Province" />
         <Inputs title="District" />
         <Inputs title="Street" />
-        <Button text="Next" onPress={
-          () => this.props.navigation.navigate('InsuranceDetails')} />
+
+        <Button text="Next" onPress={() => this.props.navigation.navigate('InsuranceDetails')} />
+
       </View>
+
       <KeyboardAvoidingView
         behavior={"padding"}
         keyboardVerticalOffset={width / 24}
       />
+
     </ScrollView>
   );
 }
@@ -40,15 +53,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingBottom: 40
   },
+
   Text: {
     fontSize: 16,
     marginLeft: 120,
     paddingTop: 24
   },
+
   Form: {
     justifyContent: "center",
     alignItems: "center"
   },
+
   UnderText: {
     textAlign: 'left',
     fontSize: 16,

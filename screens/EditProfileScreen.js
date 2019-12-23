@@ -23,56 +23,76 @@ import TransInput from '../components/TextInputs/EditInput'
 const { width } = Dimensions.get("window");
 
 class EditProfileScreen extends Component {
+
     render() {
 
         return (
+
             <View style={styles.container}>
-                <Header onPress={
-                    () => this.props.navigation.navigate('UserHome')} headerName="profile" />
+
+                <Header onPress={() => this.props.navigation.navigate('UserHome')} headerName="profile" />
 
                 <ScrollView>
+
                     <View style={styles.imageContainer}>
+
                         <Image style={styles.profile} source={require('../assets/images/icon.png')} />
-                    </View>
-                    <Text style={styles.title}>Personal Information</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Personal Information</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         {/* <TransInput title="Date of Birth" text="12/09/2323" /> */}
                         <TransInput title="Place Of Birth " text="12/09/2323" />
                         <TransInput title="Sex" />
                         <TransInput title="Nationality" />
                         <TransInput title="National ID/Passport" text="Rwandese" />
                         <TransInput title="Marital Status" />
-                    </View>
-                    <Text style={styles.title}>Current Resident</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Current Resident</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <TransInput title="Country" />
                         <TransInput title="Province" />
                         <TransInput title="District" />
                         <TransInput title="Sector" />
                         <TransInput title="Cell" />
                         <TransInput title="Village" />
-                    </View>
-                    <Text style={styles.title}>Current Information</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Current Information</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <TransInput title="Email Address(Personal)" />
                         <TransInput title="Email Address (Work)" />
                         <TransInput title="Primary Number" />
                         <TransInput title="Second Number" />
-                    </View>
-                    <Text style={styles.title}>Family Information</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Family Information</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <TransInput title="Father's Firstname" />
                         <TransInput title="Father's Lastname" />
                         <TransInput title="Mother's Firstname" />
@@ -84,27 +104,37 @@ class EditProfileScreen extends Component {
                         <TransInput title="Spouse Telephone" />
                         <TransInput title="Number of Children" />
                         <TransInput title="Dependency" />
-                    </View>
-                    <Text style={styles.title}>Occupation</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Occupation</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <TransInput title="Student" />
                         <TransInput title="University" />
+
                     </View>
+
                     <Text style={styles.title}>Address</Text>
 
                     <View style={styles.Form}>
+
                         <TransInput title="Country" />
                         <TransInput title="Province" />
                         <TransInput title="Sector" />
-                    </View>
-                    <Text style={styles.title}>Insurance Information</Text>
-                    <View style={styles.line}>
 
                     </View>
+                    <Text style={styles.title}>Insurance Information</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <TransInput title="Insurance type" />
                         <TransInput title="Holder" />
                         <TransInput title="Card Number" />
@@ -115,38 +145,49 @@ class EditProfileScreen extends Component {
                         <TransInput title="Insurance Coverage" />
 
                     </View>
-                    <Text style={styles.title}>Bank Information</Text>
-                    <View style={styles.line}>
 
+                    <Text style={styles.title}>Bank Information</Text>
+
+                    <View style={styles.line}>
                     </View>
+
                     <View style={styles.Form}>
+
                         <TransInput title="Bank name" />
                     </View>
-                    <Text style={styles.title}>Bank Information</Text>
-                    <View style={styles.line}>
 
+                    <Text style={styles.title}>Bank Information</Text>
+
+                    <View style={styles.line}>
                     </View>
+
                     <View style={styles.Form}>
+
                         <TransInput title="Bank Name" />
 
                     </View>
-                    <Text style={styles.title}>Social Media Information</Text>
-                    <View style={styles.line}>
 
+                    <Text style={styles.title}>Social Media Information</Text>
+
+                    <View style={styles.line}>
                     </View>
+
                     <View style={styles.Form}>
+
                         <TransInput title="Twitter" />
                         <TransInput title="Facebook" />
                         <TransInput title="Instagram" />
                         <TransInput title="Pinterest" />
                         <TransInput title="Tik-Tok" />
-
                     </View>
+
                 </ScrollView>
+
                 <KeyboardAvoidingView
                     behavior={"padding"}
                     keyboardVerticalOffset={width / 24}
                 />
+
             </View>
         )
     }
@@ -159,6 +200,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+
     Form: {
         fontFamily: 'font-regulary',
         color: '#707070',
@@ -166,6 +208,7 @@ const styles = StyleSheet.create({
         padding: 10,
         lineHeight: 40,
     },
+
     text: {
         fontFamily: 'font-regulary',
         textAlign: 'center',
@@ -174,12 +217,14 @@ const styles = StyleSheet.create({
         color: Colors.tintColor,
 
     },
+
     profile: {
         width: 180,
         height: 180,
         borderRadius: 90,
 
     },
+
     imageContainer: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -193,6 +238,7 @@ const styles = StyleSheet.create({
         shadowRadius: 2.22,
         elevation: 3,
     },
+
     line: {
         borderBottomWidth: 0.2,
         borderBottomColor: '#707070',
@@ -205,6 +251,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         padding: 10,
     },
+
     down: {
         fontFamily: 'font-bold',
         fontSize: 18,
@@ -213,6 +260,7 @@ const styles = StyleSheet.create({
         color: Colors.primary,
         // marginLeft: 'auto',
     },
+
     downEdit: {
         fontFamily: 'font-bold',
         fontSize: 18,
@@ -221,6 +269,7 @@ const styles = StyleSheet.create({
         color: Colors.primary,
 
     },
+
     inline: {
         flexDirection: 'row',
         marginLeft: 'auto',

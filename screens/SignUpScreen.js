@@ -22,6 +22,7 @@ import Inputs from "../components/Input";
 const { width } = Dimensions.get("window");
 
 class SignUpScreen extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -46,17 +47,22 @@ class SignUpScreen extends Component {
   };
 
   render() {
+
     return (
+
       <ScrollView>
+
         <View style={styles.container}>
+
           <View style={styles.logoContainer}>
-            <Image
-              source={require("../assets/images/icon.png")}
-              style={styles.logo}
-            />
+
+            <Image source={require("../assets/images/icon.png")} style={styles.logo} />
             <Text style={styles.text}>Sign Up</Text>
+
           </View>
+
           <View style={styles.Form}>
+
             <Inputs title="Firstname" />
             <Inputs title="Middle name(Optional)" />
             <Inputs title="Lastname" />
@@ -67,26 +73,29 @@ class SignUpScreen extends Component {
               style={styles.picker}
               selectedValue={this.state.userType}
               onValueChange={(itemValue, itemIndex) =>
-                this.setState({ userType: itemValue })
-              }
-            >
+                this.setState({ userType: itemValue })}>
               <Picker.Item label="Select" value="Select" />
               <Picker.Item label="user" value="user" />
               <Picker.Item label="client" value="client" />
               <Picker.Item label="Agent" value="Agent" />
             </Picker>
+
             <MainButton text="Sign Up" onPress={() => this.SignUp()} />
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("Login")}
-            >
+
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("Login")}>
+
               <Text>Already an Account ? Login</Text>
             </TouchableOpacity>
+
           </View>
+
         </View>
+
         <KeyboardAvoidingView
           behavior={"padding"}
           keyboardVerticalOffset={width / 24}
         />
+
       </ScrollView>
     );
   }
@@ -115,11 +124,13 @@ const styles = StyleSheet.create({
     width: 170,
     height: 120
   },
+
   Form: {
     fontFamily: "font-regulary",
     justifyContent: "center",
     alignItems: "center"
   },
+
   picker: {
     height: 35,
     width: 260,
@@ -130,6 +141,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: "#f8f8f8"
   },
+
   text: {
     fontFamily: "font-regulary",
     padding: 15,

@@ -11,6 +11,7 @@ import {
 import MainButton from "../components/Buttons/mainButton";
 
 export default class Welcome extends Component {
+
   state = {
     modalVisible: true
   };
@@ -21,37 +22,40 @@ export default class Welcome extends Component {
   }
 
   render() {
+
     return (
+
       <View style={styles.container}>
+
         <Modal
           animationType={"slide"}
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {
             console.log("Modal has been closed.");
-          }}
-        >
+          }}>
+
           <View style={styles.modal}>
-            <Image
-              source={require("../assets/images/checked.png")}
-              style={styles.iconback}
-            />
+
+            <Image source={require("../assets/images/checked.png")} style={styles.iconback} />
+
             <View>
+
               <Text style={styles.text}>
                 You have successfully created your account.Welcome!
               </Text>
+
             </View>
-            <MainButton
-              text="Continue"
-              style={styles.touchableButton}
-              onPress={() => {
-                this.toggleModal(!this.state.modalVisible);
-              }}
-            >
+
+            <MainButton text="Continue" style={styles.touchableButton}
+              onPress={() => { this.toggleModal(!this.state.modalVisible); }}>
               <Text style={styles.text}>Close Modal</Text>
             </MainButton>
+
           </View>
+
         </Modal>
+
       </View>
     );
   }
@@ -65,12 +69,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
+
   modal: {
     flex: 1,
     alignItems: "center",
     backgroundColor: "#fff",
     justifyContent: "center"
   },
+
   text: {
     color: "#7A7A7A",
     fontSize: 10,
@@ -78,6 +84,7 @@ const styles = StyleSheet.create({
     marginLeft: 60,
     marginRight: 60
   },
+
   touchableButton: {
     width: "40%",
     padding: 10,
@@ -85,6 +92,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginTop: 30
   },
+
   iconback: {
     width: 90,
     height: 90,

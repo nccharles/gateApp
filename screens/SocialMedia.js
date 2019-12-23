@@ -6,39 +6,60 @@ import Button from '../components/Buttons/mainButton';
 
 
 export default function SocialMedia() {
+
   return (
+
     <ScrollView style={styles.container}>
+
       <Header headerName="Profile" />
+
       <Text style={styles.Text}>Social Media</Text>
+
       <View style={styles.Form}>
+
         <View style={styles.iconalign}>
+
           <Icon name="logo-twitter" size={40} color='#707070' style={styles.iconback} />
           <Text style={styles.iconlabel}>Twitter</Text>
           <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
 
         </View>
+
         <View style={styles.iconalign}>
+
           <Icon name="logo-whatsapp" size={40} color='#707070' style={styles.iconback} />
           <Text style={styles.iconlabel}>Whatsapp</Text>
           <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
+
         </View>
+
         <View style={styles.iconalign}>
+
           <Icon name="logo-instagram" size={40} color='#707070' style={styles.iconback} />
           <Text style={styles.iconlabel}>Instagram</Text>
           <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
+
         </View>
+
         <View style={styles.iconalign}>
+
           <Icon name="logo-linkedin" size={40} color='#707070' style={styles.iconback} />
           <Text style={styles.iconlabel}>Linkedin</Text>
           <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
+
         </View>
+
         <View style={styles.iconalign}>
           <Icon name="logo-facebook" size={40} color='#707070' style={styles.iconback} />
           <Text style={styles.iconlabel}>Facebook</Text>
           <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
+
         </View>
+
       </View>
+
       <Button text="Next" onPress={() => this.props.navigation.navigate('Document')} />
+
     </ScrollView>
   );
 }
@@ -51,6 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingBottom: 40
   },
+
   Text: {
     fontSize: 16,
     textAlign: 'center',
@@ -58,16 +80,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+
   Form: {
     marginTop: 40
   },
+
   iconalign: {
     flexDirection: 'row',
     paddingLeft: 80,
   },
+
   iconlabel: {
     margin: 20
   },
+
   add: {
     backgroundColor: 'green',
     height: 40,
@@ -75,4 +101,5 @@ const styles = StyleSheet.create({
     color: 'white',
     paddingEnd: 6
   }
+
 });

@@ -4,61 +4,63 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 class Profile extends Component {
+
   render() {
+
     return (
+
       <View style={styles.container}>
+
         <View style={styles.Profile}>
           <View>
-            <Image
-              source={require("../assets/images/russelprofile.jpg")}
-              style={styles.img}
-            />
+
+            <Image source={require("../assets/images/russelprofile.jpg")} style={styles.img} />
+
           </View>
+
           <View style={styles.NameEmail}>
+
             <Text style={styles.UserName}>Russel WestBrook</Text>
             <Text style={styles.EmailAddress}>russel89@gmail.com</Text>
+
           </View>
-        </View>
-        <View style={styles.SettingsButtons}>
-          <TouchableOpacity style={styles.Button} onPress={
-            () => this.props.navigation.navigate('ClientEdit')}>
-            <Icon
-              name="account-edit"
-              size={36}
-              color="#707070"
-              style={styles.iconback}
-            />
 
+        </View>
+
+        <View style={styles.SettingsButtons}>
+
+          <TouchableOpacity style={styles.Button} onPress={() => this.props.navigation.navigate('ClientEdit')}>
+
+            <Icon name="account-edit" size={36} color="#707070" style={styles.iconback} />
             <Text style={styles.Label}>Edit Profile</Text>
+
           </TouchableOpacity>
+
         </View>
 
         <View style={styles.SettingsButtons}>
+
           <View style={styles.Button}>
-            <Icon
-              name="help"
-              size={36}
-              color="#707070"
-              style={styles.iconback}
-            />
+
+            <Icon name="help" size={36} color="#707070" style={styles.iconback} />
 
             <Text style={styles.Label}>Help</Text>
+
           </View>
+
         </View>
 
-        <TouchableOpacity onPress={
-          () => this.props.navigation.navigate('Login')} style={styles.SettingsButtons}>
-          <View style={styles.Button}>
-            <Icon
-              name="logout"
-              size={36}
-              color="#707070"
-              style={styles.iconback}
-            />
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} style={styles.SettingsButtons}>
 
+          <View style={styles.Button}>
+
+            <Icon name="logout" size={36} color="#707070" style={styles.iconback} />
             <Text style={styles.Label}>Logout</Text>
+
           </View>
+
         </TouchableOpacity>
+
       </View>
     );
   }
@@ -72,23 +74,28 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginTop: 120
   },
+
   Button: {
     flexDirection: "row"
   },
+
   NameEmail: {
     flexDirection: "column"
   },
+
   img: {
     borderRadius: 40,
     height: 80,
     width: 80
   },
+
   Label: {
     fontSize: 12,
     paddingTop: 10,
     paddingLeft: 10,
     color: '#232323'
   },
+
   UserName: {
     color: "#232323",
     marginTop: 30,
@@ -96,10 +103,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingLeft: 10
   },
+
   EmailAddress: {
     paddingLeft: 10,
     color: "#707070"
   },
+
   SettingsButtons: {
     marginTop: 20,
     marginLeft: 30,

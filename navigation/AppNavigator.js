@@ -17,7 +17,7 @@ import EmployeeOccupation from '../screens/EmployeeOccupation';
 import SelfEmployedOccupation from '../screens/SelfEmployedOccupation';
 import StudentOccupation from '../screens/StudentOccupation';
 import OtherOccupation from '../screens/OtherOccupation';
-import InsuranceInfoScreen from '../screens/InsuranceInfoScreen';
+// import InsuranceInfoScreen from '../screens/InsuranceInfoScreen';
 import InsuranceInfoDetails from '../screens/InsuranceInfoDetails';
 import BankInfoScreen from '../screens/BankInfoScreen';
 import BankInfoDetails from '../screens/BankInfoDetails';
@@ -64,7 +64,7 @@ const usersScreen = createStackNavigator({
   Self: SelfEmployedOccupation,
   Student: StudentOccupation,
   Other: OtherOccupation,
-  InsuranceInfo: InsuranceInfoScreen,
+  // InsuranceInfo: InsuranceInfoScreen,
   InsuranceDetails: InsuranceInfoDetails,
   BankInfo: BankInfoScreen,
   BankDetails: BankInfoDetails,

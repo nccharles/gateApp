@@ -20,6 +20,7 @@ import MainButton from "../components/Buttons/mainButton";
 const { width } = Dimensions.get("window");
 
 class BankInfoScreen extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -30,41 +31,49 @@ class BankInfoScreen extends Component {
     Bank = () => {
         var variable = this.state.bank;
         if (variable == "Yes") {
-          this.props.navigation.navigate("BankDetails");
+            this.props.navigation.navigate("BankDetails");
         } else if (variable == "No") {
-          this.props.navigation.navigate("Asset");
+            this.props.navigation.navigate("Asset");
         } else {
-          alert("Please select Yes Or No");
+            alert("Please select Yes Or No");
         }
-      };
+    };
 
     render() {
+
         return (
+
             <View style={styles.container}>
+
                 <ScrollView>
-                    <Header onPress={
-                        () => this.props.navigation.navigate('InsuranceDetails')} headerName="profile" />
+
+                    <Header onPress={() => this.props.navigation.navigate('InsuranceDetails')} headerName="profile" />
+
                     <Text style={styles.text}>Bank Information</Text>
                     <Text style={styles.small}>Do you have a bank Account?</Text>
-                    <View style={styles.Form}>
-                        <Picker
 
+                    <View style={styles.Form}>
+
+                        <Picker
                             selectedValue={this.state.bank}
                             style={styles.picker}
                             onValueChange={(itemValue, itemIndex) => this.setState({ bank: itemValue })}>
                             <Picker.Item label="Select" value="Select" />
                             <Picker.Item label="Yes" value="Yes" />
                             <Picker.Item label="No" value="No" />
-
                         </Picker>
-                        <MainButton text="Next" onPress={() => this.Bank()}/>
+
+                        <MainButton text="Next" onPress={() => this.Bank()} />
+
                     </View>
 
                 </ScrollView>
+
                 <KeyboardAvoidingView
                     behavior={"padding"}
                     keyboardVerticalOffset={width / 24}
                 />
+
             </View>
         );
     }
@@ -76,19 +85,21 @@ export default BankInfoScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-
     },
+
     Form: {
         fontFamily: 'font-regulary',
         justifyContent: "center",
         alignItems: "center"
     },
+
     text: {
         fontFamily: 'font-regulary',
         textAlign: "center",
         padding: 15,
         fontSize: 20,
     },
+
     small: {
         fontFamily: 'font-regulary',
         textAlign: 'center',
@@ -96,6 +107,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#707070'
     },
+
     picker: {
         height: 35,
         width: 260,
@@ -105,5 +117,5 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         backgroundColor: "#f8f8f8"
-    }
+    },
 });

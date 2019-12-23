@@ -23,12 +23,18 @@ class ClientFormtwoScreen extends Component {
     render() {
 
         return (
+
             <View style={styles.container}>
+
                 <Header onPress={() => this.props.navigation.goBack()} headerName="Info Request" />
+
                 <ScrollView>
+
                     <Text style={styles.small}>Please Check every option that you need</Text>
                     <Text style={styles.text}>Family Information</Text>
+
                     <View style={styles.Form}>
+
                         <MainCheckBox title="Father's Firstname" />
                         <MainCheckBox title="Father's Surname" />
                         <MainCheckBox title="Mother's Firstname" />
@@ -40,9 +46,13 @@ class ClientFormtwoScreen extends Component {
                         <MainCheckBox title="Telephone" />
                         <MainCheckBox title="Number of Children" />
                         <MainCheckBox title="Dependency" />
+
                         <MainButton text="Next" onPress={() => this.props.navigation.navigate('FormThree')} />
+
                     </View>
+
                 </ScrollView>
+
             </View>
         )
     }
@@ -55,17 +65,20 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+
     Form: {
         fontFamily: 'font-regulary',
         padding: 15,
 
     },
+
     text: {
         fontFamily: 'font-regulary',
         textAlign: 'center',
         padding: 15,
         fontSize: 20,
     },
+
     small: {
         fontFamily: 'font-regulary',
         textAlign: 'center',

@@ -23,43 +23,58 @@ import NobackHeader from '../components/Header/BackHeader';
 const { width } = Dimensions.get("window");
 
 class ClientEditScreen extends Component {
+
     render() {
 
         return (
+
             <View style={styles.container}>
-                <NobackHeader headerName="profile" onPress={
-                    () => this.props.navigation.navigate('Cprofile')} />
+
+                <NobackHeader headerName="profile" onPress={() => this.props.navigation.navigate('Cprofile')} />
+
                 <ScrollView>
+
                     <View style={styles.imageContainer}>
+
                         <Image style={styles.profile} source={require('../assets/images/icon.png')} />
                         <Text style={styles.text}>Change Profile Photo</Text>
-                    </View>
-                    <Text style={styles.title}>Current Resident</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Current Resident</Text>
+
+                    <View style={styles.line}>
+                    </View>
                     <View style={styles.Form}>
+
                         <TransInput title="Name" />
                         <TransInput title="Country" />
                         <TransInput title="Province" />
                         <TransInput title="District" />
                         <TransInput title="Sector" />
-                    </View>
-                    <Text style={styles.title}>Address Information</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Address Information</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <TransInput title="Email Address" />
                         <TransInput title="Primary number" />
                         <TransInput title="Secondary number" />
+
                     </View>
 
                 </ScrollView>
+
                 <KeyboardAvoidingView
                     behavior={"padding"}
                     keyboardVerticalOffset={width / 24}
                 />
+
             </View>
         )
     }
@@ -72,6 +87,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+
     Form: {
         fontFamily: 'font-regulary',
         color: '#707070',
@@ -79,6 +95,7 @@ const styles = StyleSheet.create({
         padding: 10,
         lineHeight: 40,
     },
+
     text: {
         fontFamily: 'font-regulary',
         textAlign: 'center',
@@ -87,12 +104,14 @@ const styles = StyleSheet.create({
         color: Colors.tintColor,
 
     },
+
     profile: {
         width: 180,
         height: 180,
         borderRadius: 90,
 
     },
+
     imageContainer: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -106,6 +125,7 @@ const styles = StyleSheet.create({
         shadowRadius: 2.22,
         elevation: 3,
     },
+
     line: {
         borderBottomWidth: 0.2,
         borderBottomColor: '#707070',

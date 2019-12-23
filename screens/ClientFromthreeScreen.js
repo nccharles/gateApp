@@ -21,6 +21,7 @@ import Datepicker from '../components/DatePickers/datePicker';
 const { width } = Dimensions.get("window");
 
 class ClientFormthreeScreen extends Component {
+
     constructor(props) {
         super(props)
         this.state = {
@@ -33,14 +34,19 @@ class ClientFormthreeScreen extends Component {
     render() {
 
         return (
+
             <View style={styles.container}>
+
                 <Header onPress={() => this.props.navigation.goBack()} headerName="Info Request" />
+
                 <ScrollView>
+
                     <Text style={styles.small}>Please Check every option that you need</Text>
                     <Text style={styles.text}>Other</Text>
+
                     <View style={styles.Form}>
-                        <MainCheckBox title="Occupation"
-                        />
+
+                        <MainCheckBox title="Occupation" />
                         <MainCheckBox title="Bank Information" />
                         <MainCheckBox title="Insurance" />
                         <MainCheckBox title="Assets Information" />
@@ -48,8 +54,11 @@ class ClientFormthreeScreen extends Component {
                         <MainCheckBox title="Spouse Middle Name" />
                         <MainButton text="Send" />
                         {/* <Datepicker title="place" /> */}
+
                     </View>
+
                 </ScrollView>
+
             </View>
         )
     }
@@ -62,18 +71,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+
     Form: {
         fontFamily: 'font-regulary',
         // justifyContent: 'center',
         // alignItems: 'center',
         padding: 15,
     },
+
     text: {
         fontFamily: 'font-regulary',
         textAlign: 'center',
         padding: 15,
         fontSize: 20,
     },
+
     small: {
         fontFamily: 'font-regulary',
         textAlign: 'center',

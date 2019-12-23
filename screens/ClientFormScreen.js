@@ -35,7 +35,7 @@ class ClientFormScreen extends Component {
                     <View style={styles.Form}>
                         <MainCheckBox title="First Name" />
                         <MainCheckBox title="Second Name" />
-                        <MainCheckBox title="Date" />
+                        <MainCheckBox title="Date of Birth" />
                         <MainCheckBox title="Place of Birth" />
                         <MainCheckBox title="Sex" />
                         <MainCheckBox title="Nationality" />

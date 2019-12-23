@@ -33,12 +33,17 @@ class InsuranceInfoDetails extends Component {
     render() {
 
         return (
+
             <View style={styles.container}>
-                <Header onPress={
-                    () => this.props.navigation.navigate('Asset')} headerName="profile" />
+
+                <Header onPress={() => this.props.navigation.navigate('Asset')} headerName="profile" />
+
                 <ScrollView>
+
                     <Text style={styles.text}>Insurance</Text>
+
                     <View style={styles.Form}>
+
                         <Inputs title="Insurance Name" />
                         <Inputs title="Insurance Number" keyboardtype="numeric" />
                         <Inputs title="Telephone" keyboardtype="numeric" />
@@ -49,7 +54,9 @@ class InsuranceInfoDetails extends Component {
                             onDateChange={(date) => { this.setState({ date: date }) }} />
 
                         <Inputs title="Insurance Coverage" />
+
                     </View>
+
                     <MainCheckBox title="Liability Coverage" />
                     <MainCheckBox title="Comprehensive Insurance" />
                     <MainCheckBox title="Uninsured Motorist Insurance" />
@@ -60,14 +67,16 @@ class InsuranceInfoDetails extends Component {
                     <MainCheckBox title="Rental reimbursement Insurance" />
                     <MainCheckBox title="Classic Car Insurance" />
                     <TransInput title="Other:" />
-                    <MainButton text="Next" onPress={
-                        () => this.props.navigation.navigate('BankInfo')} />
+
+                    <MainButton text="Next" onPress={() => this.props.navigation.navigate('BankInfo')} />
 
                 </ScrollView>
+
                 <KeyboardAvoidingView
                     behavior={"padding"}
                     keyboardVerticalOffset={width / 24}
                 />
+
             </View>
         )
     }
@@ -79,14 +88,15 @@ export default InsuranceInfoDetails;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-
     },
+
     Form: {
         fontFamily: 'font-regulary',
         padding: 15,
         justifyContent: "center",
         alignItems: "center"
     },
+
     text: {
         fontFamily: 'font-regulary',
         textAlign: 'center',

@@ -23,56 +23,76 @@ import Label from '../components/TextInputs/labels'
 const { width } = Dimensions.get("window");
 
 class UserInfoClient extends Component {
+
     render() {
 
         return (
+
             <View style={styles.container}>
+
                 <Header headerName="profile" />
 
                 <ScrollView>
+
                     <View style={styles.imageContainer}>
+
                         <Image style={styles.profile} source={require('../assets/images/icon.png')} />
+
                     </View>
+
                     <Text style={styles.title}>Personal Information</Text>
+
                     <View style={styles.line}>
-
                     </View>
-                    <View style={styles.Form}>
-                        <Label title="Date of Birth" text="12/09/2323" />
 
+                    <View style={styles.Form}>
+
+                        <Label title="Date of Birth" text="12/09/2323" />
                         <Label title="Place Of Birth " text="12/09/2323" />
                         <Label title="Sex" />
                         <Label title="Nationality" />
                         <Label title="National ID/Passport" text="Rwandese" />
                         <Label title="Marital Status" />
-                    </View>
-                    <Text style={styles.title}>Current Resident</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Current Resident</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <Label title="Country" />
                         <Label title="Province" />
                         <Label title="District" />
                         <Label title="Sector" />
                         <Label title="Cell" />
                         <Label title="Village" />
-                    </View>
-                    <Text style={styles.title}>Current Information</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Current Information</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <Label title="Email Address(Personal)" />
                         <Label title="Email Address (Work)" />
                         <Label title="Primary Number" />
                         <Label title="Second Number" />
-                    </View>
-                    <Text style={styles.title}>Family Information</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Family Information</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <Label title="Father's Firstname" />
                         <Label title="Father's Lastname" />
                         <Label title="Mother's Firstname" />
@@ -84,27 +104,38 @@ class UserInfoClient extends Component {
                         <Label title="Spouse Telephone" />
                         <Label title="Number of Children" />
                         <Label title="Dependency" />
-                    </View>
-                    <Text style={styles.title}>Occupation</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Occupation</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <Label title="Student" />
                         <Label title="University" />
+
                     </View>
+
                     <Text style={styles.title}>Address</Text>
 
                     <View style={styles.Form}>
+
                         <Label title="Country" />
                         <Label title="Province" />
                         <Label title="Sector" />
-                    </View>
-                    <Text style={styles.title}>Insurance Information</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Insurance Information</Text>
+
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <Label title="Insurance type" />
                         <Label title="Holder" />
                         <Label title="Card Number" />
@@ -115,26 +146,35 @@ class UserInfoClient extends Component {
                         <Label title="Insurance Coverage" />
 
                     </View>
-                    <Text style={styles.title}>Bank Information</Text>
-                    <View style={styles.line}>
 
+                    <Text style={styles.title}>Bank Information</Text>
+
+                    <View style={styles.line}>
                     </View>
+
                     <View style={styles.Form}>
+
                         <Label title="Bank name" />
-                    </View>
-                    <Text style={styles.title}>Bank Information</Text>
-                    <View style={styles.line}>
 
                     </View>
+
+                    <Text style={styles.title}>Bank Information</Text>
+                    <View style={styles.line}>
+                    </View>
+
                     <View style={styles.Form}>
+
                         <Label title="Bank Name" />
 
                     </View>
-                    <Text style={styles.title}>Social Media Information</Text>
-                    <View style={styles.line}>
 
+                    <Text style={styles.title}>Social Media Information</Text>
+
+                    <View style={styles.line}>
                     </View>
+
                     <View style={styles.Form}>
+
                         <Label title="Twitter" />
                         <Label title="Facebook" />
                         <Label title="Instagram" />
@@ -142,15 +182,20 @@ class UserInfoClient extends Component {
                         <Label title="Tik-Tok" />
 
                     </View>
+
                     <TouchableOpacity>
+
                         <Text style={styles.down}>Download</Text>
+
                     </TouchableOpacity>
 
                 </ScrollView>
+
                 <KeyboardAvoidingView
                     behavior={"padding"}
                     keyboardVerticalOffset={width / 24}
                 />
+
             </View>
         )
     }
@@ -163,6 +208,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+
     Form: {
         fontFamily: 'font-regulary',
         color: '#707070',
@@ -170,6 +216,7 @@ const styles = StyleSheet.create({
         padding: 10,
         lineHeight: 40,
     },
+
     text: {
         fontFamily: 'font-regulary',
         textAlign: 'center',
@@ -178,12 +225,14 @@ const styles = StyleSheet.create({
         color: Colors.tintColor,
 
     },
+
     profile: {
         width: 180,
         height: 180,
         borderRadius: 90,
 
     },
+
     imageContainer: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -197,6 +246,7 @@ const styles = StyleSheet.create({
         shadowRadius: 2.22,
         elevation: 3,
     },
+
     line: {
         borderBottomWidth: 0.2,
         borderBottomColor: '#707070',
@@ -209,6 +259,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         padding: 10,
     },
+
     down: {
         fontFamily: 'font-bold',
         fontSize: 18,
