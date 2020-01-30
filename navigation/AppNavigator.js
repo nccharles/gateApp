@@ -1,7 +1,8 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator, createStackNavigator } from 'react-navigation';
-
 import MainTabNavigator from './MainTabNavigator';
+import MainAgentNavigator from './MainAgentNavigator';
+import MainUserNavigator from './MainUserNavigator';
 import SignUpScreen from '../screens/SignUpScreen';
 import LoginScreen from '../screens/Login';
 import Welcome from '../screens/Welcome';
@@ -47,6 +48,12 @@ const createAccount = createStackNavigator({
 const MainScreen = createSwitchNavigator({
   Main: MainTabNavigator,
 })
+const AgentScreen = createSwitchNavigator({
+  Agent: MainAgentNavigator,
+})
+const UserScreen = createSwitchNavigator({
+  User: MainUserNavigator,
+})
 
 const clientScreen = createStackNavigator({
   FormOne: ClientFormScreen,
@@ -87,6 +94,12 @@ const SwitchNavigator = createSwitchNavigator(
     },
     TabScreen: {
       screen: MainScreen,
+    },
+    TabAgentScreen: {
+      screen: AgentScreen,
+    },
+    TabUserScreen: {
+      screen: UserScreen,
     },
     Client: {
       screen: clientScreen,

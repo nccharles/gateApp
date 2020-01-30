@@ -37,7 +37,7 @@ class Occupation extends Component {
 
       <ScrollView style={styles.container}>
 
-        <Header headerName="Occupation" />
+        <Header headerName="Occupation" onPress={() => this.props.navigation.navigate('FamilyInfo')} />
 
         <Text style={styles.Text}>Occupation</Text>
 

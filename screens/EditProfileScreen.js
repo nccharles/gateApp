@@ -30,7 +30,7 @@ class EditProfileScreen extends Component {
 
             <View style={styles.container}>
 
-                <Header onPress={() => this.props.navigation.navigate('UserHome')} headerName="profile" />
+                <Header onPress={() => this.props.navigation.navigate('TabUserScreen')} headerName="profile" />
 
                 <ScrollView>
 

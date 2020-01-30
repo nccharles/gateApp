@@ -26,21 +26,88 @@ class SignUpScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userType: ""
+      userType: "",
+      first_name: '',
+      last_name: '',
+      email: '',
+      password: '',
+      phone: '',
+      data: ''
+
     };
   }
+  // _onLogInPressed = () => {
+  //   var data = {
+  //     phone_number: this.state.phone_number,
+  //     password: this.state.password
+  //   };
+  // componentDidMount() {
 
+  //   var data = {
+  //     first_name: this.state.first_name,
+  //     last_name: this.state.last_name,
+  //     email: this.state.email,
+  //     password: this.state.password,
+  //     phone: this.state.phone,
+  //   }
+
+  //   fetch('https://infour.herokuapp.com/api/signup', {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({ data })
+
+  //   }) 
+  //   .then(Response => {
+  //     console.log(data)
+  //   })
+
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+  //   if (response.status >= 200 && response.status < 300) {
+  //     alert("authenticated successfully!!!");
+  //     }
+
+  // }
   SignUp = () => {
     var signup = this.state.userType;
+    var data = {
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      email: this.state.email,
+      password: this.state.password,
+      phone: this.state.phone,
+    }
+    fetch('https://infour.herokuapp.com/api/signup', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ data })
+
+    })
+      .then(Response => {
+        console.log(data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    if (response.status >= 200 && response.status < 300) {
+      alert("authenticated successfully!!!");
+    }
     if (signup == "user") {
       console.log(signup);
-      this.props.navigation.navigate("UserHome");
+      this.props.navigation.navigate("TabUserScreen");
     } else if (signup == "client") {
       console.log(signup);
-      this.props.navigation.navigate("ClientHome");
+      this.props.navigation.navigate("TabScreen");
     } else if (signup == "Agent") {
       console.log(signup);
-      this.props.navigation.navigate("AgentHome");
+      this.props.navigation.navigate("TabAgentScreen");
     } else {
       alert("Please select account type");
     }
@@ -63,12 +130,16 @@ class SignUpScreen extends Component {
 
           <View style={styles.Form}>
 
-            <Inputs title="Firstname" />
-            <Inputs title="Middle name(Optional)" />
-            <Inputs title="Lastname" />
-            <Inputs title="Email(Optional)" />
-            <Inputs title="National ID/passport" keyboardtype="numeric" />
-            <Inputs title="Telephone" keyboardtype="numeric" />
+            <Inputs title="Firstname" onChangeText={(text) => this.setState({ first_name: text })}
+              value={this.state.first_name} />
+            <Inputs title="Lastname" onChangeText={(text) => this.setState({ last_name: text })}
+              value={this.state.last_name} />
+            <Inputs type="email" title="Email(Optional)" onChangeText={(text) => this.setState({ email: text })}
+              value={this.state.email} />
+            <Inputs type="pwd" title="password" onChangeText={(text) => this.setState({ password: text })}
+              value={this.state.password} />
+            <Inputs title="Telephone" keyboardtype="numeric" onChangeText={(text) => this.setState({ phone: text })}
+              value={this.state.phone} />
             <Picker
               style={styles.picker}
               selectedValue={this.state.userType}
@@ -81,10 +152,12 @@ class SignUpScreen extends Component {
             </Picker>
 
             <MainButton text="Sign Up" onPress={() => this.SignUp()} />
+            {/* <MainButton text="Sign Up" onPress={() => this.props.navigation.navigate("TabScreen")} /> */}
 
             <TouchableOpacity onPress={() => this.props.navigation.navigate("Login")}>
 
-              <Text>Already an Account ? Login</Text>
+
+              <Text style={styles.ptext}>Already an Account? <Text style={styles.span}>Login</Text> </Text>
             </TouchableOpacity>
 
           </View>
@@ -149,5 +222,16 @@ const styles = StyleSheet.create({
     color: "#707070",
     textAlign: "center",
     fontWeight: "500"
+  },
+  span: {
+    color: '#73cdfe'
+  },
+
+  ptext: {
+    fontFamily: "font-regulary",
+    padding: 12,
+    fontSize: 12,
+    color: '#707070',
+    textAlign: "center",
   }
 });

@@ -12,7 +12,7 @@ export default function StudentOccupation() {
 
     <ScrollView style={styles.container}>
 
-      <Header headerName="Student Occupation" />
+      <Header headerName="Student Occupation" onPress={() => this.props.navigation.navigate('Occupation')} />
 
       <Text style={styles.Text}>Student</Text>
 
@@ -30,7 +30,7 @@ export default function StudentOccupation() {
         <Inputs title="Province" />
         <Inputs title="District" />
         <Inputs title="Street" />
-        <Button text="Next" />
+        <Button text="Next" onPress={() => this.props.navigation.navigate('InsuranceDetails')} />
 
       </View>
 

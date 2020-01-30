@@ -25,7 +25,7 @@ export default function OtherOccupation() {
 
       <ScrollView>
 
-        <Header headerName="Occupation" />
+        <Header headerName="Occupation" onPress={() => this.props.navigation.navigate('Occupation')} />
 
         <Text style={styles.Text}>Employee</Text>
 

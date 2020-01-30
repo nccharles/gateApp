@@ -37,10 +37,15 @@ class BankInfoDetails extends Component {
         super(props);
         this.state = {
             textInput: [],
-            inputData: []
+            inputData: [],
+            isLoading: true,
+            dataSource: null,
         }
-    }
 
+    }
+    componentDidMount() {
+
+    }
     //function to add TextInput
 
     addTextInput = (key) => {

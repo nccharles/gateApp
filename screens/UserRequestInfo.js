@@ -26,7 +26,7 @@ class UserRequestInfo extends Component {
 
             <View style={styles.container}>
 
-                <Header onPress={() => this.props.navigation.navigate('TabScreen')} headerName="Info Request" />
+                <Header onPress={() => this.props.navigation.navigate('TabUserScreen')} headerName="Info Request" />
 
                 <ScrollView>
 

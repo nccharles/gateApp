@@ -85,93 +85,12 @@ SettingsStack.navigationOptions = {
 };
 
 SettingsStack.path = '';
-// const HomeUser = createStackNavigator(
-//   {
-//     Home: UserHomeScreen,
-//   },
-
-//   config
-// );
-
-// HomeUser.navigationOptions = {
-//   tabBarLabel: 'Home',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon
-//       focused={focused}
-//       name={
-//         Platform.OS === 'ios'
-//           ? `ios-home${focused ? '' : '-outline'}`
-//           : 'md-home'
-//       }
-//     />
-//   ),
-// };
-
-// HomeUser.path = '';
-
-// const NotificationUser = createStackNavigator(
-//   {
-//     Notification: NotificationScreen,
-//   },
-//   config
-// );
-
-// NotificationUser.navigationOptions = {
-//   tabBarLabel: 'Notification',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications'} />
-//   ),
-// };
-
-// NotificationUser.path = '';
-
-// const ProfileUser = createStackNavigator(
-//   {
-//     Profile: UserProfileScreen,
-//   },
-//   config
-// );
-
-// ProfileUser.navigationOptions = {
-//   tabBarLabel: 'Profile',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-contact' : 'md-contact'} />
-//   ),
-// };
-
-// ProfileUser.path = '';
-// const SettingsUser = createStackNavigator(
-//   {
-//     Settings: Profile,
-//   },
-//   config
-// );
-
-// SettingsUser.navigationOptions = {
-//   tabBarLabel: 'Settings',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-cog' : 'md-cog'} />
-//   ),
-// };
-
-// SettingsUser.path = '';
-
-// const userNavigator = createBottomTabNavigator({
-//   HomeUser,
-//   NotificationUser,
-//   ProfileUser,
-//   SettingsUser,
-// });
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   NotificationStack,
   ProfileStack,
   SettingsStack,
-  // HomeUser,
-  // NotificationUser,
-  // ProfileUser,
-  // SettingsUser
 });
 
 tabNavigator.path = '';

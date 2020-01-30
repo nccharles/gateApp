@@ -43,7 +43,7 @@ class DocumentsScreen extends Component {
             <UploadIcon title="Marriage Certificate" />
             <UploadIcon title="Birth Certificate" />
             <UploadIcon title="Other relevant Document" />
-            <MainButton text="Done" />
+            <MainButton text="Done" onPress={() => this.props.navigation.navigate('Welcome')} />
 
           </View>
 

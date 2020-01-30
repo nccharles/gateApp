@@ -11,7 +11,8 @@ import {
     Button,
     TouchableHighlight,
     Dimensions,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    ActivityIndicator
 } from 'react-native';
 import Inputs from '../components/Input';
 import Header from '../components/Header/BackHeader';
@@ -22,185 +23,217 @@ import Label from '../components/TextInputs/labels'
 const { width } = Dimensions.get("window");
 
 class UserProfileScreen extends Component {
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            isLoading: false,
+            dataSource: [],
+
+        }
+    }
+    componentDidMount() {
+        fetch('http://dummy.restapiexample.com/api/v1/employees')
+            .then((Response) => Response.json())
+            .then((responseJson) => {
+                this.setState({
+
+                    isLoading: true,
+                    dataSource: responseJson.data[0],
+
+                })
+                console.log(responseJson)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
     render() {
+        var { isLoading, dataSource } = this.state;
 
-        return (
+        if (!isLoading) {
+            return (
+                <View style={styles.container}>
+                    <ActivityIndicator />
 
-            <View style={styles.container}>
+                </View>
+            )
+        }
+        else {
+            //     let movies = this.state.dataSource.map((val, key) => {
 
-                <Header onPress={() => this.props.navigation.navigate('UserHome')} headerName="profile" />
 
-                <ScrollView>
+            return (
+                <View style={styles.container} >
 
-                    <View style={styles.imageContainer}>
 
-                        <Image style={styles.profile} source={require('../assets/images/icon.png')} />
+                    <Header onPress={() => this.props.navigation.navigate('UserHome')} headerName="profile" />
 
-                    </View>
+                    <ScrollView>
 
-                    <Text style={styles.title}>Personal Information</Text>
+                        <View style={styles.imageContainer}>
 
-                    <View style={styles.line}>
-                    </View>
+                            <Image style={styles.profile} source={require('../assets/images/icon.png')} />
 
-                    <View style={styles.Form} >
+                        </View>
 
-                        <Label title="Date of Birth" text="12/09/2323" />
-                        <Label title="Place Of Birth " text="12/09/2323" />
-                        <Label title="Sex" />
-                        <Label title="Nationality" />
-                        <Label title="National ID/Passport" text="Rwandese" />
-                        <Label title="Marital Status" />
+                        <Text style={styles.title}>Personal Information</Text>
 
-                    </View>
+                        <View style={styles.line}>
+                        </View>
 
-                    <Text style={styles.title}>Current Resident</Text>
 
-                    <View style={styles.line}>
-                    </View>
+                        <View key={dataSource.id} style={styles.Form} >
 
-                    <View style={styles.Form}>
+                            <Label title="Date of Birth" text={dataSource.employee_name} />
+                            <Label title="Place Of Birth " text={dataSource.employee_salary} />
+                            <Label title="Sex" text={dataSource.employee_age} />
+                            <Label title="Nationality" text={dataSource.employee_salary} />
+                            <Label title="National ID/Passport" text={dataSource.employee_salary} />
+                            <Label title="Marital Status" text={dataSource.employee_salary} />
 
-                        <Label title="Country" />
-                        <Label title="Province" />
-                        <Label title="District" />
-                        <Label title="Sector" />
-                        <Label title="Cell" />
-                        <Label title="Village" />
+                        </View>
+                        <Text style={styles.title}>Current Resident</Text>
 
-                    </View>
-                    <Text style={styles.title}>Current Information</Text>
+                        <View style={styles.line}>
+                        </View>
 
-                    <View style={styles.line}>
-                    </View>
+                        <View style={styles.Form}>
 
-                    <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
+                            <Label title="Country" />
+                            <Label title="Province" />
+                            <Label title="District" />
+                            <Label title="Sector" />
+                            <Label title="Cell" />
+                            <Label title="Village" />
 
-                        <Label title="Email Address(Personal)" />
-                        <Label title="Email Address (Work)" />
-                        <Label title="Primary Number" />
-                        <Label title="Second Number" />
+                        </View>
+                        <Text style={styles.title}>Current Information</Text>
 
-                    </View>
+                        <View style={styles.line}>
+                        </View>
 
-                    <Text style={styles.title}>Family Information</Text>
+                        <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
 
-                    <View style={styles.line}>
-                    </View>
+                            <Label title="Email Address(Personal)" />
+                            <Label title="Email Address (Work)" />
+                            <Label title="Primary Number" />
+                            <Label title="Second Number" />
 
-                    <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
+                        </View>
 
-                        <Label title="Father's Firstname" />
-                        <Label title="Father's Lastname" />
-                        <Label title="Mother's Firstname" />
-                        <Label title="Mother's Lastname" />
-                        <Label title="Spouse Firstname" />
-                        <Label title="Spouse Middlename" />
-                        <Label title="Spouse lastname" />
-                        <Label title="Spouse ID" />
-                        <Label title="Spouse Telephone" />
-                        <Label title="Number of Children" />
-                        <Label title="Dependency" />
+                        <Text style={styles.title}>Family Information</Text>
 
-                    </View>
+                        <View style={styles.line}>
+                        </View>
 
-                    <Text style={styles.title}>Occupation</Text>
+                        <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
 
-                    <View style={styles.line}>
-                    </View>
+                            <Label title="Father's Firstname" />
+                            <Label title="Father's Lastname" />
+                            <Label title="Mother's Firstname" />
+                            <Label title="Mother's Lastname" />
+                            <Label title="Spouse Firstname" />
+                            <Label title="Spouse Middlename" />
+                            <Label title="Spouse lastname" />
+                            <Label title="Spouse ID" />
+                            <Label title="Spouse Telephone" />
+                            <Label title="Number of Children" />
+                            <Label title="Dependency" />
 
-                    <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
+                        </View>
 
-                        <Label title="Student" />
-                        <Label title="University" />
+                        <Text style={styles.title}>Occupation</Text>
 
-                    </View>
+                        <View style={styles.line}>
+                        </View>
 
-                    <Text style={styles.title}>Address</Text>
+                        <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
 
-                    <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
+                            <Label title="Student" />
+                            <Label title="University" />
 
-                        <Label title="Country" />
-                        <Label title="Province" />
-                        <Label title="Sector" />
+                        </View>
 
-                    </View>
+                        <Text style={styles.title}>Address</Text>
 
-                    <Text style={styles.title}>Insurance Information</Text>
+                        <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
 
-                    <View style={styles.line}>
-                    </View>
+                            <Label title="Country" />
+                            <Label title="Province" />
+                            <Label title="Sector" />
 
-                    <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
+                        </View>
 
-                        <Label title="Insurance type" />
-                        <Label title="Holder" />
-                        <Label title="Card Number" />
-                        <Label title="Date of Issue" />
-                        <Label title="Insurance expiry Date" />
-                        <Label title="Insurance Coverage" />
-                        <Label title="Spouse Lastname" />
-                        <Label title="Insurance Coverage" />
+                        <Text style={styles.title}>Insurance Information</Text>
 
-                    </View>
+                        <View style={styles.line}>
+                        </View>
 
-                    <Text style={styles.title}>Bank Information</Text>
+                        <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
 
-                    <View style={styles.line}>
-                    </View>
+                            <Label title="Insurance type" />
+                            <Label title="Holder" />
+                            <Label title="Card Number" />
+                            <Label title="Date of Issue" />
+                            <Label title="Insurance expiry Date" />
+                            <Label title="Insurance Coverage" />
+                            <Label title="Spouse Lastname" />
+                            <Label title="Insurance Coverage" />
 
-                    <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
+                        </View>
 
-                        <Label title="Bank name" />
+                        <Text style={styles.title}>Bank Information</Text>
 
-                    </View>
+                        <View style={styles.line}>
+                        </View>
 
-                    <View style={styles.line}>
-                    </View>
+                        <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
 
-                    <Text style={styles.title}>Social Media Information</Text>
+                            <Label title="Bank name" />
 
-                    <View style={styles.line}>
-                    </View>
+                        </View>
 
-                    <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
+                        <View style={styles.line}>
+                        </View>
 
-                        <Label title="Twitter" />
-                        <Label title="Facebook" />
-                        <Label title="Instagram" />
-                        <Label title="Pinterest" />
-                        <Label title="Tik-Tok" />
+                        <Text style={styles.title}>Social Media Information</Text>
 
-                    </View>
+                        <View style={styles.line}>
+                        </View>
 
-                    <View style={styles.inline}>
+                        <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
 
-                        <TouchableOpacity >
+                            <Label title="Twitter" />
+                            <Label title="Facebook" />
+                            <Label title="Instagram" />
+                            <Label title="Pinterest" />
+                            <Label title="Tik-Tok" />
 
-                            <Text style={styles.down}>Download</Text>
+                        </View>
 
-                        </TouchableOpacity>
 
-                        <TouchableOpacity>
 
-                            <Text style={styles.downEdit}>Edit</Text>
 
-                        </TouchableOpacity>
 
-                    </View>
+                    </ScrollView>
 
-                </ScrollView>
+                    <KeyboardAvoidingView
+                        behavior={"padding"}
+                        keyboardVerticalOffset={width / 24}
+                    />
 
-                <KeyboardAvoidingView
-                    behavior={"padding"}
-                    keyboardVerticalOffset={width / 24}
-                />
+                </View>
 
-            </View>
-        )
+
+            );
+        }
     }
 }
+
+
+
+
 UserProfileScreen.navigationOptions = {
     header: null,
 };

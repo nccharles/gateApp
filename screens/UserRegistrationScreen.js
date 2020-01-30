@@ -26,7 +26,7 @@ class UserRegistrationScreen extends Component {
 
             <View style={styles.container}>
 
-                <Header headerName="profile" />
+                <Header headerName="profile" onPress={() => this.props.navigation.navigate('TabScreen')} />
 
                 <ScrollView>
 
