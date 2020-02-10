@@ -80,7 +80,7 @@ class AgentHomeScreen extends Component {
     }
 }
 AgentHomeScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default AgentHomeScreen;
 const styles = StyleSheet.create({
@@ -89,16 +89,18 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         color: '#707070',
         // paddingBottom: 20,
-        margin: 10,
+        margin: width / 23,
+        fontSize: 13,
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         padding: 15,
-        fontSize: 15,
+        fontSize: 13,
+        color: "#232323"
     },
 
     line: {
@@ -109,9 +111,10 @@ const styles = StyleSheet.create({
 
     title: {
         fontFamily: 'font-bold',
-        fontSize: 15,
+        fontSize: 12,
         paddingLeft: 35,
         paddingTop: 10,
+        color: "#232323"
     },
 
     description: {
@@ -121,6 +124,6 @@ const styles = StyleSheet.create({
     },
 
     icon: {
-        paddingTop: 8,
+        paddingTop: width / 20,
     },
 });

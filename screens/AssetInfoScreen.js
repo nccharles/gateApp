@@ -54,13 +54,13 @@ class AssetInfoScreen extends Component {
                     <View style={styles.Form}>
 
                         <Picker
-                            selectedValue={this.state.assetType}
                             style={styles.picker}
-                            onValueChange={(itemValue, itemIndex) => this.setState({ assetType: itemValue })}>
-                            <Picker.Item label="Select" value="Select" />
+                            selectedValue={this.state.assetType}
+                            onValueChange={(itemValue, itemIndex) =>
+                                this.setState({ assetType: itemValue })}>
                             <Picker.Item label="Fixed" value="Fixed" />
                             <Picker.Item label="Current" value="Current" />
-                            <MainButton text="Next" onPress={() => this.AssetType()} />
+
                         </Picker>
 
                     </View>
@@ -77,7 +77,7 @@ class AssetInfoScreen extends Component {
     }
 }
 AssetInfoScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default AssetInfoScreen;
 const styles = StyleSheet.create({
@@ -86,16 +86,17 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         justifyContent: "center",
         alignItems: "center"
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         textAlign: "center",
         padding: 15,
-        fontSize: 20
+        fontSize: 15,
+        color: "#232323"
     },
 
     picker: {

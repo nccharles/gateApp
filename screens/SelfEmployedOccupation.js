@@ -1,52 +1,108 @@
-import React from "react";
-import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView } from "react-native";
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView, Dimensions } from "react-native";
 
 import Header from "../components/Header/BackHeader";
 import Inputs from "../components/Input";
 import Button from "../components/Buttons/mainButton";
+const { width } = Dimensions.get("window");
 
-export default function SelfEmployedOccupation() {
+export default class SelfEmployedOccupation extends Component {
 
-  return (
+  constructor(props) {
+    super(props);
+    this.state = {
+      business_type: '',
+      business_name: "",
+      tin_number: '',
+      country: "",
+      province: "",
+      district: "",
+      street: '',
+    };
 
-    <ScrollView style={styles.container}>
+  }
+  //Backend  API
 
-      <Header headerName="Self Employed" />
+  SelfEmployee = () => {
+    var data = {
+      business_type: this.state.business_type,
+      business_name: this.state.business_name,
+      tin_number: this.state.tin_number,
+      country: this.state.country,
+      province: this.state.province,
+      district: this.state.district,
+      street: this.state.street,
+    }
+    fetch('https://infour.herokuapp.com/api/self_employed_occupation', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
 
-      <Text style={styles.Text}>Self Employed</Text>
+    })
+      .then(Response => {
+        Response.json();
+        console.log(Response)
+      })
 
-      <View style={styles.Form}>
+      .catch((error) => {
+        console.log(error)
+      })
 
-        <Inputs title="Occupation" />
-        <Inputs title="Type of Business" />
-        <Inputs title="Business Name" />
-        <Inputs title="TIN Number" />
+  }
 
-      </View>
+  //end Backend
 
-      <Text style={styles.UnderText}>Address</Text>
+  render() {
 
-      <View style={styles.Form}>
+    return (
 
-        <Inputs title="Country" />
-        <Inputs title="Province" />
-        <Inputs title="District" />
-        <Inputs title="Street" />
-        <Button text="Next" onPress={() => this.props.navigation.navigate('InsuranceDetails')} />
+      <ScrollView style={styles.container}>
 
-      </View>
+        <Header headerName="Self Employed" />
 
-      <KeyboardAvoidingView
-        behavior={"padding"}
-        keyboardVerticalOffset={width / 24}
-      />
+        <Text style={styles.Text}>Self Employed</Text>
 
-    </ScrollView>
+        <View style={styles.Form}>
+          <Inputs title="Type of Business" onChangeText={business_type => this.setState({ business_type: business_type })}
+            value={this.state.business_type} />
+          <Inputs title="Business Name" onChangeText={business_name => this.setState({ business_name: business_name })}
+            value={this.state.business_name} />
+          <Inputs title="TIN Number" onChangeText={tin_number => this.setState({ tin_number: tin_number })}
+            value={this.state.tin_number} />
 
-  );
+        </View>
+
+        <Text style={styles.UnderText}>Address</Text>
+
+        <View style={styles.Form}>
+
+          <Inputs title="Country" onChangeText={country => this.setState({ country: country })}
+            value={this.state.country} />
+          <Inputs title="Province" onChangeText={province => this.setState({ province: province })}
+            value={this.state.province} />
+          <Inputs title="District" onChangeText={district => this.setState({ district: district })}
+            value={this.state.district} />
+          <Inputs title="Street" onChangeText={street => this.setState({ street: street })}
+            value={this.state.street} />
+          <Button text="Next" onPress={this.SelfEmployee} />
+
+        </View>
+
+        <KeyboardAvoidingView
+          behavior={"padding"}
+          keyboardVerticalOffset={width / 24}
+        />
+
+      </ScrollView>
+
+    );
+  }
 }
 SelfEmployedOccupation.navigationOptions = {
-  header: null,
+  headerShown: false,
 };
 const styles = StyleSheet.create({
   container: {
@@ -56,9 +112,13 @@ const styles = StyleSheet.create({
   },
 
   Text: {
-    fontSize: 16,
-    marginLeft: 120,
-    paddingTop: 24
+    fontSize: 15,
+    paddingTop: width / 24,
+    fontSize: 15,
+    color: '#232323',
+    paddingLeft: width / 20,
+    fontFamily: 'font-semi',
+    textAlign: 'center'
   },
 
   Form: {
@@ -68,10 +128,11 @@ const styles = StyleSheet.create({
 
   UnderText: {
     textAlign: 'left',
-    fontSize: 16,
-    textDecorationLine: "underline",
-    color: '#707070',
-    paddingLeft: 27
-  }
+    fontSize: 15,
+    color: '#232323',
+    paddingLeft: width / 20,
+    fontFamily: 'font-semi',
+  },
+
 
 });

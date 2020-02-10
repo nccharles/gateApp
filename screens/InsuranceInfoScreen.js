@@ -55,7 +55,7 @@ class InsuranceInfoScreen extends Component {
     }
 }
 InsuranceInfoScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default InsuranceInfoScreen;
 const styles = StyleSheet.create({
@@ -63,15 +63,29 @@ const styles = StyleSheet.create({
         flex: 1
     },
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+
     },
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         textAlign: "center",
         padding: 15,
-        fontSize: 20
+        fontSize: 15,
+        color: '#232323'
     },
+    picker: {
+        fontSize: 14,
+        height: 35,
+        width: 260,
+        color: '#707070',
+        borderColor: "#d4d4d4",
+        borderWidth: 1,
+        borderRadius: 5,
+        backgroundColor: "#f8f8f8",
+        fontSize: 12,
+
+    }
 
 });

@@ -61,7 +61,7 @@ export default function OtherOccupation() {
   );
 }
 OtherOccupation.navigationOptions = {
-  header: null,
+  headerShown: false,
 };
 const styles = StyleSheet.create({
   container: {
@@ -71,9 +71,13 @@ const styles = StyleSheet.create({
   },
 
   Text: {
-    fontSize: 16,
-    marginLeft: 120,
-    paddingTop: 24
+    fontSize: 15,
+    paddingTop: width / 24,
+    fontSize: 15,
+    color: '#232323',
+    paddingLeft: width / 20,
+    fontFamily: 'font-semi',
+    textAlign: 'center'
   },
 
   Form: {
@@ -82,10 +86,10 @@ const styles = StyleSheet.create({
   },
 
   UnderText: {
-    textAlign: "left",
-    fontSize: 16,
-    textDecorationLine: "underline",
-    color: "#707070",
-    paddingLeft: 27
-  }
+    textAlign: 'left',
+    fontSize: 15,
+    color: '#232323',
+    paddingLeft: width / 20,
+    fontFamily: 'font-semi',
+  },
 });

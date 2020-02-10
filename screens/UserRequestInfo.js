@@ -50,7 +50,7 @@ class UserRequestInfo extends Component {
     }
 }
 UserRequestInfo.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default UserRequestInfo;
 const styles = StyleSheet.create({
@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         justifyContent: "center",
         alignItems: "center"
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         textAlign: "center",
         padding: 15,
         fontSize: 20

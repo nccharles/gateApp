@@ -80,49 +80,50 @@ class UserHomeScreen extends Component {
     }
 }
 UserHomeScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default UserHomeScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         color: '#707070',
         // paddingBottom: 20,
-        margin: 10,
+        margin: width / 23,
+        fontSize: 13,
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         padding: 15,
-        fontSize: 15,
-
+        fontSize: 13,
+        color: "#232323"
     },
 
     line: {
         borderBottomWidth: 0.5,
         borderBottomColor: '#707070',
         opacity: 0.3,
-
     },
 
     title: {
         fontFamily: 'font-bold',
-        fontSize: 15,
+        fontSize: 12,
         paddingLeft: 35,
         paddingTop: 10,
+        color: "#232323"
     },
 
     description: {
         padding: 10,
         color: '#707070',
         flexDirection: 'row',
+        fontSize: 12,
     },
 
     icon: {
-        paddingTop: 8,
-    }
+        paddingTop: width / 20,
+    },
 });

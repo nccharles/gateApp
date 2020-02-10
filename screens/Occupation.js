@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ScrollView, Picker } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Picker, Dimensions } from "react-native";
 import Header from "../components/Header/BackHeader";
 import MainButton from "../components/Buttons/mainButton";
 
+const { width } = Dimensions.get("window");
 class Occupation extends Component {
 
   constructor(props) {
@@ -66,7 +67,7 @@ class Occupation extends Component {
   }
 }
 Occupation.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 
 export default Occupation;
@@ -78,10 +79,15 @@ const styles = StyleSheet.create({
     paddingBottom: 40
   },
 
+
   Text: {
-    fontSize: 16,
-    marginLeft: 120,
-    paddingTop: 24
+    fontSize: 15,
+    paddingTop: width / 24,
+    fontSize: 15,
+    color: '#232323',
+    paddingLeft: width / 20,
+    fontFamily: 'font-semi',
+    textAlign: 'center'
   },
 
   Form: {
@@ -90,13 +96,15 @@ const styles = StyleSheet.create({
   },
 
   picker: {
+    fontSize: 14,
     height: 35,
     width: 260,
-    color: "#707070",
-    paddingTop: 15,
+    color: '#707070',
     borderColor: "#d4d4d4",
     borderWidth: 1,
     borderRadius: 5,
-    backgroundColor: "#f8f8f8"
+    backgroundColor: "#f8f8f8",
+    fontSize: 12,
+
   }
 });

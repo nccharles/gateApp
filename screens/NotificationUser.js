@@ -1,9 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView, Hr } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Hr, Dimensions } from "react-native";
 
 import Header from "../components/Header/BackHeader";
 import Icon from "@expo/vector-icons/AntDesign";
 
+const { width } = Dimensions.get("window");
 export default function NotificationUser() {
 
   return (
@@ -41,7 +42,7 @@ export default function NotificationUser() {
 
         </View>
 
-        <View style={{ marginTop: 35, borderBottomColor: "black", borderBottomWidth: 0.6, borderColor: "#707070" }} />
+        <View style={styles.line} />
 
         <Text style={styles.Text}>Sunday, 18:30pm</Text>
 
@@ -51,7 +52,7 @@ export default function NotificationUser() {
 
             <View>
 
-              <Icon name="user" size={40} color="#707070" style={styles.iconback} />
+              <Icon name="user" size={30} color="#707070" style={styles.iconback} />
 
             </View>
 
@@ -70,13 +71,13 @@ export default function NotificationUser() {
 
         </View>
 
-        <View style={{ marginTop: 35, borderBottomColor: "black", borderBottomWidth: 0.6, borderColor: "#707070" }} />
+        <View style={styles.line} />
 
         <Text style={styles.Text}>Wednesday, 16:30pm</Text>
         <View style={styles.Form}>
           <View style={styles.Notification}>
             <View>
-              <Icon name="user" size={40} color="#707070" style={styles.iconback} />
+              <Icon name="user" size={30} color="#707070" style={styles.iconback} />
 
             </View>
 
@@ -95,10 +96,7 @@ export default function NotificationUser() {
 
         </View>
 
-        <View style={{
-          marginTop: 35, borderBottomColor: "black",
-          borderBottomWidth: 0.6, borderColor: "#707070"
-        }} />
+        <View style={styles.line} />
 
         <Text style={styles.Text}>Monday, 20:30pm</Text>
 
@@ -107,7 +105,7 @@ export default function NotificationUser() {
           <View style={styles.Notification}>
 
             <View>
-              <Icon name="user" size={40} color="#707070" style={styles.iconback} />
+              <Icon name="user" size={30} color="#707070" style={styles.iconback} />
 
             </View>
 
@@ -126,11 +124,11 @@ export default function NotificationUser() {
 
         </View>
 
-        <View
+        {/* <View
           style={{
-            marginTop: 35, borderBottomColor: "black",
-            borderBottomWidth: 0.6, borderColor: "#707070"
-          }} />
+            marginTop: 35, borderBottomColor: "#707070",
+            borderBottomWidth: 0.8, borderColor: "#707070"
+          }} /> */}
 
       </ScrollView>
 
@@ -138,7 +136,7 @@ export default function NotificationUser() {
   );
 }
 NotificationUser.navigationOptions = {
-  header: null,
+  headerShown: false,
 };
 const styles = StyleSheet.create({
   container: {
@@ -148,14 +146,16 @@ const styles = StyleSheet.create({
   },
 
   Client: {
-    fontWeight: "bold",
-    color: "#000",
+    fontFamily: 'font-semi',
+    color: "#232323",
     paddingRight: 10
   },
 
   message: {
     textAlign: "left",
-    color: "#d4d4d4"
+    color: "#707070",
+    fontFamily: 'font-regular',
+    fontSize: 12,
   },
 
   Notification: {
@@ -166,16 +166,23 @@ const styles = StyleSheet.create({
   },
 
   Text: {
-    fontSize: 16,
+    fontSize: 13,
     marginLeft: 35,
-    paddingTop: 24
+    paddingTop: 24,
+    fontFamily: 'font-semi',
   },
 
   Form: {
     justifyContent: "center",
     alignItems: "center",
     height: 80,
-    width: 280
-  }
+    width: width / 1.1
+  },
+  line: {
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#707070',
+    opacity: 0.3,
+    marginTop: 35,
+  },
 
 });

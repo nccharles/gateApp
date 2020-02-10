@@ -59,7 +59,7 @@ class DocumentsScreen extends Component {
   }
 }
 DocumentsScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 export default DocumentsScreen;
 const styles = StyleSheet.create({
@@ -68,13 +68,13 @@ const styles = StyleSheet.create({
   },
 
   Form: {
-    fontFamily: "font-regulary",
+    fontFamily: "font-regular",
     justifyContent: "center",
     alignItems: "center"
   },
 
   text: {
-    fontFamily: "font-regulary",
+    fontFamily: "font-regular",
     textAlign: "center",
     padding: 15,
     fontSize: 20

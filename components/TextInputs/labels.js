@@ -46,11 +46,14 @@ const styles = StyleSheet.create({
     },
     input: {
         marginLeft: 'auto',
-        color: "#707070"
+        color: "#707070",
+        fontFamily: 'font-regular',
+        fontSize: 13,
     },
     title: {
-        fontSize: 14,
-        color: "#707070"
+        fontSize: 13,
+        color: "#707070",
+        fontFamily: 'font-regular',
     }
 
 });

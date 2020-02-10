@@ -70,8 +70,9 @@ const styles = StyleSheet.create({
 
     },
     title: {
-        fontSize: 14,
+        fontSize: 13,
         color: "#707070",
+        fontFamily: 'font-regular',
     }
 
 });

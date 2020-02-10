@@ -62,9 +62,11 @@ class ClientFormScreen extends Component {
                         <MainCheckBox title="Email Address(Work)" />
                         <MainCheckBox title="Primary Number" />
                         <MainCheckBox title="Second Number" />
+
+                    </View>
+                    <View style={styles.FormButton}>
                         <MainButton text="Next" onPress={() => this.props.navigation.navigate('FormTwo')} />
                     </View>
-
                 </ScrollView>
 
             </View>
@@ -73,7 +75,7 @@ class ClientFormScreen extends Component {
     }
 }
 ClientFormScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default ClientFormScreen;
 const styles = StyleSheet.create({
@@ -81,16 +83,17 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         // justifyContent: 'center',
         // alignItems: 'center',
         padding: 15,
     },
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         textAlign: 'center',
         padding: 15,
-        fontSize: 20,
+        fontSize: 15,
+        color: "#232323"
     },
     line: {
         borderBottomWidth: 0.5,
@@ -99,10 +102,14 @@ const styles = StyleSheet.create({
 
     },
     small: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         textAlign: 'center',
         padding: 15,
         fontSize: 12,
         color: '#707070'
-    }
+    },
+    FormButton: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 })

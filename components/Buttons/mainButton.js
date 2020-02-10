@@ -28,9 +28,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 15,
     // width: width-35,
-    backgroundColor: Colors.secondary, 
-    paddingHorizontal: 40,   
-    paddingVertical: 8,   
+    backgroundColor: Colors.secondary,
+    paddingHorizontal: 40,
+    paddingVertical: 8,
     width: 150,
     height: 40,
     alignItems: "center",
@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
   text: {
     color: Colors.primary_white,
     textAlign: 'center',
-    fontFamily: 'space-mono',
-    textAlign: 'center'
+    fontFamily: 'font-semi',
+    textAlign: 'center',
+    fontSize: 13,
   },
 });

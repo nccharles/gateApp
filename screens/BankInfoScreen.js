@@ -79,7 +79,7 @@ class BankInfoScreen extends Component {
     }
 }
 BankInfoScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default BankInfoScreen;
 const styles = StyleSheet.create({
@@ -88,20 +88,20 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         justifyContent: "center",
         alignItems: "center"
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         textAlign: "center",
         padding: 15,
-        fontSize: 20,
+        fontSize: 15,
     },
 
     small: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         textAlign: 'center',
         padding: 15,
         fontSize: 12,

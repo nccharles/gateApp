@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Dimensions, StyleSheet, Text, View, ScrollView, KeyboardAvoidingView } from "react-native";
 
 import Header from "../components/Header/BackHeader";
@@ -6,44 +6,92 @@ import Inputs from "../components/Input";
 import Button from "../components/Buttons/mainButton";
 const { width } = Dimensions.get("window");
 
-export default function StudentOccupation() {
+export default class StudentOccupation extends Component {
 
-  return (
+  constructor(props) {
+    super(props);
+    this.state = {
+      school: '',
+      country: "",
+      province: "",
+      district: "",
+      street: '',
+    };
 
-    <ScrollView style={styles.container}>
+  }
+  //Backend  API
 
-      <Header headerName="Student Occupation" onPress={() => this.props.navigation.navigate('Occupation')} />
+  Student = () => {
+    var data = {
+      school: this.state.school,
+      country: this.state.country,
+      province: this.state.province,
+      district: this.state.district,
+      street: this.state.street,
+    }
+    fetch('https://infour.herokuapp.com/api/student_occupation', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
 
-      <Text style={styles.Text}>Student</Text>
+    })
+      .then(Response => {
+        Response.json();
+        console.log(Response)
+      })
 
-      <View style={styles.Form}>
+      .catch((error) => {
+        console.log(error)
+      })
+    console.log(data)
+  }
+  //end Backend
 
-        <Inputs title="Occupation" />
-        <Inputs title="School/University/Institute" />
+  render() {
+    return (
 
-      </View>
+      <ScrollView style={styles.container}>
 
-      <Text style={styles.UnderText}>Address</Text>
+        <Header headerName="Student Occupation" onPress={() => this.props.navigation.navigate('Occupation')} />
 
-      <View style={styles.Form}>
-        <Inputs title="Country" />
-        <Inputs title="Province" />
-        <Inputs title="District" />
-        <Inputs title="Street" />
-        <Button text="Next" onPress={() => this.props.navigation.navigate('InsuranceDetails')} />
+        <Text style={styles.Text}>Student</Text>
 
-      </View>
+        <View style={styles.Form}>
 
-      <KeyboardAvoidingView
-        behavior={"padding"}
-        keyboardVerticalOffset={width / 24}
-      />
+          <Inputs title="School/University/Institute" onChangeText={school => this.setState({ school: school })}
+            value={this.state.school} />
 
-    </ScrollView>
-  );
+        </View>
+
+        <Text style={styles.UnderText}>Address</Text>
+
+        <View style={styles.Form}>
+          <Inputs title="Country" onChangeText={country => this.setState({ country: country })}
+            value={this.state.country} />
+          <Inputs title="Province" onChangeText={province => this.setState({ province: province })}
+            value={this.state.province} />
+          <Inputs title="District" onChangeText={district => this.setState({ district: district })}
+            value={this.state.district} />
+          <Inputs title="Street" onChangeText={street => this.setState({ street: street })}
+            value={this.state.street} />
+          <Button text="Next" onPress={this.Student} />
+
+        </View>
+
+        <KeyboardAvoidingView
+          behavior={"padding"}
+          keyboardVerticalOffset={width / 24}
+        />
+
+      </ScrollView>
+    );
+  }
 }
 StudentOccupation.navigationOptions = {
-  header: null,
+  headerShown: false,
 };
 const styles = StyleSheet.create({
   container: {
@@ -53,9 +101,13 @@ const styles = StyleSheet.create({
   },
 
   Text: {
-    fontSize: 16,
-    marginLeft: 120,
-    paddingTop: 24
+    fontSize: 15,
+    paddingTop: width / 24,
+    fontSize: 15,
+    color: '#232323',
+    paddingLeft: width / 20,
+    fontFamily: 'font-semi',
+    textAlign: 'center'
   },
 
   Form: {
@@ -65,9 +117,9 @@ const styles = StyleSheet.create({
 
   UnderText: {
     textAlign: 'left',
-    fontSize: 16,
-    textDecorationLine: "underline",
-    color: '#707070',
-    paddingLeft: 27
+    fontSize: 15,
+    color: '#232323',
+    paddingLeft: width / 20,
+    fontFamily: 'font-semi',
   }
 });

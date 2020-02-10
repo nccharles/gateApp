@@ -38,20 +38,56 @@ class BankInfoDetails extends Component {
         this.state = {
             textInput: [],
             inputData: [],
-            isLoading: true,
-            dataSource: null,
+            bank_name: [],
+            currChild: '',
         }
 
     }
-    componentDidMount() {
+    // Backend API
 
+    Bank = () => {
+        let newChild = this.state.bank_name
+        newChild.push(this.state.currChild)
+        this.setState({ bank_name: newChild });
+        var data = {
+            bank_name: newChild,
+        }
+        fetch('https://infour.herokuapp.com/api/bank_name', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+
+        })
+            .then(Response => {
+                Response.json();
+                if (Response.status == 200) {
+
+                    this.props.navigation.navigate('Occupation');
+                }
+                else {
+                    console.log('try again')
+                }
+            })
+
+            .catch((error) => {
+                console.log(error)
+            })
+        console.log(data)
     }
+    //end Backend
     //function to add TextInput
 
     addTextInput = (key) => {
+        const newKey = key + 1
         let textInput = this.state.textInput;
-        textInput.push(<Inputs title="Bank" key={key} />);
-        this.setState({ textInput });
+        textInput.push(<Inputs title="bank name" key={key} onChangeText={bank_name => this.handleInput(`bank_name[${newKey}]`, bank_name)}
+            value={this.state.bank_name[newKey]} />);
+        let newChild = this.state.bank_name
+        newChild.push(this.state.currChild)
+        this.setState({ textInput, bank_name: newChild });
     }
 
     //function to remove TextInput
@@ -62,37 +98,11 @@ class BankInfoDetails extends Component {
         inputData.pop();
         this.setState({ textInput, inputData });
     }
-
-    //function to add text from TextInputs into single array
-    // addValues = (text, index) => {
-    //     let dataArray = this.state.inputData;
-    //     let checkBool = false;
-    //     if (dataArray.length !== 0) {
-    //         dataArray.forEach(element => {
-    //             if (element.index === index) {
-    //                 element.text = text;
-    //                 checkBool = true;
-    //             }
-    //         });
-    //     }
-    //     if (checkBool) {
-    //         this.setState({
-    //             inputData: dataArray
-    //         });
-    //     }
-    //     else {
-    //         dataArray.push({ 'text': text, 'index': index });
-    //         this.setState({
-    //             inputData: dataArray
-    //         });
-    //     }
-    // }
-
-    // //function to console the output
-    // getValues = () => {
-    //     console.log('Data', this.state.inputData);
-    // }
-
+    handleInput = (key, value) => {
+        this.setState({
+            currChild: value,
+        })
+    }
 
     render() {
         return (
@@ -105,7 +115,8 @@ class BankInfoDetails extends Component {
 
                     <View style={styles.Form}>
 
-                        <Inputs title="Bank" />
+                        <Inputs title="Bank Name" onChangeText={bank_name => this.handleInput('bank_name[0]', bank_name)}
+                            value={this.state.bank_name[0]} />
 
                         <View style={styles.button}>
 
@@ -131,7 +142,7 @@ class BankInfoDetails extends Component {
 
                         </View>
 
-                        <MainButton text="Next" onPress={() => this.props.navigation.navigate('Asset')} />
+                        <MainButton text="Next" onPress={this.Bank} />
 
                     </View>
 
@@ -147,7 +158,7 @@ class BankInfoDetails extends Component {
     }
 }
 BankInfoDetails.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default BankInfoDetails;
 const styles = StyleSheet.create({
@@ -156,16 +167,17 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         justifyContent: "center",
         alignItems: "center"
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         textAlign: "center",
         padding: 15,
-        fontSize: 20
+        fontSize: 15,
+        color: "#232323"
     },
 
     add: {
@@ -175,10 +187,14 @@ const styles = StyleSheet.create({
 
     textAdd: {
         color: Colors.primary,
+        fontSize: 13,
+        fontFamily: 'font-regular',
     },
 
     textRemove: {
         color: Colors.errorBackground,
+        fontFamily: 'font-regular',
+        fontSize: 13,
     },
     buttonView: {
         flexDirection: 'row'

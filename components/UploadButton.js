@@ -16,7 +16,7 @@ export function UploadIcon(props) {
     <View style={styles.container} {...otherProps}>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.upload}>
-        <Icon name="upload" size={30} color="#707070" style={styles.icon} />
+        <Icon name="upload" size={25} color="#707070" style={styles.icon} />
       </View>
     </View>
   );
@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#f8f8f8"
   },
   title: {
-    fontSize: 14,
-    color: "#707070"
+    fontSize: 13,
+    color: "#707070",
+    fontFamily: 'font-regular',
   }
 });

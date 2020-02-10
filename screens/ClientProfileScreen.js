@@ -81,7 +81,7 @@ class ClientProfileScreen extends Component {
     }
 }
 ClientProfileScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default ClientProfileScreen;
 const styles = StyleSheet.create({
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         color: '#707070',
         // paddingBottom: 20,
         padding: 10,
@@ -98,10 +98,10 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         textAlign: 'center',
         padding: 15,
-        fontSize: 15,
+        fontSize: 13,
         color: Colors.tintColor,
 
     },
@@ -135,9 +135,10 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontFamily: 'font-bold',
+        fontFamily: 'font-semi',
         fontSize: 15,
         padding: 10,
+        color: "#232323"
     },
 
 })

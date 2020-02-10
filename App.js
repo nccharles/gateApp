@@ -36,6 +36,13 @@ import ClientEditScreen from './screens/ClientEditScreen';
 import FixedAssetInfo from './screens/FixedAssetInfo';
 import FamilyInfoScreen from './screens/FamilyInfoScreen';
 import BankInfoDetails from './screens/BankInfoDetails';
+import UserRequestInfo from './screens/UserRequestInfo';
+import LoginScreen from './screens/Login';
+import AgentHomeScreen from './screens/AgentHomeScreen';
+import UserHomeScreen from './screens/UserHomeScreen';
+import Profile from './screens/Profile';
+import CurrentAssetInfo from './screens/CurrentAssetInfo';
+import AssetInfoScreen from './screens/AssetInfoScreen';
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
@@ -68,10 +75,11 @@ async function loadResourcesAsync() {
       ...Ionicons.font,
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
-      'font-bold': require('./assets/fonts/Segoe-Bold.ttf'),
-      'font-regulary': require('./assets/fonts/Segoe.ttf'),
-      'font-italic': require('./assets/fonts/Segoe-Italic.ttf'),
-      'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf')
+      'font-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+      'font-semi': require('./assets/fonts/OpenSans-SemiBold.ttf'),
+      'font-italic': require('./assets/fonts/OpenSans-Italic.ttf'),
+      'font-regular': require('./assets/fonts/OpenSans-Regular.ttf'),
+      'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
     }),
   ]);
 }

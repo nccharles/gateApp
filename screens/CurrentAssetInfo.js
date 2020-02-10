@@ -52,7 +52,7 @@ class CurrentAssetInfo extends Component {
     }
 }
 CurrentAssetInfo.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default CurrentAssetInfo;
 const styles = StyleSheet.create({
@@ -61,16 +61,17 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         justifyContent: "center",
         alignItems: "center"
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         textAlign: "center",
         padding: 15,
-        fontSize: 20
+        fontSize: 15,
+        color: "#232323"
     },
 
     textForm: {

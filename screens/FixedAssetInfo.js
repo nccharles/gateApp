@@ -25,24 +25,69 @@ class FixedAssetInfo extends Component {
         super(props);
         this.state = {
             textInput: [],
-            inputData: []
+            inputData: [],
+            asset_name: [],
+            currChild: '',
         }
     }
+    // Backend API
+
+    Asset = () => {
+        let newChild = this.state.asset_name
+        newChild.push(this.state.currChild)
+        this.setState({ asset_name: newChild });
+        var data = {
+            asset_name: newChild,
+        }
+        fetch('https://infour.herokuapp.com/api/assets', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+
+        })
+            .then(Response => {
+                Response.json();
+                if (Response.status == 200) {
+
+                    this.props.navigation.navigate('Occupation');
+                }
+                else {
+                    console.log('try again')
+                }
+            })
+
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+    //end Backend
 
     //function to add TextInput 
     addTextInput = (key) => {
+        const newKey = key + 1
         let textInput = this.state.textInput;
-        textInput.push(<Inputs title="Asset Name" key={key} />);
-        this.setState({ textInput });
+        textInput.push(<Inputs title="Asset name" key={key} onChangeText={asset_name => this.handleInput(`asset_name[${newKey}]`, asset_name)}
+            value={this.state.asset_name[newKey]} />);
+        let newChild = this.state.asset_name
+        newChild.push(this.state.currChild)
+        this.setState({ textInput, asset_name: newChild });
     }
 
-    //function to remove TextInput 
+    //function to remove TextInput   
     removeTextInput = () => {
         let textInput = this.state.textInput;
         let inputData = this.state.inputData;
         textInput.pop();
         inputData.pop();
         this.setState({ textInput, inputData });
+    }
+    handleInput = (key, value) => {
+        this.setState({
+            currChild: value,
+        })
     }
     render() {
 
@@ -58,8 +103,8 @@ class FixedAssetInfo extends Component {
 
                     <View style={styles.Form}>
 
-                        <Inputs title="Select" />
-                        <Inputs title="Land Number" />
+                        <Inputs title="Asset Name" onChangeText={asset_name => this.handleInput('asset_name[0]', asset_name)}
+                            value={this.state.asset_name[0]} />
 
                     </View>
 
@@ -84,10 +129,11 @@ class FixedAssetInfo extends Component {
                             </TouchableOpacity>
 
                         </View>
+                        <MainButton text="Next" onPress={this.Asset} />
+
 
                     </View>
 
-                    <MainButton text="Next" onPress={() => this.props.navigation.navigate('Social')} />
 
                 </ScrollView>
 
@@ -101,7 +147,7 @@ class FixedAssetInfo extends Component {
     }
 }
 FixedAssetInfo.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default FixedAssetInfo;
 const styles = StyleSheet.create({
@@ -110,16 +156,17 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         justifyContent: "center",
         alignItems: "center"
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         textAlign: "center",
         padding: 15,
-        fontSize: 20
+        fontSize: 15,
+        color: "#232323"
     },
 
     textForm: {

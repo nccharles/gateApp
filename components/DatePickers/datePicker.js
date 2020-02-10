@@ -17,7 +17,7 @@ const Datepicker = (props) => {
                 date={date}
                 timeZoneOffsetInMinutes={undefined}
                 modalTransparent={false}
-                format="DD-MM-YYYY"
+                format="YYYY-MM-DD"
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
                 placeHolderTextStyle={{ color: "#d2d2d2" }}
@@ -37,8 +37,9 @@ const styles = StyleSheet.create({
         paddingTop: 8,
     },
     title: {
-        fontSize: 14,
-        color: "#707070"
+        fontSize: 13,
+        color: "#707070",
+        fontFamily: 'font-regular'
     },
     date: {
         margin: 5,
@@ -46,6 +47,8 @@ const styles = StyleSheet.create({
         height: 35,
         // padding: 10,
         borderColor: "#d4d4d4",
+        fontFamily: 'font-regular',
+        color: "#707070"
 
     }
 

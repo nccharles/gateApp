@@ -16,6 +16,57 @@ import Inputs from "../components/Input";
 const { width } = Dimensions.get("window");
 
 export default class LoginScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+      email: '',
+      password: '',
+    };
+  }
+
+  //   if (response.status >= 200 && response.status < 300) {
+  //     alert("authenticated successfully!!!");
+  //     }
+
+  // }
+  Login = () => {
+
+    var data = {
+
+      email: this.state.email,
+      password: this.state.password,
+
+    }
+    fetch('https://infour.herokuapp.com/api/login', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+
+    })
+      .then(Response => {
+        Response.json();
+        if (Response.status == 200) {
+
+          this.props.navigation.navigate('TabScreen');
+        }
+        else {
+          console.log('try again')
+        }
+      })
+
+      .catch((error) => {
+        console.log(error)
+      })
+
+    // if (data == "first_name") {
+    //   alert("authenticated successfully!!!");
+    // }
+
+  }
 
   render() {
 
@@ -33,23 +84,27 @@ export default class LoginScreen extends Component {
 
         <View style={styles.inputContainer}>
 
-          <Inputs title="Phone Number" />
+          <Inputs type="email" title="Email" onChangeText={email => this.setState({ email: email })}
+            value={this.state.email} />
+
 
         </View>
 
         <View style={styles.inputContainer}>
 
-          <Inputs title="Verification Code" />
+          <Inputs type="pwd" title="password" onChangeText={password => this.setState({ password: password })}
+            value={this.state.password} />
 
         </View>
 
-        <MainButton text="login" onPress={() => this.props.navigation.navigate("TabScreen")} />
+        <MainButton text="login" onPress={this.Login} />
 
-        <TouchableHighlight onPress={() => this.props.navigation.navigate("Signup")}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate("Signup")}>
 
-          <Text style={styles.highlight}>Don't have an account?</Text>
+          <Text style={styles.ptext}>Don't have an account yet? <Text style={styles.span}> Sign Up</Text> </Text>
+        </TouchableOpacity>
 
-        </TouchableHighlight>
+
 
         <KeyboardAvoidingView
           behavior={"padding"}
@@ -61,7 +116,7 @@ export default class LoginScreen extends Component {
   }
 }
 LoginScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 const styles = StyleSheet.create({
   container: {
@@ -87,11 +142,10 @@ const styles = StyleSheet.create({
   },
 
   logoText: {
-    color: "black",
+    color: "#707070",
     fontSize: 20,
-    fontWeight: "500",
     marginTop: 10,
-    opacity: 0.5
+    fontFamily: "font-semi",
   },
 
   label: {
@@ -123,5 +177,16 @@ const styles = StyleSheet.create({
     color: "rgba(255, 255, 255, 0.7)",
     fontSize: 15,
     textAlign: "center"
+  },
+  span: {
+    color: '#73cdfe'
+  },
+
+  ptext: {
+    fontFamily: "font-regular",
+    padding: 12,
+    fontSize: 12,
+    color: '#707070',
+    textAlign: "center",
   }
 });

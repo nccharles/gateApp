@@ -120,7 +120,8 @@ class EditProfileScreen extends Component {
                     </View>
 
                     <Text style={styles.title}>Address</Text>
-
+                    <View style={styles.line}>
+                    </View>
                     <View style={styles.Form}>
 
                         <TransInput title="Country" />
@@ -193,7 +194,7 @@ class EditProfileScreen extends Component {
     }
 }
 EditProfileScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default EditProfileScreen;
 const styles = StyleSheet.create({
@@ -202,7 +203,7 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         color: '#707070',
         // paddingBottom: 20,
         padding: 10,
@@ -210,7 +211,7 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         textAlign: 'center',
         padding: 15,
         fontSize: 15,
@@ -247,14 +248,15 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontFamily: 'font-bold',
+        fontFamily: 'font-semi',
         fontSize: 15,
         padding: 10,
+        color: '#232323'
     },
 
     down: {
-        fontFamily: 'font-bold',
-        fontSize: 18,
+        fontFamily: 'font-semi',
+        fontSize: 15,
         padding: 10,
         textAlign: 'center',
         color: Colors.primary,
@@ -262,8 +264,8 @@ const styles = StyleSheet.create({
     },
 
     downEdit: {
-        fontFamily: 'font-bold',
-        fontSize: 18,
+        fontFamily: 'font-semi',
+        fontSize: 15,
         padding: 10,
         textAlign: 'center',
         color: Colors.primary,

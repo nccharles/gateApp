@@ -1,71 +1,92 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import Icon from "@expo/vector-icons/Ionicons";
 import Header from "../components/Header/BackHeader";
 import Button from '../components/Buttons/mainButton';
+import Inputs from "../components/Input";
+
+class SocialMedia extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+      twitter: '',
+      facebook: '',
+      instagram: '',
+      linkedin: '',
+      whatsup_Number: '',
 
 
-export default function SocialMedia() {
+    };
+  }
 
-  return (
+  Social = () => {
+    var data = {
+      twitter: this.state.twitter,
+      facebook: this.state.facebook,
+      instagram: this.state.instagram,
+      linkedin: this.state.linkedin,
+      whatsup_Number: this.state.whatsup_Number,
+    }
+    fetch('https://infour.herokuapp.com/api/social_media', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
 
-    <ScrollView style={styles.container}>
+    })
+      .then(Response => {
+        Response.json();
 
-      <Header headerName="Profile" />
+        if (Response.status == 200) {
 
-      <Text style={styles.Text}>Social Media</Text>
+          this.props.navigation.navigate('Occupation');
+        }
+        else {
+          console.log('try again')
+        }
+      })
 
-      <View style={styles.Form}>
+      .catch((error) => {
+        console.log(error)
+      })
 
-        <View style={styles.iconalign}>
 
-          <Icon name="logo-twitter" size={40} color='#707070' style={styles.iconback} />
-          <Text style={styles.iconlabel}>Twitter</Text>
-          <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
+  }
+  render() {
+    return (
 
+      <ScrollView style={styles.container}>
+
+        <Header headerName="Social Media" />
+
+        <View style={styles.Form}>
+
+          <Inputs title="Twitter" onChangeText={twitter => this.setState({ twitter: twitter })}
+            value={this.state.twitter} />
+          <Inputs title="Facebook" onChangeText={facebook => this.setState({ facebook: facebook })}
+            value={this.state.facebook} />
+          <Inputs title="Instagram" onChangeText={instagram => this.setState({ instagram: instagram })}
+            value={this.state.instagram} />
+          <Inputs title="LinkedIn" onChangeText={linkedin => this.setState({ linkedin: linkedin })}
+            value={this.state.linkedin} />
+          <Inputs title="WhatsApp" keyboardtype="numeric" onChangeText={whatsup_Number => this.setState({ whatsup_Number: whatsup_Number })}
+            value={this.state.whatsup_Number} />
         </View>
-
-        <View style={styles.iconalign}>
-
-          <Icon name="logo-whatsapp" size={40} color='#707070' style={styles.iconback} />
-          <Text style={styles.iconlabel}>Whatsapp</Text>
-          <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
-
+        <View style={styles.FormButton}>
+          <Button text="Next" onPress={this.Social} />
         </View>
-
-        <View style={styles.iconalign}>
-
-          <Icon name="logo-instagram" size={40} color='#707070' style={styles.iconback} />
-          <Text style={styles.iconlabel}>Instagram</Text>
-          <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
-
-        </View>
-
-        <View style={styles.iconalign}>
-
-          <Icon name="logo-linkedin" size={40} color='#707070' style={styles.iconback} />
-          <Text style={styles.iconlabel}>Linkedin</Text>
-          <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
-
-        </View>
-
-        <View style={styles.iconalign}>
-          <Icon name="logo-facebook" size={40} color='#707070' style={styles.iconback} />
-          <Text style={styles.iconlabel}>Facebook</Text>
-          <Icon name="ios-add-circle" color="green" size={40} color='#707070' style={styles.add} />
-
-        </View>
-
-      </View>
-
-      <Button text="Next" onPress={() => this.props.navigation.navigate('Document')} />
-
-    </ScrollView>
-  );
+      </ScrollView>
+    );
+  }
 }
 SocialMedia.navigationOptions = {
-  header: null,
+  headerShown: false,
 };
+export default SocialMedia;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -74,7 +95,7 @@ const styles = StyleSheet.create({
   },
 
   Text: {
-    fontSize: 16,
+    fontSize: 15,
     textAlign: 'center',
     paddingTop: 44,
     justifyContent: 'center',
@@ -82,20 +103,28 @@ const styles = StyleSheet.create({
   },
 
   Form: {
-    marginTop: 40
+    marginTop: 40,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
+  FormButton: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   iconalign: {
     flexDirection: 'row',
     paddingLeft: 80,
   },
 
   iconlabel: {
-    margin: 20
+    margin: 20,
+    fontFamily: 'font-regular',
+    color: "#707070"
   },
 
   add: {
-    backgroundColor: 'green',
+    backgroundColor: '#707070',
     height: 40,
     borderRadius: 20,
     color: 'white',

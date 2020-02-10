@@ -1,52 +1,110 @@
-import React from "react";
-import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView } from "react-native";
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView, Dimensions } from "react-native";
 
 import Header from "../components/Header/BackHeader";
 import Inputs from "../components/Input";
 import Button from "../components/Buttons/mainButton";
+const { width } = Dimensions.get("window");
 
-export default function EmployeeOccupation() {
+class EmployeeOccupation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      company_name: '',
+      position: "",
+      country: "",
+      province: "",
+      district: "",
+      street: '',
+    };
 
-  return (
+  }
+  //Backend  API
 
-    <ScrollView style={styles.container}>
+  Employee = () => {
+    var data = {
+      company_name: this.state.company_name,
+      position: this.state.position,
+      country: this.state.country,
+      province: this.state.province,
+      district: this.state.district,
+      street: this.state.street,
+    }
+    fetch('https://infour.herokuapp.com/api/employed_occupation', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
 
-      <Header headerName="Employee Job" />
+    })
+      .then(Response => {
+        Response.json();
+        if (Response.status == 200) {
 
-      <Text style={styles.Text}>Employee</Text>
+          this.props.navigation.navigate('Occupation');
+        }
+        else {
+          console.log('try again')
+        }
+      })
 
-      <View style={styles.Form}>
+      .catch((error) => {
+        console.log(error)
+      })
 
-        <Inputs title="Occupation" />
-        <Inputs title="Company" />
-        <Inputs title="Position" />
+  }
 
-      </View>
+  //end Backend
+  render() {
+    return (
 
-      <Text style={styles.UnderText}>Address</Text>
+      <ScrollView style={styles.container}>
 
-      <View style={styles.Form}>
+        <Header headerName="Employee Job" />
 
-        <Inputs title="Country" />
-        <Inputs title="Province" />
-        <Inputs title="District" />
-        <Inputs title="Street" />
+        <Text style={styles.Text}>Employee</Text>
 
-        <Button text="Next" onPress={() => this.props.navigation.navigate('InsuranceDetails')} />
+        <View style={styles.Form}>
 
-      </View>
+          <Inputs title="Company" onChangeText={company_name => this.setState({ company_name: company_name })}
+            value={this.state.company_name} />
+          <Inputs title="Position" onChangeText={position => this.setState({ position: position })}
+            value={this.state.position} />
 
-      <KeyboardAvoidingView
-        behavior={"padding"}
-        keyboardVerticalOffset={width / 24}
-      />
+        </View>
 
-    </ScrollView>
-  );
+        <Text style={styles.UnderText}>Address</Text>
+
+        <View style={styles.Form}>
+
+          <Inputs title="Country" onChangeText={country => this.setState({ country: country })}
+            value={this.state.country} />
+          <Inputs title="Province" onChangeText={province => this.setState({ province: province })}
+            value={this.state.province} />
+          <Inputs title="District" onChangeText={district => this.setState({ district: district })}
+            value={this.state.district} />
+          <Inputs title="Street" onChangeText={street => this.setState({ street: street })}
+            value={this.state.street} />
+
+          <Button text="Next" onPress={this.Employee} />
+
+        </View>
+
+        <KeyboardAvoidingView
+          behavior={"padding"}
+          keyboardVerticalOffset={width / 24}
+        />
+
+      </ScrollView>
+    );
+  }
 }
 EmployeeOccupation.navigationOptions = {
-  header: null,
+  headerShown: false,
 };
+export default EmployeeOccupation;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -55,9 +113,13 @@ const styles = StyleSheet.create({
   },
 
   Text: {
-    fontSize: 16,
-    marginLeft: 120,
-    paddingTop: 24
+    fontSize: 15,
+    paddingTop: width / 24,
+    fontSize: 15,
+    color: '#232323',
+    paddingLeft: width / 20,
+    fontFamily: 'font-semi',
+    textAlign: 'center'
   },
 
   Form: {
@@ -67,9 +129,9 @@ const styles = StyleSheet.create({
 
   UnderText: {
     textAlign: 'left',
-    fontSize: 16,
-    textDecorationLine: "underline",
-    color: '#707070',
-    paddingLeft: 27
-  }
+    fontSize: 15,
+    color: '#232323',
+    paddingLeft: width / 20,
+    fontFamily: 'font-semi',
+  },
 });

@@ -26,9 +26,42 @@ const { width } = Dimensions.get("window");
 class InsuranceInfoDetails extends Component {
 
     constructor(props) {
-        super(props)
-        this.state = {}
+        super(props);
+        this.state = {
+            insurance_name: '',
+            telephone: '',
+            date_of_birth: '',
+            expiration_date: '',
+
+        };
     }
+    Insurance = () => {
+        var data = {
+            insurance_name: this.state.insurance_name,
+            telephone: this.state.telephone,
+            date_of_birth: this.state.date_of_birth,
+            expiration_date: this.state.expiration_date,
+        }
+        fetch('https://infour.herokuapp.com/api/insurance', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+
+        }).then(function (response) {
+            return response.json();
+        })
+            .then(function (result) {
+                console.log(result);
+            })
+            .catch(function (error) {
+                console.log('Request failed', error);
+            });
+    }
+    //end Backend
+
 
     render() {
 
@@ -44,20 +77,23 @@ class InsuranceInfoDetails extends Component {
 
                     <View style={styles.Form}>
 
-                        <Inputs title="Insurance Name" />
-                        <Inputs title="Insurance Number" keyboardtype="numeric" />
-                        <Inputs title="Telephone" keyboardtype="numeric" />
-                        <Datepicker title="Date of Issue" date={this.state.date}
-                            onDateChange={(date) => { this.setState({ date: date }) }} />
+                        <Inputs title="Insurance Name" onChangeText={insurance_name => this.setState({ insurance_name: insurance_name })}
+                            value={this.state.insurance_name} />
+                        <Inputs title="Insurance Number" keyboardtype="numeric" onChangeText={telephone => this.setState({ telephone: telephone })}
+                            value={this.state.telephone} />
+                        {/* <Inputs title="Telephone" keyboardtype="numeric" /> */}
+                        <Datepicker title="Date of Issue" date_of_birth={this.state.date_of_birth}
+                            onDateChange={(date_of_birth) => { this.setState({ date_of_birth: date_of_birth }) }} />
 
-                        <Datepicker title="Date of Expiration" date={this.state.date}
-                            onDateChange={(date) => { this.setState({ date: date }) }} />
+                        <Datepicker title="Date of Expiration" expiration_date={this.state.expiration_date}
+                            onDateChange={(expiration_date) => { this.setState({ expiration_date: expiration_date }) }} />
 
-                        <Inputs title="Insurance Coverage" />
+                        {/* <Inputs title="Insurance Coverage" /> */}
+                        <MainButton text="Next" onPress={this.Insurance} />
 
                     </View>
 
-                    <MainCheckBox title="Liability Coverage" />
+                    {/* <MainCheckBox title="Liability Coverage" />
                     <MainCheckBox title="Comprehensive Insurance" />
                     <MainCheckBox title="Uninsured Motorist Insurance" />
                     <MainCheckBox title="Medical payments Coverage" />
@@ -66,9 +102,8 @@ class InsuranceInfoDetails extends Component {
                     <MainCheckBox title="Towing and Labor Insurance" />
                     <MainCheckBox title="Rental reimbursement Insurance" />
                     <MainCheckBox title="Classic Car Insurance" />
-                    <TransInput title="Other:" />
+                    <TransInput title="Other:" /> */}
 
-                    <MainButton text="Next" onPress={() => this.props.navigation.navigate('BankInfo')} />
 
                 </ScrollView>
 
@@ -82,7 +117,7 @@ class InsuranceInfoDetails extends Component {
     }
 }
 InsuranceInfoDetails.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default InsuranceInfoDetails;
 const styles = StyleSheet.create({
@@ -91,16 +126,17 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         padding: 15,
         justifyContent: "center",
         alignItems: "center"
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         textAlign: 'center',
         padding: 15,
-        fontSize: 20,
+        fontSize: 15,
+        color: "#232323"
     },
 })

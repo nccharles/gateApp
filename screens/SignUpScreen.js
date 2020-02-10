@@ -32,48 +32,18 @@ class SignUpScreen extends Component {
       email: '',
       password: '',
       phone: '',
-      data: ''
+
 
     };
   }
-  // _onLogInPressed = () => {
-  //   var data = {
-  //     phone_number: this.state.phone_number,
-  //     password: this.state.password
-  //   };
-  // componentDidMount() {
 
-  //   var data = {
-  //     first_name: this.state.first_name,
-  //     last_name: this.state.last_name,
-  //     email: this.state.email,
-  //     password: this.state.password,
-  //     phone: this.state.phone,
-  //   }
-
-  //   fetch('https://infour.herokuapp.com/api/signup', {
-  //     method: 'POST',
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({ data })
-
-  //   }) 
-  //   .then(Response => {
-  //     console.log(data)
-  //   })
-
-  //   .catch((error) => {
-  //     console.log(error)
-  //   })
   //   if (response.status >= 200 && response.status < 300) {
   //     alert("authenticated successfully!!!");
   //     }
 
   // }
   SignUp = () => {
-    var signup = this.state.userType;
+
     var data = {
       first_name: this.state.first_name,
       last_name: this.state.last_name,
@@ -84,24 +54,28 @@ class SignUpScreen extends Component {
     fetch('https://infour.herokuapp.com/api/signup', {
       method: 'POST',
       headers: {
-        Accept: 'application/json',
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ data })
+      body: JSON.stringify(data)
 
     })
       .then(Response => {
-        console.log(data)
+        Response.json()
       })
+
       .catch((error) => {
         console.log(error)
       })
-    if (response.status >= 200 && response.status < 300) {
-      alert("authenticated successfully!!!");
-    }
+
+    // if (data == "first_name") {
+    //   alert("authenticated successfully!!!");
+    // }
+
+    var signup = this.state.userType;
     if (signup == "user") {
       console.log(signup);
-      this.props.navigation.navigate("TabUserScreen");
+      this.props.navigation.navigate("Social");
     } else if (signup == "client") {
       console.log(signup);
       this.props.navigation.navigate("TabScreen");
@@ -109,7 +83,7 @@ class SignUpScreen extends Component {
       console.log(signup);
       this.props.navigation.navigate("TabAgentScreen");
     } else {
-      alert("Please select account type");
+      alert("Please fill all the field");
     }
   };
 
@@ -130,34 +104,38 @@ class SignUpScreen extends Component {
 
           <View style={styles.Form}>
 
-            <Inputs title="Firstname" onChangeText={(text) => this.setState({ first_name: text })}
+            <Inputs title="Firstname" onChangeText={first_name => this.setState({ first_name: first_name })}
               value={this.state.first_name} />
-            <Inputs title="Lastname" onChangeText={(text) => this.setState({ last_name: text })}
+            <Inputs title="Lastname" onChangeText={last_name => this.setState({ last_name: last_name })}
               value={this.state.last_name} />
-            <Inputs type="email" title="Email(Optional)" onChangeText={(text) => this.setState({ email: text })}
+            <Inputs type="email" title="Email(Optional)" onChangeText={email => this.setState({ email: email })}
               value={this.state.email} />
-            <Inputs type="pwd" title="password" onChangeText={(text) => this.setState({ password: text })}
+            <Inputs type="pwd" title="password" onChangeText={password => this.setState({ password: password })}
               value={this.state.password} />
-            <Inputs title="Telephone" keyboardtype="numeric" onChangeText={(text) => this.setState({ phone: text })}
+            <Inputs title="Telephone" keyboardtype="numeric" onChangeText={phone => this.setState({ phone: phone })}
               value={this.state.phone} />
+          </View>
+          <View style={styles.select}>
+            <Text style={styles.title}>Select User</Text>
             <Picker
               style={styles.picker}
               selectedValue={this.state.userType}
               onValueChange={(itemValue, itemIndex) =>
                 this.setState({ userType: itemValue })}>
               <Picker.Item label="Select" value="Select" />
-              <Picker.Item label="user" value="user" />
-              <Picker.Item label="client" value="client" />
+              <Picker.Item label="User" value="user" />
+              <Picker.Item label="Client" value="client" />
               <Picker.Item label="Agent" value="Agent" />
             </Picker>
-
-            <MainButton text="Sign Up" onPress={() => this.SignUp()} />
-            {/* <MainButton text="Sign Up" onPress={() => this.props.navigation.navigate("TabScreen")} /> */}
+          </View>
+          <View style={styles.Form}>
+            <MainButton text="Sign Up" onPress={this.SignUp} />
+            {/* <MainButton text="Sign Up" onPress={() => this.props.navigation.navigate("Social")} /> */}
 
             <TouchableOpacity onPress={() => this.props.navigation.navigate("Login")}>
 
 
-              <Text style={styles.ptext}>Already an Account? <Text style={styles.span}>Login</Text> </Text>
+              <Text style={styles.ptext}>Already an Account?<Text style={styles.span}> Login</Text> </Text>
             </TouchableOpacity>
 
           </View>
@@ -174,7 +152,7 @@ class SignUpScreen extends Component {
   }
 }
 SignUpScreen.navigationOptions = {
-  header: null
+  headerShown: false,
 };
 export default SignUpScreen;
 const styles = StyleSheet.create({
@@ -199,24 +177,35 @@ const styles = StyleSheet.create({
   },
 
   Form: {
-    fontFamily: "font-regulary",
+    fontFamily: "font-regular",
     justifyContent: "center",
     alignItems: "center"
   },
 
   picker: {
+    fontSize: 14,
     height: 35,
     width: 260,
-    color: "#707070",
-    paddingTop: 15,
+    color: '#707070',
     borderColor: "#d4d4d4",
     borderWidth: 1,
     borderRadius: 5,
-    backgroundColor: "#f8f8f8"
-  },
+    backgroundColor: "#f8f8f8",
+    fontSize: 12,
 
+  },
+  title: {
+    fontSize: 13,
+    color: "#707070",
+    fontFamily: 'font-regular',
+    paddingBottom: 5,
+  },
+  select: {
+    fontFamily: "font-regular",
+    paddingTop: 10,
+  },
   text: {
-    fontFamily: "font-regulary",
+    fontFamily: "font-semi",
     padding: 15,
     fontSize: 20,
     color: "#707070",
@@ -228,7 +217,7 @@ const styles = StyleSheet.create({
   },
 
   ptext: {
-    fontFamily: "font-regulary",
+    fontFamily: "font-regular",
     padding: 12,
     fontSize: 12,
     color: '#707070',

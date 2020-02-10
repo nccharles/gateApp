@@ -31,7 +31,7 @@ class Profile extends Component {
 
           <TouchableOpacity style={styles.Button} onPress={() => this.props.navigation.navigate('ClientEdit')}>
 
-            <Icon name="account-edit" size={36} color="#707070" style={styles.iconback} />
+            <Icon name="account-edit" size={30} color="#707070" style={styles.iconback} />
             <Text style={styles.Label}>Edit Profile</Text>
 
           </TouchableOpacity>
@@ -42,7 +42,7 @@ class Profile extends Component {
 
           <View style={styles.Button}>
 
-            <Icon name="help" size={36} color="#707070" style={styles.iconback} />
+            <Icon name="help" size={30} color="#707070" style={styles.iconback} />
 
             <Text style={styles.Label}>Help</Text>
 
@@ -54,7 +54,7 @@ class Profile extends Component {
 
           <View style={styles.Button}>
 
-            <Icon name="logout" size={36} color="#707070" style={styles.iconback} />
+            <Icon name="logout" size={30} color="#707070" style={styles.iconback} />
             <Text style={styles.Label}>Logout</Text>
 
           </View>
@@ -66,7 +66,7 @@ class Profile extends Component {
   }
 }
 Profile.navigationOptions = {
-  header: null,
+  headerShown: false,
 };
 const styles = StyleSheet.create({
   Profile: {
@@ -93,31 +93,35 @@ const styles = StyleSheet.create({
     fontSize: 12,
     paddingTop: 10,
     paddingLeft: 10,
-    color: '#232323'
+    color: '#232323',
+    fontFamily: 'font-regular',
   },
 
   UserName: {
     color: "#232323",
     marginTop: 30,
-    fontSize: 20,
-    fontWeight: "bold",
+    fontSize: 16,
+    fontFamily: 'font-semi',
     paddingLeft: 10
   },
 
   EmailAddress: {
-    paddingLeft: 10,
-    color: "#707070"
+    paddingLeft: 12,
+    color: "#707070",
+    fontFamily: 'font-regular',
+    fontSize: 10,
   },
 
   SettingsButtons: {
     marginTop: 20,
     marginLeft: 30,
     flexDirection: "row",
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
     borderRadius: 6,
     height: 37,
     width: 260,
-    flexDirection: "column"
+    flexDirection: "column",
+
   }
 });
 

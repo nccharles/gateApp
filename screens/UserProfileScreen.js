@@ -33,13 +33,13 @@ class UserProfileScreen extends Component {
         }
     }
     componentDidMount() {
-        fetch('http://dummy.restapiexample.com/api/v1/employees')
+        fetch('https://infour.herokuapp.com/api/social_media')
             .then((Response) => Response.json())
             .then((responseJson) => {
                 this.setState({
 
                     isLoading: true,
-                    dataSource: responseJson.data[0],
+                    dataSource: responseJson[0],
 
                 })
                 console.log(responseJson)
@@ -85,12 +85,12 @@ class UserProfileScreen extends Component {
 
                         <View key={dataSource.id} style={styles.Form} >
 
-                            <Label title="Date of Birth" text={dataSource.employee_name} />
-                            <Label title="Place Of Birth " text={dataSource.employee_salary} />
-                            <Label title="Sex" text={dataSource.employee_age} />
-                            <Label title="Nationality" text={dataSource.employee_salary} />
-                            <Label title="National ID/Passport" text={dataSource.employee_salary} />
-                            <Label title="Marital Status" text={dataSource.employee_salary} />
+                            <Label title="Date of Birth" />
+                            <Label title="Place Of Birth " />
+                            <Label title="Sex" />
+                            <Label title="Nationality" />
+                            <Label title="National ID/Passport" />
+                            <Label title="Marital Status" />
 
                         </View>
                         <Text style={styles.title}>Current Resident</Text>
@@ -204,11 +204,11 @@ class UserProfileScreen extends Component {
 
                         <View style={styles.Form} onPress={() => this.props.navigation.navigate('Edit')}>
 
-                            <Label title="Twitter" />
-                            <Label title="Facebook" />
-                            <Label title="Instagram" />
-                            <Label title="Pinterest" />
-                            <Label title="Tik-Tok" />
+                            <Label title="Twitter" text={dataSource.twitter} />
+                            <Label title="Facebook" text={dataSource.facebook} />
+                            <Label title="Instagram" text={dataSource.instagram} />
+                            <Label title="Pinterest" text={dataSource.linkedin} />
+                            <Label title="Tik-Tok" text={dataSource.whatsup_Number} />
 
                         </View>
 
@@ -235,7 +235,7 @@ class UserProfileScreen extends Component {
 
 
 UserProfileScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default UserProfileScreen;
 const styles = StyleSheet.create({
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         color: '#707070',
         // paddingBottom: 20,
         padding: 10,
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         textAlign: 'center',
         padding: 15,
         fontSize: 15,

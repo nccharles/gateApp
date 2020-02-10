@@ -52,7 +52,7 @@ class UserRegistrationScreen extends Component {
     }
 }
 UserRegistrationScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default UserRegistrationScreen;
 
@@ -62,13 +62,13 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         justifyContent: "center",
         alignItems: "center"
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         textAlign: "center",
         padding: 15,
         fontSize: 20

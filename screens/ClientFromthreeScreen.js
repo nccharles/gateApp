@@ -52,9 +52,12 @@ class ClientFormthreeScreen extends Component {
                         <MainCheckBox title="Assets Information" />
                         <MainCheckBox title="Social Media Profiles" />
                         <MainCheckBox title="Spouse Middle Name" />
-                        <MainButton text="Send" />
+
                         {/* <Datepicker title="place" /> */}
 
+                    </View>
+                    <View style={styles.FormButton}>
+                        <MainButton text="Send" />
                     </View>
 
                 </ScrollView>
@@ -64,7 +67,7 @@ class ClientFormthreeScreen extends Component {
     }
 }
 ClientFormthreeScreen.navigationOptions = {
-    header: null,
+    headerShown: false,
 };
 export default ClientFormthreeScreen;
 const styles = StyleSheet.create({
@@ -73,24 +76,29 @@ const styles = StyleSheet.create({
     },
 
     Form: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         // justifyContent: 'center',
         // alignItems: 'center',
         padding: 15,
     },
 
     text: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-semi',
         textAlign: 'center',
         padding: 15,
-        fontSize: 20,
+        fontSize: 15,
+        color: "#232323"
     },
 
     small: {
-        fontFamily: 'font-regulary',
+        fontFamily: 'font-regular',
         textAlign: 'center',
         padding: 15,
         fontSize: 12,
         color: '#707070'
-    }
+    },
+    FormButton: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 })
