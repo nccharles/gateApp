@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView, Dimensions } 
 import Header from "../components/Header/BackHeader";
 import Inputs from "../components/Input";
 import Button from "../components/Buttons/mainButton";
+import { token } from "../constants/util";
 const { width } = Dimensions.get("window");
 
 export default class SelfEmployedOccupation extends Component {
@@ -42,14 +43,21 @@ export default class SelfEmployedOccupation extends Component {
       body: JSON.stringify(data),
 
     })
-      .then(Response => {
-        Response.json();
-        console.log(Response)
-      })
+      .then((response) => response.json())
+      .then(async (response) => {
 
-      .catch((error) => {
+        // console.log(response)
+        await AsyncStorage.setItem(token, response.token);
+        if (response.token !== null) {
+          this.props.navigation.navigate('InsuranceDetails');
+        }
+        else {
+          console.log('try again')
+        }
+        // console.log(response);
+      }).catch((error) => {
         console.log(error)
-      })
+      });
 
   }
 

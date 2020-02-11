@@ -20,7 +20,7 @@ import MainButton from "../components/Buttons/mainButton";
 import Datepicker from '../components/DatePickers/datePicker';
 import MainCheckBox from '../components/CheckBoxs/mainCheckBox';
 import TransInput from '../components/TextInputs/EditInput';
-
+import { token } from "../constants/util";
 const { width } = Dimensions.get("window");
 
 class InsuranceInfoDetails extends Component {
@@ -50,14 +50,20 @@ class InsuranceInfoDetails extends Component {
             },
             body: JSON.stringify(data),
 
-        }).then(function (response) {
-            return response.json();
-        })
-            .then(function (result) {
-                console.log(result);
-            })
-            .catch(function (error) {
-                console.log('Request failed', error);
+        }).then((response) => response.json())
+            .then(async (response) => {
+
+                // console.log(response)
+                await AsyncStorage.setItem(token, response.token);
+                if (response.token !== null) {
+                    this.props.navigation.navigate('BankDetails');
+                }
+                else {
+                    console.log('try again')
+                }
+                // console.log(response);
+            }).catch((error) => {
+                console.log(error)
             });
     }
     //end Backend

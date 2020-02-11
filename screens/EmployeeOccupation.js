@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView, Dimensions } 
 import Header from "../components/Header/BackHeader";
 import Inputs from "../components/Input";
 import Button from "../components/Buttons/mainButton";
+import InsuranceInfoScreen from './InsuranceInfoScreen';
+import { token } from "../constants/util";
 const { width } = Dimensions.get("window");
 
 class EmployeeOccupation extends Component {
@@ -39,20 +41,21 @@ class EmployeeOccupation extends Component {
       body: JSON.stringify(data),
 
     })
-      .then(Response => {
-        Response.json();
-        if (Response.status == 200) {
+      .then((response) => response.json())
+      .then(async (response) => {
 
-          this.props.navigation.navigate('Occupation');
+        // console.log(response)
+        await AsyncStorage.setItem(token, response.token);
+        if (response.token !== null) {
+          this.props.navigation.navigate('InsuranceDetails');
         }
         else {
           console.log('try again')
         }
-      })
-
-      .catch((error) => {
+        // console.log(response);
+      }).catch((error) => {
         console.log(error)
-      })
+      });
 
   }
 

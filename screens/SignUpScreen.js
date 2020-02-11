@@ -13,11 +13,13 @@ import {
   Button,
   TouchableHighlight,
   Dimensions,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  AsyncStorage,
 } from "react-native";
 import { MonoText } from "../components/StyledText";
 import MainButton from "../components/Buttons/mainButton";
 import Inputs from "../components/Input";
+import { token } from "../constants/util";
 // import FormPicker from '../components/select/selectPicker';
 const { width } = Dimensions.get("window");
 
@@ -60,13 +62,14 @@ class SignUpScreen extends Component {
       body: JSON.stringify(data)
 
     })
-      .then(Response => {
-        Response.json()
-      })
-
-      .catch((error) => {
+      .then((response) => response.json())
+      .then(async (response) => {
+        console.log(response)
+        await AsyncStorage.setItem(token, response.token);
+        // console.log(response);
+      }).catch((error) => {
         console.log(error)
-      })
+      });
 
     // if (data == "first_name") {
     //   alert("authenticated successfully!!!");
@@ -75,7 +78,7 @@ class SignUpScreen extends Component {
     var signup = this.state.userType;
     if (signup == "user") {
       console.log(signup);
-      this.props.navigation.navigate("Social");
+      this.props.navigation.navigate("PersonalInfo");
     } else if (signup == "client") {
       console.log(signup);
       this.props.navigation.navigate("TabScreen");
@@ -97,8 +100,8 @@ class SignUpScreen extends Component {
 
           <View style={styles.logoContainer}>
 
-            <Image source={require("../assets/images/icon.png")} style={styles.logo} />
-            <Text style={styles.text}>Sign Up</Text>
+            <Image source={require("../assets/images/Logo_Divine_Tag-02.png")} style={styles.logo} />
+            {/* <Text style={styles.text}>Sign Up</Text> */}
 
           </View>
 
@@ -110,7 +113,7 @@ class SignUpScreen extends Component {
               value={this.state.last_name} />
             <Inputs type="email" title="Email(Optional)" onChangeText={email => this.setState({ email: email })}
               value={this.state.email} />
-            <Inputs type="pwd" title="password" onChangeText={password => this.setState({ password: password })}
+            <Inputs type="password" title="password" secureTextEntry onChangeText={password => this.setState({ password: password })}
               value={this.state.password} />
             <Inputs title="Telephone" keyboardtype="numeric" onChangeText={phone => this.setState({ phone: phone })}
               value={this.state.phone} />
@@ -130,6 +133,7 @@ class SignUpScreen extends Component {
           </View>
           <View style={styles.Form}>
             <MainButton text="Sign Up" onPress={this.SignUp} />
+
             {/* <MainButton text="Sign Up" onPress={() => this.props.navigation.navigate("Social")} /> */}
 
             <TouchableOpacity onPress={() => this.props.navigation.navigate("Login")}>
@@ -162,8 +166,8 @@ const styles = StyleSheet.create({
     height: null,
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 75,
-    paddingBottom: 20
+    // paddingTop: 75,
+    // paddingBottom: 20
   },
 
   logoContainer: {

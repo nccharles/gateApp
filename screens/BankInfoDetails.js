@@ -17,6 +17,7 @@ import Inputs from "../components/Input";
 import Header from "../components/Header/BackHeader";
 import MainButton from "../components/Buttons/mainButton";
 import Colors from "../constants/Colors";
+import { token } from "../constants/util";
 const { width } = Dimensions.get("window");
 
 class BankInfoDetails extends Component {
@@ -61,21 +62,21 @@ class BankInfoDetails extends Component {
             body: JSON.stringify(data),
 
         })
-            .then(Response => {
-                Response.json();
-                if (Response.status == 200) {
+            .then((response) => response.json())
+            .then(async (response) => {
 
-                    this.props.navigation.navigate('Occupation');
+                // console.log(response)
+                await AsyncStorage.setItem(token, response.token);
+                if (response.token !== null) {
+                    this.props.navigation.navigate('Fixed');
                 }
                 else {
                     console.log('try again')
                 }
-            })
-
-            .catch((error) => {
+                // console.log(response);
+            }).catch((error) => {
                 console.log(error)
-            })
-        console.log(data)
+            });
     }
     //end Backend
     //function to add TextInput

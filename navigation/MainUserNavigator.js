@@ -58,7 +58,7 @@ NotificationStack.path = '';
 
 const ProfileStack = createStackNavigator(
     {
-        Profile: ClientProfileScreen,
+        Profile: UserProfileScreen,
     },
     config
 );

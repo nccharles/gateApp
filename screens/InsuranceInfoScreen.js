@@ -40,8 +40,9 @@ class InsuranceInfoScreen extends Component {
                             <Picker.Item label="Mituel" value="Mituel" />
                             <Picker.Item label="RSSB" value="RSSB" />
                             <Picker.Item label="UAP" value="UAP" />
-                            <Picker.Item label="Other" value="other" />
+                            {/* <Picker.Item label="Other" value="other" /> */}
                         </Picker>
+                        <Inputs title="Other" />
                         <MainButton text="Next" />
                     </View>
 

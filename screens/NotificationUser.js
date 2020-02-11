@@ -3,8 +3,9 @@ import { StyleSheet, Text, View, ScrollView, Hr, Dimensions } from "react-native
 
 import Header from "../components/Header/BackHeader";
 import Icon from "@expo/vector-icons/AntDesign";
-
+import Colors from '../constants/Colors';
 const { width } = Dimensions.get("window");
+const screenheight = Dimensions.get('window').height
 export default function NotificationUser() {
 
   return (
@@ -15,7 +16,7 @@ export default function NotificationUser() {
 
       <ScrollView>
 
-        <Text style={styles.Text}>Tuesday, 20:30pm</Text>
+        {/* <Text style={styles.Text}>Tuesday, 20:30pm</Text>
 
         <View style={styles.Form}>
 
@@ -122,6 +123,9 @@ export default function NotificationUser() {
 
           </View>
 
+        </View> */}
+        <View style={styles.viewTicket}>
+          <Text style={styles.subTitle}>No Notification yet</Text>
         </View>
 
         {/* <View
@@ -183,6 +187,18 @@ const styles = StyleSheet.create({
     borderBottomColor: '#707070',
     opacity: 0.3,
     marginTop: 35,
+  },
+  viewTicket: {
+    paddingTop: screenheight / 2.5,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  subTitle: {
+    fontFamily: 'font-semi',
+    color: Colors.secondary_gray,
+    fontSize: 13,
+    paddingTop: 20,
+
   },
 
 });

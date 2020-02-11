@@ -16,6 +16,7 @@ import {
 import Inputs from '../components/Input';
 import Header from '../components/Header/BackHeader';
 import MainButton from "../components/Buttons/mainButton";
+import { token } from "../constants/util";
 import Colors from "../constants/Colors";
 const { width } = Dimensions.get("window");
 
@@ -67,20 +68,21 @@ class FamilyInfoScreen extends Component {
             body: JSON.stringify(data),
 
         })
-            .then(Response => {
-                Response.json();
-                if (Response.status == 200) {
+            .then((response) => response.json())
+            .then(async (response) => {
 
+                // console.log(response)
+                await AsyncStorage.setItem(token, response.token);
+                if (response.token !== null) {
                     this.props.navigation.navigate('Occupation');
                 }
                 else {
                     console.log('try again')
                 }
-            })
-
-            .catch((error) => {
+                // console.log(response);
+            }).catch((error) => {
                 console.log(error)
-            })
+            });
     }
 
     //end of Backend API
@@ -186,7 +188,7 @@ class FamilyInfoScreen extends Component {
                         <Inputs title="Dependency (if any)" keyboardtype="numeric" onChangeText={Dependency => this.setState({ Dependency: Dependency })}
                             value={this.state.Dependency} />
 
-                        <View style={styles.button}>
+                        {/* <View style={styles.button}>
 
                             <Text style={styles.name}>Names:</Text>
 
@@ -210,7 +212,7 @@ class FamilyInfoScreen extends Component {
 
                             </View>
 
-                        </View>
+                        </View> */}
 
                         <MainButton text="Next" onPress={this.Family} />
 

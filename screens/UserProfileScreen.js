@@ -19,7 +19,8 @@ import Header from '../components/Header/BackHeader';
 import MainButton from "../components/Buttons/mainButton";
 import Colors from '../constants/Colors';
 import Datepicker from '../components/DatePickers/datePicker';
-import Label from '../components/TextInputs/labels'
+import Label from '../components/TextInputs/labels';
+import { token } from "../constants/util";
 const { width } = Dimensions.get("window");
 
 class UserProfileScreen extends Component {
@@ -29,6 +30,7 @@ class UserProfileScreen extends Component {
         this.state = {
             isLoading: false,
             dataSource: [],
+            asset: [],
 
         }
     }
@@ -47,13 +49,27 @@ class UserProfileScreen extends Component {
             .catch((error) => {
                 console.log(error)
             })
+        fetch('https://infour.herokuapp.com/api/assets')
+            .then((Response) => Response.json())
+            .then((responseJson) => {
+                this.setState({
+
+                    isLoading: true,
+                    asset: responseJson[0],
+
+                })
+                console.log(responseJson)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
     render() {
-        var { isLoading, dataSource } = this.state;
+        var { isLoading, dataSource, asset } = this.state;
 
         if (!isLoading) {
             return (
-                <View style={styles.container}>
+                <View style={styles.Form}>
                     <ActivityIndicator />
 
                 </View>
@@ -73,7 +89,7 @@ class UserProfileScreen extends Component {
 
                         <View style={styles.imageContainer}>
 
-                            <Image style={styles.profile} source={require('../assets/images/icon.png')} />
+                            <Image style={styles.profile} source={require('../assets/images/Logo_Divine_Tag-02.png')} />
 
                         </View>
 
@@ -85,7 +101,7 @@ class UserProfileScreen extends Component {
 
                         <View key={dataSource.id} style={styles.Form} >
 
-                            <Label title="Date of Birth" />
+                            <Label title="Date of Birth" text={asset.asset_name} />
                             <Label title="Place Of Birth " />
                             <Label title="Sex" />
                             <Label title="Nationality" />
@@ -263,21 +279,27 @@ const styles = StyleSheet.create({
         width: 180,
         height: 180,
         borderRadius: 90,
+        ...Platform.select({
+            ios: {
+                shadowColor: 'rgba(0,0,0,0.4)',
+                shadowOffset: {
+                    width: 0,
+                    height: 2,
+                },
+                shadowOpacity: 0.8,
+                shadowRadius: 90,
+            },
+            android: {
+                elevation: 10,
+            },
+        }),
 
     },
 
     imageContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        shadowColor: Colors.primary_black,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.22,
-        shadowRadius: 2.22,
-        elevation: 3,
+
     },
 
     line: {

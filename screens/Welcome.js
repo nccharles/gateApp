@@ -18,7 +18,7 @@ export default class Welcome extends Component {
 
   toggleModal(visible) {
     this.setState({ modalVisible: visible });
-    this.props.navigation.navigate('TabScreen');
+    this.props.navigation.navigate('TabUserScreen');
   }
 
   render() {
@@ -61,7 +61,7 @@ export default class Welcome extends Component {
   }
 }
 Welcome.navigationOptions = {
-  header: null,
+  headerShown: false,
 };
 const styles = StyleSheet.create({
   container: {

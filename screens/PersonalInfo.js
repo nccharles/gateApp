@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Picker, StyleSheet, Text, View, KeyboardAvoidingView, Dimensions, ScrollView } from "react-native";
+import { Picker, StyleSheet, Text, View, KeyboardAvoidingView, Dimensions, ScrollView, AsyncStorage, DatePickerAndroid } from "react-native";
 import Inputs from "../components/Input";
 import MainButton from "../components/Buttons/mainButton";
 import BackHeader from "../components/Header/BackHeader";
 import Colors from "../constants/Colors";
 import { UploadIcon } from "../components/UploadButton";
 import Datepicker from '../components/DatePickers/datePicker';
+import { token } from "../constants/util";
 const { width } = Dimensions.get("window");
 
 export default class Personalinfo extends Component {
@@ -61,17 +62,29 @@ export default class Personalinfo extends Component {
       },
       body: JSON.stringify(data),
 
-    }).then(function (response) {
-      return response.json();
-    })
-      .then(function (result) {
-        console.log(result);
-      })
-      .catch(function (error) {
-        console.log('Request failed', error);
+    }).then((response) => response.json())
+      .then(async (response) => {
+
+        // console.log(response)
+        await AsyncStorage.setItem(token, response.token);
+        if (response.token !== null) {
+          this.props.navigation.navigate('FamilyInfo');
+        }
+        else {
+          console.log('try again')
+        }
+        // console.log(response);
+      }).catch((error) => {
+        console.log(error)
       });
+
   }
   //end Backend
+  // handleChangeDate(date_of_birth) {
+  //   this.setState({
+  //     date_of_birth: date_of_birth
+  //   }, () => console.log(this.state.date_of_birth)); // This will show the updated state when state is set.
+  // }
 
   render() {
 
@@ -93,8 +106,10 @@ export default class Personalinfo extends Component {
               value={this.state.middle_name} />
             <Inputs title="Last Name" onChangeText={surname => this.setState({ surname: surname })}
               value={this.state.surname} />
-            <Datepicker title="Date of Birth" date_of_birth={this.state.date_of_birth}
-              onDateChange={(date_of_birth) => { this.setState({ date_of_birth: date_of_birth }) }} />
+            <DatePicker title="Date of Birth"
+              onDateChange={date_of_birth => this.setState({ date_of_birth: date_of_birth })}
+              value={this.state.date_of_birth}
+            />
             <Inputs title="Place of Birth" onChangeText={place_of_birth => this.setState({ place_of_birth: place_of_birth })}
               value={this.state.place_of_birth} />
 

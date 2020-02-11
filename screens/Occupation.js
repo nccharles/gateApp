@@ -53,7 +53,7 @@ class Occupation extends Component {
             <Picker.Item label="Student" value="Student" />
             <Picker.Item label="Employee" value="Employee" />
             <Picker.Item label="Self-Employed" value="Self-Employed" />
-            <Picker.Item label="Retired" value="Retired" />
+            {/* <Picker.Item label="Retired" value="Retired" /> */}
             <Picker.Item label="Other/Contractor" value="Other/Contractor" />
           </Picker>
 

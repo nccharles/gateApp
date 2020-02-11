@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView } from "react-native";
 import Icon from "@expo/vector-icons/Ionicons";
 import Header from "../components/Header/BackHeader";
 import Button from '../components/Buttons/mainButton';
+import { token } from "../constants/util";
 import Inputs from "../components/Input";
 
 class SocialMedia extends Component {
@@ -37,21 +38,21 @@ class SocialMedia extends Component {
       body: JSON.stringify(data),
 
     })
-      .then(Response => {
-        Response.json();
+      .then((response) => response.json())
+      .then(async (response) => {
 
-        if (Response.status == 200) {
-
-          this.props.navigation.navigate('Occupation');
+        // console.log(response)
+        await AsyncStorage.setItem(token, response.token);
+        if (response.token !== null) {
+          this.props.navigation.navigate('Document');
         }
         else {
           console.log('try again')
         }
-      })
-
-      .catch((error) => {
+        // console.log(response);
+      }).catch((error) => {
         console.log(error)
-      })
+      });
 
 
   }
