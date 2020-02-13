@@ -27,11 +27,6 @@ export default class LoginScreen extends Component {
     };
   }
 
-  //   if (response.status >= 200 && response.status < 300) {
-  //     alert("authenticated successfully!!!");
-  //     }
-
-  // }
   Login = () => {
 
     var data = {
@@ -52,7 +47,7 @@ export default class LoginScreen extends Component {
       .then((response) => response.json())
       .then(async (response) => {
 
-        // console.log(response)
+        console.log(response)
         await AsyncStorage.setItem(token, response.token);
         if (response.token !== null) {
           this.props.navigation.navigate('TabUserScreen');

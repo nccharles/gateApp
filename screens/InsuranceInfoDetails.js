@@ -13,6 +13,7 @@ import {
     Dimensions,
     KeyboardAvoidingView,
     Platform,
+    AsyncStorage,
 } from 'react-native';
 import Inputs from '../components/Input';
 import Header from '../components/Header/BackHeader';
@@ -22,7 +23,7 @@ import MainCheckBox from '../components/CheckBoxs/mainCheckBox';
 import TransInput from '../components/TextInputs/EditInput';
 import { token } from "../constants/util";
 const { width } = Dimensions.get("window");
-
+console.disableYellowBox = true;
 class InsuranceInfoDetails extends Component {
 
     constructor(props) {
@@ -35,7 +36,9 @@ class InsuranceInfoDetails extends Component {
 
         };
     }
-    Insurance = () => {
+    Insurance = async () => {
+        const getToken = await AsyncStorage.getItem(token);
+        console.log(getToken)
         var data = {
             insurance_name: this.state.insurance_name,
             telephone: this.state.telephone,
@@ -47,16 +50,17 @@ class InsuranceInfoDetails extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getToken}`
             },
             body: JSON.stringify(data),
 
         }).then((response) => response.json())
             .then(async (response) => {
 
-                // console.log(response)
-                await AsyncStorage.setItem(token, response.token);
-                if (response.token !== null) {
-                    this.props.navigation.navigate('BankDetails');
+                console.log(response)
+
+                if (getToken !== null) {
+                    this.props.navigation.navigate('BankInfo');
                 }
                 else {
                     console.log('try again')

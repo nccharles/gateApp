@@ -32,7 +32,7 @@ class DocumentsScreen extends Component {
         <ScrollView>
 
           <View style={styles.imageContainer}>
-            <Image style={styles.profile} source={require("../assets/images/icon.png")} />
+            <Image style={styles.profile} source={require("../assets/images/Logo_Divine_Tag-02.png")} />
 
           </View>
 

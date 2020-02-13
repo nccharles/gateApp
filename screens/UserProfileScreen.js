@@ -12,7 +12,8 @@ import {
     TouchableHighlight,
     Dimensions,
     KeyboardAvoidingView,
-    ActivityIndicator
+    ActivityIndicator,
+    AsyncStorage
 } from 'react-native';
 import Inputs from '../components/Input';
 import Header from '../components/Header/BackHeader';
@@ -83,7 +84,7 @@ class UserProfileScreen extends Component {
                 <View style={styles.container} >
 
 
-                    <Header onPress={() => this.props.navigation.navigate('UserHome')} headerName="profile" />
+                    <Header onPress={() => this.props.navigation.navigate('TabUserScreen')} headerName="profile" />
 
                     <ScrollView>
 
@@ -101,7 +102,7 @@ class UserProfileScreen extends Component {
 
                         <View key={dataSource.id} style={styles.Form} >
 
-                            <Label title="Date of Birth" text={asset.asset_name} />
+                            <Label title="Date of Birth" text={} />
                             <Label title="Place Of Birth " />
                             <Label title="Sex" />
                             <Label title="Nationality" />

@@ -64,8 +64,27 @@ class SignUpScreen extends Component {
     })
       .then((response) => response.json())
       .then(async (response) => {
+
         console.log(response)
         await AsyncStorage.setItem(token, response.token);
+        if (response.email !== null) {
+          var signup = this.state.userType;
+          if (signup == "user") {
+            console.log(signup);
+            this.props.navigation.navigate("PersonalInfo");
+          } else if (signup == "client") {
+            console.log(signup);
+            this.props.navigation.navigate("TabScreen");
+          } else if (signup == "Agent") {
+            console.log(signup);
+            this.props.navigation.navigate("TabAgentScreen");
+          } else {
+            alert("Please fill all the field");
+          }
+        }
+        // else {
+        //   console.log('try again')
+        // }
         // console.log(response);
       }).catch((error) => {
         console.log(error)
@@ -75,19 +94,7 @@ class SignUpScreen extends Component {
     //   alert("authenticated successfully!!!");
     // }
 
-    var signup = this.state.userType;
-    if (signup == "user") {
-      console.log(signup);
-      this.props.navigation.navigate("PersonalInfo");
-    } else if (signup == "client") {
-      console.log(signup);
-      this.props.navigation.navigate("TabScreen");
-    } else if (signup == "Agent") {
-      console.log(signup);
-      this.props.navigation.navigate("TabAgentScreen");
-    } else {
-      alert("Please fill all the field");
-    }
+
   };
 
   render() {

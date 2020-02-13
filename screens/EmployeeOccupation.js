@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView, Dimensions } from "react-native";
+import {
+  StyleSheet, Text, View, ScrollView, KeyboardAvoidingView, Dimensions,
+  AsyncStorage
+} from "react-native";
 
 import Header from "../components/Header/BackHeader";
 import Inputs from "../components/Input";
@@ -23,7 +26,9 @@ class EmployeeOccupation extends Component {
   }
   //Backend  API
 
-  Employee = () => {
+  Employee = async () => {
+    const getToken = await AsyncStorage.getItem(token);
+    console.log(getToken)
     var data = {
       company_name: this.state.company_name,
       position: this.state.position,
@@ -37,6 +42,7 @@ class EmployeeOccupation extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${getToken}`
       },
       body: JSON.stringify(data),
 
@@ -44,9 +50,9 @@ class EmployeeOccupation extends Component {
       .then((response) => response.json())
       .then(async (response) => {
 
-        // console.log(response)
-        await AsyncStorage.setItem(token, response.token);
-        if (response.token !== null) {
+        console.log(response)
+
+        if (getToken !== null) {
           this.props.navigation.navigate('InsuranceDetails');
         }
         else {

@@ -14,7 +14,7 @@ class Profile extends Component {
         <View style={styles.Profile}>
           <View>
 
-            <Image source={require("../assets/images/russelprofile.jpg")} style={styles.img} />
+            <Image source={require("../assets/images/Logo-03.png")} style={styles.img} />
 
           </View>
 

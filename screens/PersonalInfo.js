@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Picker, StyleSheet, Text, View, KeyboardAvoidingView, Dimensions, ScrollView, AsyncStorage, DatePickerAndroid } from "react-native";
+import { Picker, StyleSheet, Text, View, KeyboardAvoidingView, Dimensions, ScrollView, AsyncStorage } from "react-native";
 import Inputs from "../components/Input";
 import MainButton from "../components/Buttons/mainButton";
 import BackHeader from "../components/Header/BackHeader";
@@ -31,10 +31,13 @@ export default class Personalinfo extends Component {
       email_work: '',
       primary_number: '',
       secondary_number: '',
+      token: '',
 
     };
   }
-  Personal = () => {
+  Personal = async () => {
+    const getToken = await AsyncStorage.getItem(token);
+    console.log(getToken)
     var data = {
       first_name: this.state.first_name,
       middle_name: this.state.middle_name,
@@ -53,21 +56,23 @@ export default class Personalinfo extends Component {
       email_work: this.state.email_work,
       primary_number: this.state.primary_number,
       secondary_number: this.state.secondary_number,
+
     }
     fetch('https://infour.herokuapp.com/api/account', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${getToken}`
       },
       body: JSON.stringify(data),
 
     }).then((response) => response.json())
       .then(async (response) => {
 
-        // console.log(response)
-        await AsyncStorage.setItem(token, response.token);
-        if (response.token !== null) {
+        console.log(response)
+
+        if (getToken !== null) {
           this.props.navigation.navigate('FamilyInfo');
         }
         else {
@@ -77,14 +82,8 @@ export default class Personalinfo extends Component {
       }).catch((error) => {
         console.log(error)
       });
-
   }
   //end Backend
-  // handleChangeDate(date_of_birth) {
-  //   this.setState({
-  //     date_of_birth: date_of_birth
-  //   }, () => console.log(this.state.date_of_birth)); // This will show the updated state when state is set.
-  // }
 
   render() {
 
@@ -106,7 +105,7 @@ export default class Personalinfo extends Component {
               value={this.state.middle_name} />
             <Inputs title="Last Name" onChangeText={surname => this.setState({ surname: surname })}
               value={this.state.surname} />
-            <DatePicker title="Date of Birth"
+            <Datepicker title="Date of Birth"
               onDateChange={date_of_birth => this.setState({ date_of_birth: date_of_birth })}
               value={this.state.date_of_birth}
             />
@@ -115,7 +114,7 @@ export default class Personalinfo extends Component {
 
             <View style={styles.gendertext}>
 
-              <Text style={styles.gender}>Sex</Text>
+              <Text style={styles.gender}>Gender</Text>
 
             </View>
             <View style={styles.border}>

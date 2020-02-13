@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { Dimensions, StyleSheet, Text, View, ScrollView, KeyboardAvoidingView } from "react-native";
+import {
+  Dimensions, StyleSheet, Text, View, ScrollView, KeyboardAvoidingView
+  , AsyncStorage
+} from "react-native";
 
 import Header from "../components/Header/BackHeader";
 import Inputs from "../components/Input";
@@ -22,7 +25,9 @@ export default class StudentOccupation extends Component {
   }
   //Backend  API
 
-  Student = () => {
+  Student = async () => {
+    const getToken = await AsyncStorage.getItem(token);
+    console.log(getToken)
     var data = {
       school: this.state.school,
       country: this.state.country,
@@ -35,6 +40,7 @@ export default class StudentOccupation extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${getToken}`
       },
       body: JSON.stringify(data),
 
@@ -42,9 +48,9 @@ export default class StudentOccupation extends Component {
       .then((response) => response.json())
       .then(async (response) => {
 
-        // console.log(response)
-        await AsyncStorage.setItem(token, response.token);
-        if (response.token !== null) {
+        console.log(response)
+
+        if (getToken !== null) {
           this.props.navigation.navigate('InsuranceDetails');
         }
         else {

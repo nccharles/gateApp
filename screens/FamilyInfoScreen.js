@@ -11,7 +11,8 @@ import {
     Picker,
     TouchableHighlight,
     Dimensions,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    AsyncStorage
 } from 'react-native';
 import Inputs from '../components/Input';
 import Header from '../components/Header/BackHeader';
@@ -43,7 +44,9 @@ class FamilyInfoScreen extends Component {
     }
     //Backend  API
 
-    Family = () => {
+    Family = async () => {
+        const getToken = await AsyncStorage.getItem(token);
+        console.log(getToken)
         let newChild = this.state.children
         newChild.push(this.state.currChild)
         this.setState({ children: newChild });
@@ -64,6 +67,7 @@ class FamilyInfoScreen extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getToken}`
             },
             body: JSON.stringify(data),
 
@@ -71,9 +75,9 @@ class FamilyInfoScreen extends Component {
             .then((response) => response.json())
             .then(async (response) => {
 
-                // console.log(response)
-                await AsyncStorage.setItem(token, response.token);
-                if (response.token !== null) {
+                console.log(response)
+
+                if (getToken !== null) {
                     this.props.navigation.navigate('Occupation');
                 }
                 else {

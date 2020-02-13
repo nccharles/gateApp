@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView, Dimensions } from "react-native";
+import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView, Dimensions, AsyncStorage } from "react-native";
 
 import Header from "../components/Header/BackHeader";
 import Inputs from "../components/Input";
@@ -24,7 +24,9 @@ export default class SelfEmployedOccupation extends Component {
   }
   //Backend  API
 
-  SelfEmployee = () => {
+  SelfEmployee = async () => {
+    const getToken = await AsyncStorage.getItem(token);
+    console.log(getToken)
     var data = {
       business_type: this.state.business_type,
       business_name: this.state.business_name,
@@ -39,6 +41,7 @@ export default class SelfEmployedOccupation extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${getToken}`
       },
       body: JSON.stringify(data),
 
@@ -46,9 +49,9 @@ export default class SelfEmployedOccupation extends Component {
       .then((response) => response.json())
       .then(async (response) => {
 
-        // console.log(response)
-        await AsyncStorage.setItem(token, response.token);
-        if (response.token !== null) {
+        console.log(response)
+
+        if (getToken !== null) {
           this.props.navigation.navigate('InsuranceDetails');
         }
         else {

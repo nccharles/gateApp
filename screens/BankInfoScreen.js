@@ -33,7 +33,7 @@ class BankInfoScreen extends Component {
         if (variable == "Yes") {
             this.props.navigation.navigate("BankDetails");
         } else if (variable == "No") {
-            this.props.navigation.navigate("Asset");
+            this.props.navigation.navigate("Fixed");
         } else {
             alert("Please select Yes Or No");
         }
