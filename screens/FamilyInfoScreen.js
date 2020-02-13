@@ -160,7 +160,7 @@ class FamilyInfoScreen extends Component {
                             value={this.state.spouseId} />
                         <Inputs title="Telephone" keyboardtype="numeric" onChangeText={spouseTelephone => this.setState({ spouseTelephone: spouseTelephone })}
                             value={this.state.spouseTelephone} />
-                        <Inputs title="Number of Children(if any)" keyboardtype="numeric" onChangeText={children => this.handleInput('children[0]', children)}
+                        <Inputs title="Name of Children(if any)" keyboardtype="numeric" onChangeText={children => this.handleInput('children[0]', children)}
                             value={this.state.children[0]} />
 
                         <View style={styles.button}>

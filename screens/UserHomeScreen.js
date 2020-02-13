@@ -32,7 +32,7 @@ class UserHomeScreen extends Component {
                 <ScrollView>
 
                     <Text style={styles.text}>Services</Text>
-                    <Text style={styles.title} onPress={() => this.props.navigation.navigate('PersonalInfo')}> Get User Information</Text>
+                    <Text style={styles.title} onPress={() => this.props.navigation.navigate('PersonalInfo')}> Add User Information</Text>
 
                     <View style={styles.description}>
 

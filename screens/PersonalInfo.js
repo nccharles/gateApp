@@ -143,12 +143,14 @@ export default class Personalinfo extends Component {
 
               <Picker
                 style={styles.picker}
-                selectedValue={this.state.marital_status}
+                selectedValue={this.state.martial_status}
                 onValueChange={(itemValue, itemIndex) => this.setState({ marital_status: itemValue })}>
                 <Picker.Item label="Select" value="Select" />
                 <Picker.Item label="Single" value="Single" />
                 <Picker.Item label="Married" value="Married" />
                 <Picker.Item label="Divorced" value="Divorced" />
+                <Picker.Item label="Widowed" value="Widowed" />
+                <Picker.Item label="Separated" value="Separated" />
               </Picker>
 
             </View>

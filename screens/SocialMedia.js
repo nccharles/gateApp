@@ -76,8 +76,8 @@ class SocialMedia extends Component {
             value={this.state.instagram} />
           <Inputs title="LinkedIn" onChangeText={linkedin => this.setState({ linkedin: linkedin })}
             value={this.state.linkedin} />
-          <Inputs title="WhatsApp" keyboardtype="numeric" onChangeText={whatsup_Number => this.setState({ whatsup_Number: whatsup_Number })}
-            value={this.state.whatsup_Number} />
+          {/* <Inputs title="WhatsApp" keyboardtype="numeric" onChangeText={whatsup_Number => this.setState({ whatsup_Number: whatsup_Number })}
+            value={this.state.whatsup_Number} /> */}
         </View>
         <View style={styles.FormButton}>
           <Button text="Next" onPress={this.Social} />
