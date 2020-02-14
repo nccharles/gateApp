@@ -47,13 +47,13 @@ export default class LoginScreen extends Component {
       .then((response) => response.json())
       .then(async (response) => {
 
-        console.log(response)
+        // console.log(response)
         await AsyncStorage.setItem(token, response.token);
         if (response.token !== null) {
           this.props.navigation.navigate('TabUserScreen');
         }
         else {
-          Alert.alert('Username or Password are Incorrect')
+          alert('Username or Password are Incorrect')
         }
         // console.log(response);
       }).catch((error) => {

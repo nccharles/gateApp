@@ -22,7 +22,7 @@ export default class Personalinfo extends Component {
       sex: '',
       nationality: '',
       id_number: '',
-      marital_status: '',
+      martial_status: '',
       country: '',
       province: '',
       district: '',
@@ -47,7 +47,7 @@ export default class Personalinfo extends Component {
       sex: this.state.sex,
       nationality: this.state.nationality,
       id_number: this.state.id_number,
-      marital_status: this.state.marital_status,
+      martial_status: this.state.martial_status,
       country: this.state.country,
       province: this.state.province,
       district: this.state.district,
@@ -70,13 +70,13 @@ export default class Personalinfo extends Component {
     }).then((response) => response.json())
       .then(async (response) => {
 
-        console.log(response)
+        // console.log(response)
 
         if (getToken !== null) {
           this.props.navigation.navigate('FamilyInfo');
         }
         else {
-          console.log('try again')
+          alert('fill all field with valid inforamtion')
         }
         // console.log(response);
       }).catch((error) => {
@@ -144,7 +144,7 @@ export default class Personalinfo extends Component {
               <Picker
                 style={styles.picker}
                 selectedValue={this.state.martial_status}
-                onValueChange={(itemValue, itemIndex) => this.setState({ marital_status: itemValue })}>
+                onValueChange={(itemValue, itemIndex) => this.setState({ martial_status: itemValue })}>
                 <Picker.Item label="Select" value="Select" />
                 <Picker.Item label="Single" value="Single" />
                 <Picker.Item label="Married" value="Married" />

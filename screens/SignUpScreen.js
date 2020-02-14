@@ -65,7 +65,7 @@ class SignUpScreen extends Component {
       .then((response) => response.json())
       .then(async (response) => {
 
-        console.log(response)
+        // console.log(response)
         await AsyncStorage.setItem(token, response.token);
         if (response.email !== null) {
           var signup = this.state.userType;
@@ -118,7 +118,7 @@ class SignUpScreen extends Component {
               value={this.state.first_name} />
             <Inputs title="Lastname" onChangeText={last_name => this.setState({ last_name: last_name })}
               value={this.state.last_name} />
-            <Inputs type="email" title="Email(Optional)" onChangeText={email => this.setState({ email: email })}
+            <Inputs type="email" title="Email(add a valid email)" onChangeText={email => this.setState({ email: email })}
               value={this.state.email} />
             <Inputs type="password" title="password" secureTextEntry onChangeText={password => this.setState({ password: password })}
               value={this.state.password} />

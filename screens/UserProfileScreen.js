@@ -89,7 +89,7 @@ class UserProfileScreen extends Component {
                     family: responseJson,
 
                 })
-                console.log(responseJson)
+                // console.log(responseJson)
             })
             .catch((error) => {
                 console.log(error)
@@ -115,7 +115,7 @@ class UserProfileScreen extends Component {
                     dataSource: responseJson,
 
                 })
-                console.log(responseJson)
+                // console.log(responseJson)
             })
             .catch((error) => {
                 console.log(error)
@@ -141,7 +141,7 @@ class UserProfileScreen extends Component {
                     asset: responseJson,
 
                 })
-                console.log(responseJson)
+                // console.log(responseJson)
             })
             .catch((error) => {
                 console.log(error)
@@ -167,7 +167,7 @@ class UserProfileScreen extends Component {
                     bank: responseJson,
 
                 })
-                console.log(responseJson)
+                // console.log(responseJson)
             })
             .catch((error) => {
                 console.log(error)
@@ -193,7 +193,7 @@ class UserProfileScreen extends Component {
                     insurance: responseJson,
 
                 })
-                console.log(responseJson)
+                // console.log(responseJson)
             })
             .catch((error) => {
                 console.log(error)
@@ -219,7 +219,7 @@ class UserProfileScreen extends Component {
                     student: responseJson,
 
                 })
-                console.log(responseJson)
+                // console.log(responseJson)
             })
             .catch((error) => {
                 console.log(error)
@@ -245,7 +245,7 @@ class UserProfileScreen extends Component {
                     self_: responseJson,
 
                 })
-                console.log(responseJson)
+                // console.log(responseJson)
             })
             .catch((error) => {
                 console.log(error)
@@ -271,7 +271,7 @@ class UserProfileScreen extends Component {
                     employee: responseJson,
 
                 })
-                console.log(responseJson)
+                // console.log(responseJson)
             })
             .catch((error) => {
                 console.log(error)
@@ -287,34 +287,6 @@ class UserProfileScreen extends Component {
         this.Self_();
         this.Social();
         this.Student();
-        // fetch('https://infour.herokuapp.com/api/social_media',)
-        //     .then((Response) => Response.json())
-        //     .then((responseJson) => {
-        //         this.setState({
-
-        //             isLoading: true,
-        //             dataSource: responseJson[0],
-
-        //         })
-        //         console.log(responseJson)
-        //     })
-        //     .catch((error) => {
-        //         console.log(error)
-        //     })
-        // fetch('https://infour.herokuapp.com/api/assets')
-        //     .then((Response) => Response.json())
-        //     .then((responseJson) => {
-        //         this.setState({
-
-        //             isLoading: true,
-        //             asset: responseJson[0],
-
-        //         })
-        //         console.log(responseJson)
-        //     })
-        //     .catch((error) => {
-        //         console.log(error)
-        //     })
     }
     render() {
         var { isLoading, dataSource,
