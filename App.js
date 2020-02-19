@@ -44,6 +44,7 @@ import Profile from './screens/Profile';
 import CurrentAssetInfo from './screens/CurrentAssetInfo';
 import AssetInfoScreen from './screens/AssetInfoScreen';
 import Welcome from './screens/Welcome';
+import PhoneAuthTest from './screens/PhoneAuthTest'
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
@@ -59,7 +60,7 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         <GeneralStatusBarColor backgroundColor={Colors.primary} barStyle="light-content" />
-        <AppNavigator />
+        <FixedAssetInfo />
       </View>
     );
   }

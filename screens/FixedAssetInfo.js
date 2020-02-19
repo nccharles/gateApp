@@ -75,8 +75,15 @@ class FixedAssetInfo extends Component {
     addTextInput = (key) => {
         const newKey = key + 1
         let textInput = this.state.textInput;
-        textInput.push(<Inputs title="Asset name" key={key} onChangeText={asset_name => this.handleInput(`asset_name[${newKey}]`, asset_name)}
-            value={this.state.asset_name[newKey]} />);
+        textInput.push(<View>
+            <Inputs title="Asset name" key={key} onChangeText={asset_name => this.handleInput(`asset_name[${newKey}]`, asset_name)}
+                value={this.state.asset_name[newKey]} />
+            <TouchableOpacity style={styles.add}>
+
+                <Text style={styles.textRemove} onPress={() => this.removeTextInput()}>Remove</Text>
+
+            </TouchableOpacity>
+        </View>);
         let newChild = this.state.asset_name
         newChild.push(this.state.currChild)
         this.setState({ textInput, asset_name: newChild });
@@ -128,11 +135,11 @@ class FixedAssetInfo extends Component {
 
                             </TouchableOpacity>
 
-                            <TouchableOpacity style={styles.add}>
+                            {/* <TouchableOpacity style={styles.add}>
 
                                 <Text style={styles.textRemove} onPress={() => this.removeTextInput()}>Remove</Text>
 
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
 
                         </View>
                         <MainButton text="Next" onPress={this.Asset} />
