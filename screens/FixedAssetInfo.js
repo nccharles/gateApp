@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
 
     add: {
         padding: 16,
-        margin: 10,
+
     },
 
     textAdd: {
@@ -206,6 +206,8 @@ const styles = StyleSheet.create({
     },
 
     buttonView: {
-        flexDirection: 'row'
+        // flexDirection: 'row',
+        marginRight: 10,
+
     },
 });  
